@@ -6,12 +6,7 @@
     background: #FFFFFF;
     min-height: 85px;
     opacity: 0.9;
-    /*box-shadow: 1px 1px 1px 1px #2c2b2b;*/
-
-    /*box-shadow: 0 3px 6px rgba(0,0,0,0.206), 0 3px 6px rgba(0,0,0,0.203);*/
-
     box-shadow: 0px 1px 10px #C0C0C0;
-
 }
 .navbar .navbar-nav .nav-item .nav-link
 {
@@ -84,7 +79,6 @@
     color: #fff !important;
 }
 
-
 #home-section .banner_text .btn_2
 {
     margin-top: 50px;
@@ -109,9 +103,95 @@
     font-size: 15px;
     font-weight: 500;
 
+}
+/*home-section end*/
+
+/*features section start*/
+#features-section{
+    padding: 150px 0;
+}
+#features-section .our-features > h5
+{
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    line-height: 11px;
+    color: #c738d8 ;
+    font-family: "Poppins", sans-serif;
+}
+#features-section .our-features > h2{
+    font-size: 36px;
+    color: #415094;
+    font-weight: 700;
+    /*position: relative;*/
+    margin: 30px 0 19px;
+    padding: 0 36px;
+    line-height: 1.25;
+    font-family: "Poppins", sans-serif;
+}
+#features-section .our-features > p{
+    color: #828bb2;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
 
 
+/*single feature*/
+#features-section .single_feature{
+    box-sizing: border-box;
+    margin-top: 40px;
+}
+#features-section .single_feature .single_feature_icon
+{
+    background-image: url("/src/img/feature_icon_bg.png");
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    width: 90px;
+    height: 68px;
+    text-align: center;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    transition: 0.6s;
+    line-height: 82px;
+}
+
+#features-section .single_feature .single_feature_icon > i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #7c32ff;
+    font-size: 36px;
+}
+#features-section .single_feature > h4
+{
+    font-weight: 600;
+    font-size: 21px;
+    margin-bottom: 30px;
+    color: #415094;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.2em;
+}
+#features-section .single_feature > p
+{
+    line-height: 1.8;
+    font-size: 16px;
+    padding-right: 4px;
+    margin-bottom: 15px;
+    font-family: "Poppins", sans-serif;
+    color: #828bb2;
+    font-weight: 300;
 
 }
 
-/*home-section end*/
+
+/*features section end*/

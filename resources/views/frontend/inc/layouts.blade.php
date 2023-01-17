@@ -50,6 +50,7 @@
 
 @yield('home-section')
 
+@yield('features-section')
 
 
 
