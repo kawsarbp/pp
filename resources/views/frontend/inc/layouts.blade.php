@@ -68,6 +68,10 @@
 @yield('amazing-section')
 {{--amazing-section--}}
 
+{{--application-section--}}
+@yield('application-section')
+{{--application-section--}}
+
 
 
 

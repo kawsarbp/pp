@@ -463,3 +463,104 @@
     box-sizing: border-box;
 }
 /*amazing section end*/
+
+/*application section start*/
+#application-section
+{
+    background-image: -webkit-linear-gradient(0deg, #7c32ff 0%, #c738d8 100%);
+    padding: 100px 0;
+}
+#application-section .application-text > h5{
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    line-height: 11px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: .5rem;
+    text-align: center;
+    color: #fff;
+}
+#application-section .application-text > h2{
+    font-size: 36px;
+    color: #fff;
+    font-weight: 700;
+    margin: 30px 0 19px;
+    padding: 0 36px;
+    line-height: 1.25;
+    word-break: break-word;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+#application-section .application-text > p{
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    font-size: 16px;
+    margin-bottom: 80px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+}
+
+
+
+#application-section .application_feature{
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 200px 20px 87px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    box-sizing: border-box;
+    word-break: break-word;
+    height: auto;
+    margin: 20px 0;
+
+}
+#application-section .application_feature .single_application_part{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#application-section .application_feature .single_application_part .single_application_icon {
+    display: inline-block;
+}
+#application-section .application_feature .single_application_part .single_application_icon > i{
+    font-size: 60px;
+    margin-bottom: 37px;
+    display: inline-block;
+    color: #828bb2;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    line-height: 1;
+    box-sizing: border-box;
+}
+#application-section .application_feature .single_application_part > p > a{
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.5s;
+    color: #1F1F1F;
+    outline: medium none;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    display: inline-block;
+}
+#application-section .application_feature .single_application_part > p > a:hover{
+    color: #0056B3;
+}
+#application-section .application_feature:hover
+{
+    margin-top: -15px;
+}
+#application-section .application_feature:hover span > i {
+    text-shadow: 0px 10px 5px rgba(130, 50, 252, 0.3);
+    color: #7c32ff !important;
+    /*background-image: linear-gradient(to top, #b937e0 0%, #7c32ff 100%);*/
+}
+
+/*application section end*/
