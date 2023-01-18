@@ -44,11 +44,9 @@
         </div>
 
 
-
-
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -58,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -68,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -78,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -88,6 +86,26 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    {{--feature_part--}}
+    <div id="feature_part_video">
+        <div class="container">
+            <div class="row">
+                <div class=" col-sm-12 col-md-7">
+                    <div class="video_section">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/nt707MLtGAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class=" col-sm-12 col-md-5">
+                    <div class="video_section_text">
+                        <h2>Take A look our Amazcart Overview in Video</h2>
+                        <img src="https://infixmart.com/wp-content/plugins/infixhub-companion/inc/elementor-widgets/assets/img/Line.png" alt="line image">
+                        <p>What’s query you have in mind? How it works? Have look a Look in our videos you’ll crystal clear about it.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
