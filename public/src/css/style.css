@@ -315,6 +315,7 @@
     transition: 0.5s;
     position: relative;
     z-index: 1;
+
 }
 #modules-section .modules_feature:hover{
     margin-top: -15px;
@@ -370,6 +371,95 @@
     color: #828bb2;
     font-weight: 300;
 }
-
-
 /*modules section end*/
+
+/*amazing section start*/
+#amazing-section
+{
+    padding: 150px 0;
+}
+#amazing-section .amazing_section_tittle{
+    margin-bottom: 74px;
+    text-align: center;
+}
+#amazing-section .amazing_section_tittle > h5{
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    line-height: 11px;
+    color: #c738d8;
+}
+#amazing-section .amazing_section_tittle > h2{
+    font-size: 36px;
+    color: #415094;
+    font-weight: 700;
+    position: relative;
+    margin: 30px 0 19px;
+    padding: 0 36px;
+    line-height: 1.25;
+    word-break: break-word;
+    font-family: "Poppins", sans-serif;
+}
+#amazing-section .amazing_section_tittle > p{
+    margin-bottom: 15px;
+    color: #828bb2;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+#amazing-section .amazing_feature{
+    text-align: center;
+    background-color: #fff;
+    padding: 50px 10px 42px;
+    border-radius: 10px;
+    box-shadow: 0.696px 4.951px 20px 0px rgba(111, 54, 255, 0.2);
+    margin-bottom: 30px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    /*position: relative;*/
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#amazing-section .amazing_feature:hover  {
+    box-shadow: 0px 20px 20px 0px rgba(108, 39, 255, 0.3);
+    margin-top: -15px;
+    background-image: linear-gradient(to left, #7c32ff 0%, #c738d8 50%, #7c32ff 100%);
+}
+
+#amazing-section .amazing_feature:hover   > p {
+    color: #fff;
+}
+#amazing-section .amazing_feature:hover > .single_amazing_icon > i {
+    color: #fff;
+}
+
+
+
+#amazing-section .amazing_feature  .single_amazing_icon{
+    display: inline-block;
+}
+#amazing-section .amazing_feature  .single_amazing_icon > i{
+    color: #c738d8;
+    font-size: 30px;
+    transition: 0.6s;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-shadow: 0 10px 20px rgba(108, 39, 255, 0.3);
+}
+#amazing-section .amazing_feature  > p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-family: "Poppins", sans-serif;
+    color: #828bb2;
+    box-sizing: border-box;
+}
+/*amazing section end*/

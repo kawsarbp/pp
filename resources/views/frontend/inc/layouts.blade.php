@@ -64,6 +64,10 @@
 @yield('modules-section')
 {{--modules-section--}}
 
+{{--amazing-section--}}
+@yield('amazing-section')
+{{--amazing-section--}}
+
 
 
 

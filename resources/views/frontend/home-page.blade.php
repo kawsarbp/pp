@@ -203,3 +203,126 @@
         </div>
     </div>
 @endsection
+
+@section('amazing-section')
+    <div id="amazing-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-md-8">
+                    <div class="amazing_section_tittle text-center">
+                        <h5>AMazing Features</h5>
+                        <h2>More Features has Amazcart</h2>
+                        <p>We did the best research for the E-commerce application mostly commonly used in the fast world.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xl-2">
+                    <div class="amazing_feature">
+                        <span class="single_amazing_icon"><i class="fa-sharp fa-solid fa-cube"></i></span>
+                        <p>Optimized <br> Performance</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+@endsection
