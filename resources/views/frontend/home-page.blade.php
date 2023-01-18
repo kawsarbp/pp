@@ -43,7 +43,6 @@
             </div>
         </div>
 
-
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
@@ -106,6 +105,100 @@
                         <p>What’s query you have in mind? How it works? Have look a Look in our videos you’ll crystal clear about it.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('package-section')
+    <div id="package-section">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-md-8">
+                    <div class="section_tittle text-center">
+                        <h5>Complete Package</h5>
+                        <h2>Every Single Module You Want that are available</h2>
+                        <p>We did the best research for the E-commerce application mostly commonly used in the fast world.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="dashboard_img">
+                        <img src="https://infixmart.com/wp-content/uploads/2021/11/amarcart-dashboard.png" class="attachment- size-" alt="screenshot image" loading="lazy" srcset="https://infixmart.com/wp-content/uploads/2021/11/amarcart-dashboard.png 1179w, https://infixmart.com/wp-content/uploads/2021/11/amarcart-dashboard-300x177.png 300w, https://infixmart.com/wp-content/uploads/2021/11/amarcart-dashboard-768x452.png 768w, https://infixmart.com/wp-content/uploads/2021/11/amarcart-dashboard-1024x603.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" width="1179" height="694">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('modules-section')
+    <div id="modules-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="modules_feature">
+                        <span class="modules_feature_icon">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                        </span>
+                        <h4>Dashboard</h4>
+                        <p class="">26 plus widget make your all informations update always. 14 Card get most of the system summery within few moment</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="modules_feature">
+                        <span class="modules_feature_icon">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                        </span>
+                        <h4>Dashboard</h4>
+                        <p class="">26 plus widget make your all informations update always. 14 Card get most of the system summery within few moment</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="modules_feature">
+                        <span class="modules_feature_icon">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                        </span>
+                        <h4>Dashboard</h4>
+                        <p class="">26 plus widget make your all informations update always. 14 Card get most of the system summery within few moment</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="modules_feature">
+                        <span class="modules_feature_icon">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                        </span>
+                        <h4>Dashboard</h4>
+                        <p class="">26 plus widget make your all informations update always. 14 Card get most of the system summery within few moment</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="modules_feature">
+                        <span class="modules_feature_icon">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                        </span>
+                        <h4>Dashboard</h4>
+                        <p class="">26 plus widget make your all informations update always. 14 Card get most of the system summery within few moment</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="modules_feature">
+                        <span class="modules_feature_icon">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                        </span>
+                        <h4>Dashboard</h4>
+                        <p class="">26 plus widget make your all informations update always. 14 Card get most of the system summery within few moment</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

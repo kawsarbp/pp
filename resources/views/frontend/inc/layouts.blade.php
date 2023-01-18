@@ -48,9 +48,25 @@
 </nav>
 
 
+{{--home-section--}}
 @yield('home-section')
+{{--home-section--}}
 
+{{--features-section--}}
 @yield('features-section')
+{{--features-section--}}
+
+{{--package-section--}}
+@yield('package-section')
+{{--package-section--}}
+
+{{--modules-section--}}
+@yield('modules-section')
+{{--modules-section--}}
+
+
+
+
 
 
 
