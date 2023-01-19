@@ -2,7 +2,7 @@
 @section('title','Home Page')
 
 @section('home-section')
-    <div id="home-section">
+    <div id="home-section" class="rp_text_center">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9 col-xl-9">
@@ -12,7 +12,7 @@
                             like amazon, daraz, rich vendor or merchant feature, central product management system with
                             lots of cool features included.</p>
 
-                        <div class="d-sm-flex align-items-end flex-row">
+                        <div class="d-sm-flex align-items-end flex-row three_btn">
                             <div>
                                 <a id="" class="btn_1" href="javascript:void (0)" target="&quot;_blank&quot;"> Multi
                                     vendor</a>
@@ -51,7 +51,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 rs_single_features">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 rs_single_features">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 rs_single_features">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6 rs_single_features">
                     <div class="single_feature">
                         <span class="single_feature_icon">
                             <i class="fa-sharp fa-solid fa-cube"></i>
@@ -96,7 +96,7 @@
     </div>
 
     {{--feature_part--}}
-    <div id="feature_part_video">
+    <div id="feature_part_video" class="rp_text_center">
         <div class="container">
             <div class="row">
                 <div class=" col-sm-12 col-md-7">

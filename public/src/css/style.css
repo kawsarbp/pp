@@ -573,7 +573,7 @@
     text-align: center;
     display: block;
     box-sizing: border-box;
-    padding: 128px 0;
+    padding: 88px 0;
     min-height: auto;
 }
 #footer-section .footer_area_text > img{
@@ -764,3 +764,43 @@
     box-shadow: 0px 10px 20px 0px rgba(108, 39, 255, 0.3);
 }
 /*contact section end*/
+
+
+
+
+
+
+
+
+
+/*
+media
+*/
+@media screen and (max-width: 576px){
+    .rs_single_features{
+        text-align: center;
+    }
+
+    #home-section .three_btn{
+        margin-top: 56px;
+    }
+    #home-section .banner_text .btn_1,.btn_2{
+        margin-top: 10px !important;
+    }
+
+}
+
+
+@media screen and (max-width: 768px){
+    .rp_text_center{
+        text-align: center;
+    }
+
+    #home-section .banner_text > p {
+        min-width: 100%;
+    }
+
+    .rp_text_center .video_section_text{
+        margin-top: 50px;
+    }
+}
