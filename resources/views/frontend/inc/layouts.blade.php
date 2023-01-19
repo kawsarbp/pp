@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{route('homePage')}}">
             <img src="{{asset('src/img/infixmart-logo.png')}}" alt="">
@@ -22,16 +22,16 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="javascript:void (0)">Home</a>
+                    <a class="nav-link " aria-current="page" href="{{route('homePage')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="javascript:void (0)">Modules</a>
+                    <a class="nav-link " aria-current="page" href="#package-section">Modules</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="javascript:void (0)">Features</a>
+                    <a class="nav-link " aria-current="page" href="#amazing-section">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="javascript:void (0)">Support</a>
+                    <a class="nav-link " aria-current="page" href="#application-section">Support</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="javascript:void (0)">AmazCart</a>
@@ -40,7 +40,7 @@
                     <a class="nav-link " aria-current="page" href="javascript:void (0)">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="javascript:void (0)">Contact</a>
+                    <a class="nav-link " aria-current="page" href="{{ route('contactPage') }}">Contact</a>
                 </li>
             </ul>
         </div>

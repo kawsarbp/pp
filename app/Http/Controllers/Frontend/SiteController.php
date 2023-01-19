@@ -11,4 +11,9 @@ class SiteController extends Controller
     {
         return view('frontend.home-page');
     }
+
+    public function contact()
+    {
+        return view('frontend.contact-page');
+    }
 }

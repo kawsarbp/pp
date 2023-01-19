@@ -5,6 +5,8 @@
 {{--fontawesome--}}
 <link rel="stylesheet" href="{{asset('src/fontawesome/css/all.min.css')}}">
 <link rel="stylesheet" href="{{asset('src/fontawesome/css/fontawesome.min.css')}}">
+{{--fixed nav--}}
+<link rel="stylesheet" href="{{asset('src/css/fixednav/navbar-fixed.css')}}">
 {{--core css--}}
 <link rel="stylesheet" href="{{asset('src/css/style.css')}}">
 {{--jquery--}}

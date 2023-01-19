@@ -693,3 +693,74 @@
 }
 
 /*footer section end*/
+
+
+/*contact section start*/
+#contact-section{
+    padding-top: 150px;
+    margin: 0;
+}
+#contact-section .contact_title{
+    color: #415094;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2em;
+    padding: 0;
+    margin-bottom: 80px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+#contact-section .contact_area_text > h6{
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: #415094;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.2em;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+#contact-section .contact_area_text .contact-text-elements > h6,a{
+
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: #415094;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.2em;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    margin-top: 0;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#contact-section .contact_area_text .contact-text-elements > p{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: #828bb2;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+#contact-section .contact-box .btn_send_message{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    display: inline-block;
+    padding: 13.5px 45px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    /*-o-transition: all .4s ease-in-out;*/
+    /*-webkit-transition: all .4s ease-in-out;*/
+    /*transition: all .4s ease-in-out;*/
+    text-transform: capitalize;
+    background-size: 200% auto;
+    border: 1px solid transparent;
+    background-image: linear-gradient(to left, #7c32ff 0%, #c738d8 50%, #7c32ff 100%);
+    box-shadow: 0px 10px 20px 0px rgba(108, 39, 255, 0.3);
+}
+/*contact section end*/
