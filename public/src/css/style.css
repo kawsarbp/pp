@@ -564,3 +564,132 @@
 }
 
 /*application section end*/
+
+/*footer section start*/
+#footer-section{
+    background-image: url('/src/img/footer_bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    padding: 128px 0;
+    min-height: auto;
+}
+#footer-section .footer_area_text > img{
+    margin-bottom: 34px;
+    clear: both;
+    height: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+#footer-section .footer_area_text > h2{
+    word-break: break-word;
+    font-size: 36px;
+    color: #415094;
+    font-weight: 700;
+    line-height: 1.222;
+    font-family: "Poppins", sans-serif;
+    margin: 20px 0;
+}
+#footer-section .footer_area_text > p{
+    padding: 0 66px;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #828bb2;
+    font-weight: 300;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+#footer-section .footer_area_text .footer_btn{
+    text-align: left;
+    box-shadow: 0px 20px 25px 0px rgba(130, 50, 252, 0.3);
+    display: inline-block;
+    border-radius: 50px;
+    padding: 18px 67px 18px 91px;
+    position: relative;
+    margin-top: 44px;
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+    background-size: auto 200%;
+    background-image: linear-gradient(to top, #b937e0 0%, #7c32ff 50%, #b937e0 100%);
+    text-decoration: none;
+}
+
+
+
+#footer-section .footer_area_text .footer_btn:hover{
+    text-align: left;
+
+    display: inline-block;
+    border-radius: 50px;
+    padding: 18px 67px 18px 91px;
+    position: relative;
+    margin-top: 44px;
+
+    background-size: auto 200%;
+
+    box-shadow: 0px 20px 20px 0px rgba(108, 39, 255, 0.3);
+
+    background-image: linear-gradient(to left, #7c32ff 0%, #c738d8 50%, #7c32ff 100%);
+
+    text-decoration: none;
+}
+
+#footer-section .footer_area_text .footer_btn > i{
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+
+
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+}
+
+
+#footer-section .footer_area_text .footer_btn > h3{
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0;
+    line-height: 25px;
+    font-family: "Poppins", sans-serif;
+
+
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+
+}
+
+#footer-section .footer_area_text .footer_btn > p{
+    padding: 0;
+    font-size: 11px;
+    color: #d29dff;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.929;
+    margin-bottom: 0;
+    font-weight: 300;
+
+
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+}
+
+/*footer section end*/

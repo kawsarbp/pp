@@ -404,3 +404,24 @@
         </div>
     </div>
 @endsection
+
+@section('footer-section')
+    <div id="footer-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="footer_area_text">
+                        <img src="{{ asset('src/img/Logo.png') }}" alt="">
+                        <h2>So Finally you are Here! Now, All you know about our features.</h2>
+                        <p>We Believe! It won’t a wrong decision in Purchasing our INFIX for your Institute.</p>
+                        <a href="https://codecanyon.net/user/codethemes/portfolio" class="footer_btn">
+                            <i class="fa-sharp fa-solid fa-cube"></i>
+                            <h3>Purchase Amazcart</h3>
+                            <p>Complete E-Commerce Application</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

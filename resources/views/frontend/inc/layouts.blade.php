@@ -72,6 +72,10 @@
 @yield('application-section')
 {{--application-section--}}
 
+{{--footer-section--}}
+@yield('footer-section')
+{{--footer-section--}}
+
 
 
 
