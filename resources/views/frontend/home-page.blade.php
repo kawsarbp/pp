@@ -18,7 +18,7 @@
                                     vendor</a>
                             </div>
                             <div>
-                                <a class="btn_2" href="javascript:void (0)" target="&quot;_blank&quot;"> <i
+                                <a class="btn_2" href="{{ route('user.home') }}" target="&quot;_blank&quot;"> <i
                                         class="fa-sharp fa-solid fa-cube"></i> &nbsp; Shop Demo</a>
                             </div>
                             <div>

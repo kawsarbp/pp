@@ -12,3 +12,4 @@ use Illuminate\Support\Facades\Route;
 /*home page routes*/
 Route::get('/',[SiteController::class,'index'])->name('homePage');
 Route::get('/contact',[SiteController::class,'contact'])->name('contactPage');
+Route::get('/home',[SiteController::class,'home'])->name('user.home');
