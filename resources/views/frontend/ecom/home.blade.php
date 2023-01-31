@@ -43,8 +43,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-3">
+            <div class="owl-carousel">
+                <div class="{{--col-lg-3 col-md-6 mb-4 mb-xxl-0--}}">
                     <div class="product_box p-4">
                         <a href="javascript:void (0)" class="product_img">
                             <img src="{{asset('src/img/product/1.png')}}" class="img-fluid w-100 h-auto" alt="product image">
@@ -68,6 +68,7 @@
                                 </svg>
                             </a>
                         </div>
+                        <div class="discount_amount">5 % off</div>
                         <div class="product_brand_name">nike</div>
                         <a href="javascript:void (0)" class="product_name"> Exclusive Shoe for men </a>
                         <div class="product_rating">
@@ -101,5 +102,9 @@
 
         </div>
     </div>
+
+
+
 @endsection
 {{--product end--}}
+

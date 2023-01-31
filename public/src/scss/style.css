@@ -152,6 +152,7 @@ body {
     width: 20px;
     height: 20px; }
 #product .product_box {
+  overflow: hidden;
   position: relative;
   border: 1px solid #f1f1f1; }
   #product .product_box .product_brand_name {
@@ -225,6 +226,16 @@ body {
       color: red; }
     #product .product_box .favorite_box .favorite_icon:last-child {
       border-bottom: none; }
+  #product .product_box .discount_amount {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    background: #82ca9c;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 2px;
+    color: #fff;
+    padding: 2px 14px; }
 #product .product_box:hover .product_price {
   display: none; }
 #product .product_box:hover .add_to_cart_btn {

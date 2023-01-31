@@ -2,6 +2,8 @@
 <script src="{{asset('src/js/bootstrap/bootstrap.bundle.min.js')}}"></script>
 {{--<script src="{{asset('src/js/bootstrap/bootstrap.min.js')}}"></script>--}}
 {{--<script src="{{asset('src/js/bootstrap/popper.min.js')}}"></script>--}}
+{{--owl carousel--}}
+<script src="{{asset('src/js/carousel/owl.carousel.min.js')}}"></script>
 {{--fixed nav--}}
 <script src="{{asset('src/js/fixednav/navbar-fixed.js')}}"></script>
 {{--core js--}}

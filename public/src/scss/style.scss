@@ -241,7 +241,7 @@ body{
     }
     //product box area
     .product_box{
-
+        overflow: hidden;
         position: relative;
         border: 1px solid #f1f1f1;
         .product_brand_name{
@@ -335,6 +335,17 @@ body{
                 border-bottom: none;
             }
         }
+        .discount_amount{
+            position: absolute;
+            top: 5%;
+            left: 10%;
+            background: #82ca9c;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 2px;
+            color: #fff;
+            padding: 2px 14px;
+        }
 
 
 
@@ -346,6 +357,7 @@ body{
         .add_to_cart_btn{
             display: block;
         }
+
         .favorite_box{
             opacity: 1;
             left: 80%;
