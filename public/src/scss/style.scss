@@ -434,13 +434,80 @@ body{
             color: #fd4949;
         }
     }
-
-
-
 }
 
 //categories end
 
+//house appliances start
+#house_appliances{
+    .house_appliances_box{
+        padding-left: 20px;
+        border: 1px solid #f1f1f1;
+        width: 100%;
+        height: 1009px;
+        .house_appliances_img{
+            width: 60%;
+            display: inline-block;
+            img{
+                width: 100%;
+                height: 1009px;
+            }
+        }
+        .house_appliances_text_box{
+            width: 40%;
+            .house_appliances_text{
+                margin: 30px 0;
+                font-size: 24px;
+                line-height: 1.42;
+                font-weight: 700;
+                max-width: 130px;
+                color: #00124e;
+            }
+            .house_appliances_name{
+                text-decoration: none;
+                display: inline-block;
+                color: #00124e;
+                transition: .3s;
+            }
+            .house_appliances_name:hover{
+                color: #fd4949;
+            }
+        }
+    }
+    //brand img
+    .brand_img{
+        display: inline-block;
+        max-width: 1315px;
+        img{
+            width: 100%;
+            max-height: 180px;
+        }
+    }
+}
+//house appliances end
+
+//top rating start
+#top_rating{
+    .top_rating_justify{
+        margin-left: 12px;
+    }
+
+    .top_rating_btn{
+        font-size: 20px;
+        font-weight: 700;
+        color: #00124e;
+        border: none;
+        transition: .1s;
+        border-bottom: 2px solid #fff;
+        margin-bottom: -4px;
+        padding-bottom: -4px;
+    }
+    .top_rating_btn:hover{
+        color: #fd4949;
+        border-bottom: 2px solid #fd4949;
+    }
+}
+//top rating end
 
 
 

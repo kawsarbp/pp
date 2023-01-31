@@ -26,8 +26,13 @@
 @yield('categories')
 {{--categories--}}
 
+{{--house appliances--}}
+@yield('house_appliances')
+{{--house appliances--}}
 
-
+{{--top rating--}}
+@yield('top_rating')
+{{--top rating--}}
 
 
 
