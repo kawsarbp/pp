@@ -33,7 +33,13 @@
 {{--top rating--}}
 @yield('top_rating')
 {{--top rating--}}
+{{--recommend product--}}
+@yield('recommend')
+{{--recommend product--}}
 
+{{--top brand--}}
+@yield('brand')
+{{--top brand--}}
 
 
 @include('frontend.ecom.inc.script')
