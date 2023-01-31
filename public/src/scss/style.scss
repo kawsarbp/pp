@@ -250,7 +250,7 @@ body{
             font-size: 14px;
             font-weight: 500;
             color: #687083;
-            margin-bottom: 5px;
+            margin: 10px 0;
             display: block;
         }
         .product_name{
@@ -346,6 +346,12 @@ body{
             color: #fff;
             padding: 2px 14px;
         }
+        .product_img{
+            .img_style{
+                width: 100%;
+                height: 260px;
+            }
+        }
 
 
 
@@ -365,6 +371,75 @@ body{
     }
 }
 //product section end
+
+//categories start
+#categories{
+    .category_text{
+        font-size: 30px;
+        font-weight: 700;
+        color: #00124e;
+    }
+    .category_view_all{
+        color: #fd4949;
+        text-transform: uppercase;
+        white-space: nowrap;
+        font-weight: 600;
+        font-size: 15px;
+        svg{
+            height: 20px;
+            width: 20px;
+            margin-top: -3px;
+        }
+    }
+
+    .category_box{
+        background: #F8F7F4;
+        padding: 14px 22px;
+        .category_img{
+            width: 110px;
+            height: 110px;
+            img{
+                width: 110px;
+                height: 110px;
+            }
+        }
+        .category_text_box{
+            .category_name{
+                font-size: 20px;
+                font-weight: 700;
+                color: #00124e;
+                transition: .3s;
+            }
+
+            .category_count{
+                font-size: 14px;
+                font-weight: 500;
+                color: #687083;
+                margin: 4px 0 20px;
+            }
+            .shop_now_text{
+                a{
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #fd4949;
+                    text-transform: uppercase;
+                    display: block;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .category_box:hover{
+        .category_name{
+            color: #fd4949;
+        }
+    }
+
+
+
+}
+
+//categories end
 
 
 

@@ -22,6 +22,11 @@
 @yield('product')
 {{--add to cart products start--}}
 
+{{--categories--}}
+@yield('categories')
+{{--categories--}}
+
+
 
 
 
