@@ -1,9 +1,11 @@
 @extends('frontend.ecom.inc.layouts')
-@section('title','Shopping')
+@section('head')
+    <title>Home Page</title>
+@endsection
 
 
 {{--carousel start--}}
-@section('carousel')
+@section('content')
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
@@ -25,12 +27,8 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-@endsection
-{{--carousel end--}}
 
 
-{{--product start--}}
-@section('product')
     <div id="product" class="py-5">
         <div class="container-fluid">
             <div class="d-flex flex-row mb-4 justify-content-between">
@@ -472,11 +470,7 @@
 
         </div>
     </div>
-@endsection
-{{--product end--}}
 
-{{--categories start--}}
-@section('categories')
     <div id="categories">
         <div class="container-fluid">
             <div class="d-flex flex-row justify-content-between align-items-center mb-3">
@@ -586,11 +580,7 @@
             </div>
         </div>
     </div>
-@endsection
-{{--categories end--}}
 
-{{--house appliances start--}}
-@section('house_appliances')
     <div id="house_appliances" class="my-4">
         <div class="container-fluid">
             <div class="row">
@@ -896,16 +886,12 @@
             </div>
         </div>
     </div>
-@endsection
-{{--house appliances end--}}
 
-{{--top rating start--}}
-@section('top_rating')
     <div id="top_rating">
         <div class="container-fluid">
 
             <div class="top_rating_justify" style="">
-                <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+                <ul class="nav justify-content-center nav-tabs border-0" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active top_rating_btn" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Top Rating</button>
                     </li>
@@ -2242,11 +2228,7 @@
             </div>
         </div>
     </div>
-@endsection
-{{--top rating end--}}
 
-{{--recommend start--}}
-@section('recommend')
     <div id="product" class="py-5">
         <div class="container-fluid">
             <div class="d-flex flex-row mb-4 justify-content-between">
@@ -2898,11 +2880,7 @@
 
         </div>
     </div>
-@endsection
-{{--recommend end--}}
 
-{{--top brand start--}}
-@section('brand')
 <div id="brand">
     <div class="container-fluid">
         <div class="row">

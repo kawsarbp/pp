@@ -348,6 +348,8 @@ body{
             padding: 2px 14px;
         }
         .product_img{
+            display: block;
+            z-index: 1;
             .img_style{
                 width: 100%;
                 height: 260px;
@@ -366,8 +368,10 @@ body{
         }
 
         .favorite_box{
+            background: #fff;
             opacity: 1;
             left: 80%;
+            z-index: 9;
         }
     }
     .load_more_btn{

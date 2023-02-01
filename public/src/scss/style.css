@@ -237,16 +237,21 @@ body {
     border-radius: 2px;
     color: #fff;
     padding: 2px 14px; }
-  #product .product_box .product_img .img_style {
-    width: 100%;
-    height: 260px; }
+  #product .product_box .product_img {
+    display: block;
+    z-index: 1; }
+    #product .product_box .product_img .img_style {
+      width: 100%;
+      height: 260px; }
 #product .product_box:hover .product_price {
   display: none; }
 #product .product_box:hover .add_to_cart_btn {
   display: block; }
 #product .product_box:hover .favorite_box {
+  background: #fff;
   opacity: 1;
-  left: 80%; }
+  left: 80%;
+  z-index: 9; }
 #product .load_more_btn {
   text-align: center;
   margin-top: 20px; }

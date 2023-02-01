@@ -355,13 +355,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="#">Home</a>
+                        <a class="nav-link menu-hover" aria-current="page" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-hover" aria-current="page" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="#">Contacts</a>
+                        <a class="nav-link menu-hover" aria-current="page" href="{{route('user.contactUs')}}">Contacts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-hover" aria-current="page" href="#">About us</a>
