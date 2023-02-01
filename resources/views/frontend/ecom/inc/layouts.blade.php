@@ -41,6 +41,11 @@
 @yield('brand')
 {{--top brand--}}
 
+{{--footer section--}}
+@include('frontend.ecom.inc.footer')
+{{--footer section--}}
+
+
 
 @include('frontend.ecom.inc.script')
 </body>

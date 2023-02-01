@@ -548,8 +548,121 @@ body{
         }
     }
 }
+#online_shopping_text{
+    .online_shopping_title{
+        font-size: 30px;
+        font-weight: 700;
+        color: #00124e;
+    }
+    .online_shopping_description{
+        font-weight: 400;
+        color: #687083;
+        line-height: 28px;
+    }
+    .online_shopping_middle_title{
+        color: #00124e;
+        font-weight: 700;
+    }
+
+}
 //top brand end
 
+//footer start
+#footer{
+    background: #000;
+    .service_text_box{
+        ul{
+            li{
+                list-style: none;
+                a{
+                    display: inline-block;
+                    line-height: 1.88;
+                    text-decoration: none;
+                    color: #fff;
+                    transition: .3s;
+                }
+                a:hover{
+                    color: #fd4949;
+                }
+            }
+        }
+    }
+    .service_application{
+        background: #FD4949;
+        border-radius: 5px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.05);
+        //padding: 11px 30px;
+        //grid-gap: 15px;
+        min-width: 215px;
+        max-width: 215px;
+        transition: .3s;
+        .service_icon{
+
+        }
+        .service_title{
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 1;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .service_name{
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            margin: 0;
+        }
+    }
+    .service_application:hover{
+        cursor: pointer;
+        background: #00124E;
+    }
+    .subscribe_newsletter_text{
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .subscribe-field{
+        padding: 12px;
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+    .subscribe-field:focus{
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+    .subscribe-btn{
+        background: #FD4949;
+        padding: 12px;
+        text-align: center;
+        color: #fff;
+        width: 100%;
+        border-radius: 5px;
+        transition: .3s;
+    }
+    .subscribe-btn:hover{
+        background: #00124E;
+    }
+    .footer-hr{
+        color: #f1f1f1;
+    }
+    .copy_right{
+        margin-bottom: 0;
+        font-size: 14px;
+        text-align: center;
+        color: #687083;
+        font-weight: 500;
+    }
+
+}
+//footer end
 
 
 

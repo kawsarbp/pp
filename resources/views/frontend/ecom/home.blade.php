@@ -589,7 +589,6 @@
 @endsection
 {{--categories end--}}
 
-
 {{--house appliances start--}}
 @section('house_appliances')
     <div id="house_appliances" class="my-4">
@@ -2964,10 +2963,28 @@
                     <img src="{{asset('src/img/brand/10.png')}}" alt="">
                 </div>
             </div>
-            
-
         </div>
+    </div>
+</div>
+
+<div id="online_shopping_text">
+    <div class="container-fluid">
+        <div class="online_shopping_title mt-5 mb-3">
+            Amazcart | AN ONLINE SHOPPING PLATFORM
+        </div>
+
+        <div class="online_shopping_description">
+            The current global economy is incorporating more and more e-commerce. The way we shop and do business has changed over the last several decades. Amazcart, on the other hand, gives online buyers and sellers the confidence to buy and sell the products they like. Moreover, throughout the course of significant festivals like the New Year, Eid, Pahela Baishakh, and so on we have enormous promotions and offers with fantastic deals and discounts for our customers. Additionally, as options for smaller events, we also provide our clients with "Daily Deals" & "New User Zone" deals on our Amazcart. We ensure that every one of the different online retailers in AmazCart strictly abides by the global quality standards in order to uphold customer confidence and dependability.
+        </div>
+        <div class="online_shopping_middle_title mb-2 mt-3">
+            SHOP FOR VARIETY WITH amazcart
+        </div>
+        <div class="online_shopping_description mb-5">
+            On the off chance that you are searching for an easy-to-use  E-Commerce platform, you can find Amazcart significantly more valuable for your regular routine. Amazcart offers different categories of items, for example, Computer Accessories to House Appliances at the best costs. You can find top brands like Sony, Mi, Otobi, Asgardia, Casio, Kanba, Samsung, Nikon, One Plus, etc. For clients, they could purchase hardware contraptions, shirts, pants, wooden furniture, and so on. On Amazcart, anyone can sell their product and make their own shop. Merchant can set their SEO on both google and Facebook which is extremely valuable for the vendors.
+        </div>
+
     </div>
 </div>
 @endsection
 {{--top brand end--}}
+
