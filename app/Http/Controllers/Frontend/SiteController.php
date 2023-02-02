@@ -22,9 +22,14 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.home');
     }
-
+    /*view contact us page*/
     public function contactUs()
     {
         return view('frontend.ecom.contact-us');
+    }
+    /*view about us page*/
+    public function aboutUs()
+    {
+        return view('frontend.ecom.about-us');
     }
 }

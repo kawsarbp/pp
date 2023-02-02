@@ -364,7 +364,7 @@
                         <a class="nav-link menu-hover" aria-current="page" href="{{route('user.contactUs')}}">Contacts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="#">About us</a>
+                        <a class="nav-link menu-hover" aria-current="page" href="{{route('user.aboutUs')}}">About us</a>
                     </li>
 
                 </ul>

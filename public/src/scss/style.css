@@ -454,6 +454,121 @@ body {
     color: #687083;
     font-weight: 500; }
 
+#contact-us .contact-address-box .contact-address-name {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #00124e; }
+#contact-us .contact-address-box .contact-address-info {
+  font-size: 24px;
+  line-height: 1.42;
+  color: #00124e;
+  font-weight: 700; }
+#contact-us .contact-address-box .contact-address-icons .contact-address-icon {
+  border: 1px solid #f1f1f1;
+  padding: 8px 10px;
+  margin-right: 6px;
+  transition: 1s;
+  text-decoration: none;
+  display: inline-block; }
+  #contact-us .contact-address-box .contact-address-icons .contact-address-icon svg {
+    color: #00124e;
+    height: 20px;
+    width: 20px; }
+#contact-us .contact-address-box .contact-address-icons .contact-address-icon:hover svg {
+  color: #FF2732; }
+#contact-us .contact-box {
+  padding: 50px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05); }
+  #contact-us .contact-box .contact-box-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #00124e;
+    margin-left: 6px; }
+  #contact-us .contact-box .contact-us-field {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+  #contact-us .contact-box .contact-us-field:focus {
+    box-shadow: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+  #contact-us .contact-box .contact-us-btn {
+    background: #FF2732;
+    border: none;
+    color: #fff;
+    width: 100%;
+    padding: 12px 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: .5s; }
+  #contact-us .contact-box .contact-us-btn:hover {
+    background: #00124e; }
+
+#about-us .count-down-area {
+  background: #F3F7FA; }
+  #about-us .count-down-area .count-down-box {
+    background: #fff;
+    text-align: center;
+    padding: 35px 0;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.01); }
+    #about-us .count-down-area .count-down-box .count-down-number {
+      font-size: 50px;
+      color: #FF2732;
+      font-weight: 700;
+      margin-bottom: 8px; }
+    #about-us .count-down-area .count-down-box .count-down-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #687083;
+      margin-bottom: 0; }
+#about-us .easy-and-simple-text {
+  color: #FF2732;
+  font-weight: 500;
+  font-size: 14px; }
+#about-us .about-us-heading {
+  font-size: 40px;
+  font-weight: 700;
+  color: #00124e;
+  margin-bottom: 0;
+  line-height: 1.38; }
+#about-us .about-us-description {
+  font-size: 16px;
+  line-height: 26px;
+  color: #687083; }
+#about-us .count-down-product-box .count-down-products {
+  font-size: 40px;
+  font-weight: 700;
+  color: #FF2732;
+  margin-bottom: 8px;
+  line-height: 1; }
+#about-us .count-down-product-box .count-down-product-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #687083; }
+#about-us .team-member {
+  color: #FF2732;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase; }
+#about-us .meet-our-team-text {
+  font-size: 40px;
+  font-weight: 700;
+  color: #00124e;
+  margin-bottom: 0;
+  line-height: 1.38; }
+#about-us .member-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00124e;
+  line-height: 28px; }
+#about-us .member-surname {
+  font-size: 14px;
+  font-weight: 500;
+  color: #687083;
+  margin-bottom: 0; }
+
 /*responsive*/
 @media screen and (max-width: 450px) {
   .none450 {
