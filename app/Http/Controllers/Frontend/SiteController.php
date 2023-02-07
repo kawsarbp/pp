@@ -32,4 +32,9 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.about-us');
     }
+    /*view blog page*/
+    public function blog()
+    {
+        return view('frontend.ecom.blog');
+    }
 }

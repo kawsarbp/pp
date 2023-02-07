@@ -355,16 +355,16 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="{{route('user.home')}}">Home</a>
+                        <a class="nav-link menu-hover" aria-current="page" target="_blank" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="#">Blog</a>
+                        <a class="nav-link menu-hover" aria-current="page" target="_blank" href="{{route('user.blog')}}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="{{route('user.contactUs')}}">Contacts</a>
+                        <a class="nav-link menu-hover" aria-current="page" target="_blank" href="{{route('user.contactUs')}}">Contacts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" href="{{route('user.aboutUs')}}">About us</a>
+                        <a class="nav-link menu-hover" aria-current="page" target="_blank" href="{{route('user.aboutUs')}}">About us</a>
                     </li>
 
                 </ul>
