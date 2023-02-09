@@ -37,4 +37,9 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.blog');
     }
+    /*view addToCart page*/
+    public function addToCart()
+    {
+        return view('frontend.ecom.cart.cart');
+    }
 }

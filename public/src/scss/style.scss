@@ -1005,6 +1005,165 @@ body{
 }
 //blog end
 
+//add to cart page start
+#cart-products{
+    .shipping-charge-text{
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        color: #00124e;
+        span{
+            color: #FF2732;
+        }
+    }
+    .cart-items-bg{
+        background: #FCFDFD;
+        border: 1px solid #f1f1f1;
+    }
+    .cart-item-header-text{
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #00124e;
+
+    }
+    .cart-item-img{
+        display: inline-block;
+        text-decoration: none;
+        img{
+            width: 95px;
+            height: 80px;
+        }
+        .cart-product-name{
+            font-weight: 700;
+            transition: .3s;
+            color: #00124e;
+        }
+        .cart-product-name:hover{
+            color: #FF2732;
+        }
+    }
+    .cart-product-discount{
+        span{
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            background-color: #29c489;
+            border-radius: 3px;
+            padding: 2px 9px;
+        }
+    }
+    .cart-product-amount{
+        font-weight: 700;
+        white-space: nowrap;
+        color: #00124e;
+    }
+    .cart-product-amount-original{
+
+        font-weight: 700;
+        white-space: nowrap;
+        color: #00124e;
+        text-align: center;
+    }
+    .cart-product-remove-icon{
+        text-align: end;
+        svg{
+            color: #00124e;
+        }
+    }
+    .cart-items-qty{
+        .card-items-ind-btn{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #f1f1f1;
+        }
+        .cart-qty-field:focus{
+            outline: none;
+            box-shadow: none;
+        }
+        .cart-qty-field{
+            width: 30%;
+            border: 1px solid #f1f1f1;
+            text-align: center;
+        }
+    }
+    .continue-shopping-btn{
+        a {
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: #fff;
+            border: 1px solid #FF2732;
+            padding: 13.5px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF2732;
+            transition: .3s;
+        }
+        a:hover{
+            background: #FF2732;
+            color: #fff;
+        }
+    }
+    .proceed-to-checkout-btn{
+        a {
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: #FF2732;
+            padding: 13.5px 24px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 700;
+            transition: .3s;
+        }
+        a:hover{
+            background: #00124E;
+            color: #fff;
+        }
+    }
+    //order summary
+
+    .order-summary-area{
+        background: #FCFDFD;
+        border-top: 1px solid #f1f1f1;
+        //padding: 50px 0;
+        .order-summary-box{
+            .order-summary-text{
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 18px;
+                color: #00124e;
+            }
+        }
+        .order-summary-left-text{
+            font-weight: 500;
+            color: #00124e;
+        }
+        .order-summary-right-text{
+            font-size: 14px;
+            font-weight: 400;
+            color: #687083;
+        }
+        .order-summary-total-text{
+            font-size: 14px;
+            font-weight: 700;
+            color: #687083;
+        }
+        .order-summary-total-amount{
+            font-size: 20px;
+            color: #00124e;
+            font-weight: 700;
+        }
+
+
+    }
+
+
+}
+//add to cart page end
 
 
 
@@ -1030,11 +1189,17 @@ body{
         display: none;
     }
 
+
 }
 @media screen and (max-width: 992px){
+
     .none992{
         display: none;
     }
+    .text-left992{
+        text-align: left;
+    }
+
     #navigation{
         .navbar{
             .collapse{
