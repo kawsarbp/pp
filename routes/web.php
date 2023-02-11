@@ -18,3 +18,4 @@ Route::get('/about-us',[SiteController::class,'aboutUs'])->name('user.aboutUs');
 Route::get('/blog',[SiteController::class,'blog'])->name('user.blog');
 Route::get('/cart',[SiteController::class,'addToCart'])->name('user.addToCart');
 Route::get('/my-wishlist',[SiteController::class,'myWishlist'])->name('user.myWishlist');
+Route::get('/profile/dashboard',[SiteController::class,'userDashboard'])->name('user.dashboard');

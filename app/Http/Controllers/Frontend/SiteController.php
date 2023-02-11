@@ -47,5 +47,10 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.wishlist.wishlist');
     }
+    /*view userDashboard  page*/
+    public function userDashboard()
+    {
+        return view('frontend.ecom.user.dashboard');
+    }
 
 }
