@@ -269,6 +269,136 @@ body {
   #product .load_more_btn button:hover {
     background: #FD4949;
     color: #fff; }
+#product .my-wishlist {
+  background: #F5F8FA; }
+  #product .my-wishlist .customer-details-area {
+    background: #fff;
+    padding: 12px 15px;
+    border-radius: 10px; }
+    #product .my-wishlist .customer-details-area .customer-details-box {
+      background: #FF2732;
+      border-radius: 5px;
+      padding: 10px 12px;
+      position: relative; }
+      #product .my-wishlist .customer-details-area .customer-details-box .order-details-edit-btn {
+        position: absolute;
+        top: -10px;
+        right: 8px; }
+        #product .my-wishlist .customer-details-area .customer-details-box .order-details-edit-btn a {
+          display: inline-block;
+          padding: 5px 12px;
+          background-color: #00124e;
+          text-decoration: none;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 13px;
+          font-weight: 600;
+          border-radius: 5px;
+          border: 1px solid #00124e;
+          transition: .3s; }
+        #product .my-wishlist .customer-details-area .customer-details-box .order-details-edit-btn a:hover {
+          border: 1px solid #00124e;
+          background: #fff;
+          color: #FF2732; }
+      #product .my-wishlist .customer-details-area .customer-details-box .customer-order-img {
+        width: 22%;
+        height: 22%; }
+        #product .my-wishlist .customer-details-area .customer-details-box .customer-order-img img {
+          width: 100%;
+          height: 100%; }
+      #product .my-wishlist .customer-details-area .customer-details-box .customer-order-details .customer-details-name {
+        font-size: 16px;
+        line-height: 1;
+        font-weight: 500;
+        margin-bottom: 7px;
+        color: #fff; }
+      #product .my-wishlist .customer-details-area .customer-details-box .customer-order-details .customer-details-email {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        color: #fff; }
+    #product .my-wishlist .customer-details-area .order-total-balance {
+      background: #FFE9EA;
+      margin: 15px 0 25px 0;
+      padding: 16px; }
+      #product .my-wishlist .customer-details-area .order-total-balance .total-balance-text {
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        color: #00124e; }
+      #product .my-wishlist .customer-details-area .order-total-balance .total-balance-amount {
+        font-size: 32px;
+        line-height: 1;
+        color: #FF2732;
+        font-weight: 600;
+        margin-bottom: 8px; }
+      #product .my-wishlist .customer-details-area .order-total-balance button {
+        border: 1px solid #FF2732;
+        padding: 10px;
+        background: #FF2732;
+        color: #fff;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        border-radius: 3px;
+        transition: .3s; }
+      #product .my-wishlist .customer-details-area .order-total-balance button:hover {
+        background: #FFF;
+        color: #FF2732; }
+    #product .my-wishlist .customer-details-area .last-transaction-area .last-transaction-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #00124e; }
+    #product .my-wishlist .customer-details-area .last-transaction-area .last-transaction-view-all a {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1;
+      transition: .3s;
+      color: #FF2732;
+      font-weight: 500; }
+    #product .my-wishlist .customer-details-area .last-transaction-area .last-transaction-view-all a:hover {
+      color: #00124e; }
+    #product .my-wishlist .customer-details-area .last-transaction-area .transaction-date {
+      font-weight: 400;
+      line-height: 26px;
+      color: #687083;
+      margin-bottom: 0;
+      font-size: 12px; }
+    #product .my-wishlist .customer-details-area .last-transaction-area .transaction-recharge-text {
+      font-weight: 400;
+      line-height: 26px;
+      font-size: 12px;
+      color: #FF2732;
+      margin-bottom: 0; }
+    #product .my-wishlist .customer-details-area .last-transaction-area .transaction-recharge-amount {
+      font-weight: 400;
+      line-height: 26px;
+      margin-bottom: 0;
+      font-size: 12px;
+      color: #FF2732; }
+  #product .my-wishlist .dashboard-history-area {
+    padding: 12px 15px;
+    background: #fff;
+    border-radius: 5px; }
+    #product .my-wishlist .dashboard-history-area .dashboard-control-box {
+      text-decoration: none;
+      display: block; }
+      #product .my-wishlist .dashboard-history-area .dashboard-control-box .dashboard-control-icon svg {
+        width: 20px;
+        height: 20px;
+        color: #00124e;
+        transition: .3s; }
+      #product .my-wishlist .dashboard-history-area .dashboard-control-box .dashboard-control-text {
+        font-size: 14px;
+        font-weight: 500;
+        color: #00124e;
+        padding: 10px 0;
+        transition: .3s; }
+    #product .my-wishlist .dashboard-history-area .dashboard-control-box:hover .dashboard-control-icon svg {
+      color: #FD4949; }
+    #product .my-wishlist .dashboard-history-area .dashboard-control-box:hover .dashboard-control-text {
+      color: #FD4949; }
 
 #categories .category_text {
   font-size: 30px;

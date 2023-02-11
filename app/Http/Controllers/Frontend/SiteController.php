@@ -42,4 +42,10 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.cart.cart');
     }
+    /*view addToCart page*/
+    public function myWishlist()
+    {
+        return view('frontend.ecom.wishlist.wishlist');
+    }
+
 }

@@ -47,7 +47,7 @@
                           <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                         </svg>
                     </span>
-                    <a href="javascript:void (0)" class="top-icon-text">Wishlist (0)</a>
+                    <a href="{{route('user.myWishlist')}}" class="top-icon-text">Wishlist (0)</a>
                 </div>
                 <div class="top-icon-text-box ms-5">
                     <span class="top-icon">
