@@ -52,5 +52,10 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.user.dashboard');
     }
+    /*view userDashboard  page*/
+    public function myHistories()
+    {
+        return view('frontend.ecom.user.histories');
+    }
 
 }

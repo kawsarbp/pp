@@ -702,12 +702,138 @@ body{
                     font-size: 14px;
                     color: #00124e;
                     margin-bottom: 8px;
+                    transition: .3s;
+                }
+                .my-wishlist-box-product-name:hover{
+                    color: #FF2732;
                 }
                 .my-wishlist-box-product-price{
                     font-weight: 500;
                     font-size: 14px;
                     color: #FF2732;
                 }
+                .my-wishlist-box-discount-amount{
+                    font-size: 14px;
+                    line-height: 26px;
+                    color: #687083;
+                    text-decoration: line-through;
+                    font-weight: 500;
+                }
+                .my-wishlist-box-original-amount{
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #FF2732;
+                }
+            }
+
+        }
+        .purchase-history-area{
+            .purchase-history-text{
+                font-size: 20px;
+                font-weight: 700;
+                color: #00124e;
+            }
+            .purchase-history-table{
+                background: #fff;
+                padding: 10px 25px;
+                table{
+                    tr{
+                        th{
+                            color: #00124e;
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .purchase-history-order-date{
+                    font-weight: 500;
+                    color: #687083;
+                    line-height: 1;
+                    font-size: 14px;
+                }
+                .purchase-history-order-number{
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 25px;
+                }
+                .purchase-history-order-amount{
+                    color: #00124e;
+                    font-weight: 500;
+                }
+                .purchase-history-order-processing-text{
+                    padding: 3.5px 16px;
+                    font-size: 12px;
+                    display: inline-block;
+                    font-weight: 700;
+                    color: #fec600;
+                    background-color: #fff8dd;
+                    border-radius: 3px;
+                    transition: .3s;
+                }
+                .purchase-history-order-processing-text:hover{
+                    color: #fff;
+                    background: #FEC600;
+                }
+                .purchase-history-order-delivered-text{
+                    color: #50cd89;
+                    background-color: #e7fff3;
+                    padding: 3.5px 16px;
+                    display: inline-block;
+                    font-size: 12px;
+                    font-weight: 700;
+                    border-radius: 3px;
+                    transition: .3s;
+                }
+                .purchase-history-order-delivered-text:hover{
+                    color: #00124e;
+                }
+
+                    .purchase-history-order-cancelled-text{
+                    padding: 3.5px 16px;
+                    display: inline-block;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #fff;
+                    background-color: #FF2732;
+                    border-radius: 3px;
+                }
+                .purchase-history-order-pending-text{
+                    color: #f1416c;
+                    background-color: #fff5f8;
+                    padding: 3.5px 16px;
+                    display: inline-block;
+                    font-size: 12px;
+                    font-weight: 700;
+                    border-radius: 3px;
+                    transition: .3s;
+                }
+                .purchase-history-order-pending-text:hover{
+                    background: #F1416C;
+                    color: #fff;
+                }
+                .purchase-history-download-btn{
+                    //background: #F9F9FD;
+                    border-radius: 5px;
+                    border: 1px solid #f1ece8;
+                    background-color: #f9f9fd;
+                    width: 30px;
+                    height: 30px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: .3s;
+                    svg{
+                        color: #F1416C;
+                    }
+                }
+                .purchase-history-download-btn:hover{
+                    background: #F1416C;
+                    border: 1px solid #F1416C;
+                    svg{
+                        color: #fff;
+                    }
+                }
+
+
             }
 
         }
