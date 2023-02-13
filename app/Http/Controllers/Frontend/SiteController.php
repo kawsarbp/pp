@@ -57,5 +57,10 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.user.histories');
     }
+    /*view checkout  page*/
+    public function checkout()
+    {
+        return view('frontend.ecom.cart.checkout');
+    }
 
 }

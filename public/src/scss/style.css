@@ -1123,6 +1123,103 @@ body {
 #cart-products .proceed-to-checkout-btn a:hover {
   background: #00124E;
   color: #fff; }
+#cart-products .contact-info-area {
+  border: 1px solid #f1f1f1;
+  padding: 70px 60px 60px 60px; }
+  #cart-products .contact-info-area .contact-information-text {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #00124e; }
+  #cart-products .contact-info-area .checkout-img {
+    width: 80px;
+    height: 80px; }
+    #cart-products .contact-info-area .checkout-img img {
+      width: 100%;
+      height: 100%; }
+  #cart-products .contact-info-area .checkout-customer-name {
+    display: inline-block;
+    color: #00124e;
+    font-size: 16px;
+    font-weight: 600; }
+  #cart-products .contact-info-area .checkout-email {
+    font-size: 14px;
+    font-weight: 500; }
+  #cart-products .contact-info-area .email-check-field:focus {
+    outline: none;
+    box-shadow: none; }
+  #cart-products .contact-info-area .email-check-text {
+    color: #687083;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer; }
+  #cart-products .contact-info-area .shipping-address-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00124e; }
+  #cart-products .contact-info-area .shipping-address-btn button {
+    padding: 5px 10px 4px 11px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF2732;
+    background: #ffe9ea;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: none;
+    transition: .3s; }
+  #cart-products .contact-info-area .shipping-address-btn button:hover {
+    color: #fff;
+    background: #FF2732; }
+  #cart-products .contact-info-area .contact-information-box table tr {
+    padding: 3px 0; }
+    #cart-products .contact-info-area .contact-information-box table tr td {
+      text-transform: capitalize;
+      font-weight: 500;
+      color: #00124e;
+      font-size: 14px;
+      padding: 3px 0; }
+  #cart-products .contact-info-area .contact-information-box .note-text {
+    color: #00124e;
+    font-weight: 400; }
+  #cart-products .contact-info-area .contact-information-box .contact-note-field {
+    border: 1px solid #f1f1f1; }
+  #cart-products .contact-info-area .contact-information-box .contact-note-field:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #f1f1f1; }
+  #cart-products .contact-info-area .continue-shopping button {
+    padding: 14.5px 24px 12.5px 24px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #FF2732;
+    transition: .3s;
+    border: none;
+    font-weight: 500; }
+  #cart-products .contact-info-area .continue-shopping button:hover {
+    background: #00124E; }
+  #cart-products .contact-info-area .return-to-cart-btn a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #FF2732; }
+  #cart-products .contact-info-area .contact-info-edit-box .label-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #00124e;
+    margin-bottom: 5px; }
+  #cart-products .contact-info-area .contact-info-edit-box .contact-info-field {
+    border: 1px solid #f1f1f1;
+    padding: 10px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500; }
+  #cart-products .contact-info-area .contact-info-edit-box .contact-info-field:focus {
+    outline: none;
+    box-shadow: none; }
 #cart-products .order-summary-area {
   background: #FCFDFD;
   border-top: 1px solid #f1f1f1; }
@@ -1146,6 +1243,30 @@ body {
     font-size: 20px;
     color: #00124e;
     font-weight: 700; }
+  #cart-products .order-summary-area .order-summary-img {
+    width: 100px;
+    height: 100px; }
+    #cart-products .order-summary-area .order-summary-img img {
+      width: 100%;
+      height: 100%; }
+  #cart-products .order-summary-area .order-summary-product-name {
+    margin-bottom: 6px; }
+    #cart-products .order-summary-area .order-summary-product-name a {
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 500;
+      color: #00124e;
+      transition: .3s; }
+    #cart-products .order-summary-area .order-summary-product-name a:hover {
+      color: #FF2732; }
+  #cart-products .order-summary-area .order-summary-product-price {
+    font-weight: 500;
+    display: inline-block;
+    color: #ff2732; }
+  #cart-products .order-summary-area .order-summary-product-qty {
+    font-weight: 500;
+    color: #00124e;
+    display: inline-block; }
 
 /*responsive*/
 @media screen and (max-width: 450px) {

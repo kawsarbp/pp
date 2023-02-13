@@ -1569,8 +1569,144 @@ body{
             color: #fff;
         }
     }
-    //order summary
+    .contact-info-area{
+        border: 1px solid #f1f1f1;
+        padding: 70px 60px 60px 60px;
 
+        .contact-information-text{
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #00124e;
+        }
+        .checkout-img{
+            width: 80px;
+            height: 80px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .checkout-customer-name{
+            display: inline-block;
+            color: #00124e;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .checkout-email{
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .email-check-field:focus{
+            outline: none;
+            box-shadow: none;
+        }
+        .email-check-text{
+            color: #687083;
+            font-weight: 400;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .shipping-address-text{
+            font-size: 24px;
+            font-weight: 700;
+            color: #00124e;
+        }
+        .shipping-address-btn{
+            button{
+                padding: 5px 10px 4px 11px;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 500;
+                color: #FF2732;
+                background: #ffe9ea;
+                text-transform: uppercase;
+                border-radius: 3px;
+                border: none;
+                transition: .3s;
+            }
+            button:hover{
+                color: #fff;
+                background: #FF2732;
+            }
+        }
+
+        .contact-information-box{
+            table{
+                tr{
+                    padding: 3px 0;
+
+                    td{
+                        text-transform: capitalize;
+                        font-weight: 500;
+                        color: #00124e;
+                        font-size: 14px;
+
+                        padding: 3px 0;
+                    }
+                }
+            }
+            .note-text{
+                color: #00124e;
+                font-weight: 400;
+            }
+            .contact-note-field{
+                border: 1px solid #f1f1f1;
+            }
+            .contact-note-field:focus{
+                outline: none;
+                box-shadow: none;
+                border: 1px solid #f1f1f1;
+            }
+        }
+        .continue-shopping{
+            button{
+                padding: 14.5px 24px 12.5px 24px;
+                font-size: 14px;
+                text-transform: uppercase;
+                color: #fff;
+                background: #FF2732;
+                transition: .3s;
+                border: none;
+                font-weight: 500;
+            }
+            button:hover{
+                background: #00124E;
+            }
+        }
+        .return-to-cart-btn{
+            a{
+                display: inline-block;
+                text-decoration: none;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #FF2732;
+            }
+        }
+        .contact-info-edit-box{
+            .label-name{
+                font-size: 14px;
+                font-weight: 500;
+                color: #00124e;
+                margin-bottom: 5px;
+            }
+            .contact-info-field{
+                border: 1px solid #f1f1f1;
+                padding: 10px;
+                border-radius: 0;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .contact-info-field:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+
+    }
+    //order summary
     .order-summary-area{
         background: #FCFDFD;
         border-top: 1px solid #f1f1f1;
@@ -1601,6 +1737,37 @@ body{
             font-size: 20px;
             color: #00124e;
             font-weight: 700;
+        }
+        .order-summary-img{
+            width: 100px;
+            height: 100px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .order-summary-product-name{
+            margin-bottom: 6px;
+            a{
+                text-decoration: none;
+                display: inline-block;
+                font-weight: 500;
+                color: #00124e;
+                transition: .3s;
+            }
+            a:hover{
+                color: #FF2732;
+            }
+        }
+        .order-summary-product-price{
+            font-weight: 500;
+            display: inline-block;
+            color: rgb(255, 39, 50);
+        }
+        .order-summary-product-qty{
+            font-weight: 500;
+            color: #00124e;
+            display: inline-block;
         }
 
 

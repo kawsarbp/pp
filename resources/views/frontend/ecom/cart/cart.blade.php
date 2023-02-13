@@ -177,8 +177,8 @@
             </div>
 
             <div class="d-flex flex-row justify-content-between mt-4">
-                <div class="continue-shopping-btn"><a href="">Continue Shopping</a></div>
-                <div class="proceed-to-checkout-btn"><a href="">Proceed to checkout</a></div>
+                <div class="continue-shopping-btn"><a href="{{route('user.home')}}">Continue Shopping</a></div>
+                <div class="proceed-to-checkout-btn"><a href="{{route('user.checkout')}}">Proceed to checkout</a></div>
             </div>
         </div>
 

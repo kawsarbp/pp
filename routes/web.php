@@ -20,3 +20,5 @@ Route::get('/cart',[SiteController::class,'addToCart'])->name('user.addToCart');
 Route::get('/my-wishlist',[SiteController::class,'myWishlist'])->name('user.myWishlist');
 Route::get('/profile/dashboard',[SiteController::class,'userDashboard'])->name('user.dashboard');
 Route::get('/my-purchase-histories',[SiteController::class,'myHistories'])->name('user.myHistories');
+Route::get('/checkout',[SiteController::class,'checkout'])->name('user.checkout');
+Route::get('/checkout',[SiteController::class,'checkout'])->name('user.checkout');
