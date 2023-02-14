@@ -2298,11 +2298,121 @@ body {
         .purchase-page-continue-shopping:hover{
             background: #00124E;
         }
-
     }
 }
+//order details page
+#order-details{
+    background: #F5F8FA;
+    .order-details-box{
+        background: #FFF;
+        .order-id-text{
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #00124E;
+        }
+        .order-number{
+            font-weight: 500;
+            font-size: 14px;
+            color: #687083;
+        }
+        .download-invoice-btn{
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #00124E;
+            border-radius: 3px;
+            background: #f5f8fa;
+            border: 1px solid transparent;
+            padding: 12px;
+            font-weight: 500;
+            transition: .3s;
+        }
+        .download-invoice-btn:hover{
+            background: #00124E;
+            color: #fff;
+        }
+        .order-details-img{
+            width: 130px;
+            height: 130px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .order-details-product-name{
+            a{
+                display: inline-block;
+                text-decoration: none;
+                font-weight: 700;
+                color: #00124E;
+                transition: .3s;
+            }
+            a:hover{
+                color: #FF2732;
+            }
+        }
+        .order-details-qty{
+            font-weight: 500;
+            color: #00124E;
+        }
+        .order-cancel-btn{
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #00124E;
+            border-radius: 3px;
+            background: #f5f8fa;
+            border: 1px solid transparent;
+            padding: 10px 14px;
+            font-weight: 500;
+            transition: .3s;
+        }
+        .order-cancel-btn:hover{
+            background: #00124E;
+            color: #fff;
+        }
+        .order-info-text-box{
+            .order-info-text{
+                font-weight: 700;
+                color: #00124E;
+                transition: .3s;
+            }
+            .order-info-text:hover{
+                color: #FF2732;
+            }
+            .order-info-name{
+                font-weight: 500;
+                color: #00124E;
+                font-size: 14px;
+                span{
+                    display: inline-block;
+                    width: 120px;
+                }
+            }
+            .order-info-addr{
+                color: #687083;
+                font-weight: 500;
+                font-size: 14px;
+            }
+        }
+    }
+    .order-protocol-box{
+        background: #fff;
+        .order-pending-text{
+            font-weight: 700;
+            font-size: 20px;
+            color: #00124E;
+        }
+        .order-pending-des{
+            font-size: 14px;
+            font-weight: 500;
+            color: #687083;
+            line-height: 1.71;
+        }
+    }
 
-
+}
 
 
 /*responsive*/
