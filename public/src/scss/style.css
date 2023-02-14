@@ -1188,7 +1188,8 @@ body {
     outline: none;
     box-shadow: none;
     border: 1px solid #f1f1f1; }
-  #cart-products .contact-info-area .continue-shopping button {
+  #cart-products .contact-info-area .continue-shopping a {
+    display: inline-block;
     padding: 14.5px 24px 12.5px 24px;
     font-size: 14px;
     text-transform: uppercase;
@@ -1196,8 +1197,9 @@ body {
     background: #FF2732;
     transition: .3s;
     border: none;
-    font-weight: 500; }
-  #cart-products .contact-info-area .continue-shopping button:hover {
+    font-weight: 500;
+    text-decoration: none; }
+  #cart-products .contact-info-area .continue-shopping a:hover {
     background: #00124E; }
   #cart-products .contact-info-area .return-to-cart-btn a {
     display: inline-block;
@@ -1267,6 +1269,73 @@ body {
     font-weight: 500;
     color: #00124e;
     display: inline-block; }
+#cart-products .shipping-method-area {
+  border: 1px solid #f1f1f1;
+  margin-top: 95px; }
+  #cart-products .shipping-method-area .shipping-contact-details-box {
+    background: #FCFDFD;
+    border: 1px solid #f1f1f1; }
+    #cart-products .shipping-method-area .shipping-contact-details-box .shipping-contact-text {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #687083; }
+    #cart-products .shipping-method-area .shipping-contact-details-box .shipping-contact-id {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #00124e;
+      line-height: 1.71; }
+    #cart-products .shipping-method-area .shipping-contact-details-box .shipping-info-change-btn {
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #FF2732; }
+    #cart-products .shipping-method-area .shipping-contact-details-box hr {
+      border-bottom: .5px solid #f1f1f1; }
+  #cart-products .shipping-method-area .shipping-method-box .shipping-method-text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 11px;
+    color: #00124e; }
+  #cart-products .shipping-method-area .shipping-method-box .shipping-method-type-box {
+    border: 1px solid #f1f1f1; }
+    #cart-products .shipping-method-area .shipping-method-box .shipping-method-type-box .flat-rate-text {
+      cursor: pointer;
+      font-size: 14px;
+      color: #687083; }
+      #cart-products .shipping-method-area .shipping-method-box .shipping-method-type-box .flat-rate-text .shipping-flat-rate-text {
+        font-size: 14px;
+        font-weight: 500;
+        color: #00124e; }
+    #cart-products .shipping-method-area .shipping-method-box .shipping-method-type-box .shipping-method-delivery-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #00124e;
+      margin-left: 22px; }
+    #cart-products .shipping-method-area .shipping-method-box .shipping-method-type-box .shipping-amount {
+      color: #00124e;
+      font-weight: 500; }
+  #cart-products .shipping-method-area .shipping-method-box .continue-to-payment-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #FF2732;
+    color: #fff;
+    padding: 14.5px 24px 12.5px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .3s; }
+  #cart-products .shipping-method-area .shipping-method-box .continue-to-payment-btn:hover {
+    background: #00124E; }
+  #cart-products .shipping-method-area .shipping-method-box .return-to-information-btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF2732; }
 
 /*responsive*/
 @media screen and (max-width: 450px) {

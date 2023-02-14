@@ -148,7 +148,7 @@
                                 </label>
                             </div>
                             <div class="d-flex flex-row align-items-center my-3">
-                                <div class="continue-shopping"><button type="submit">Continue To Shipping</button></div>
+                                <div class="continue-shopping"><a href="{{route('user.shippingMethod')}}">Continue To Shipping </a></div>
                                 &nbsp;&nbsp;&nbsp;
                                 <div class="return-to-cart-btn"><a href="{{ route('user.addToCart') }}">Return To Cart</a></div>
                             </div>

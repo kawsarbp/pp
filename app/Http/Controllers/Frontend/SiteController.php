@@ -62,5 +62,10 @@ class SiteController extends Controller
     {
         return view('frontend.ecom.cart.checkout');
     }
+    /*view shippingMethod  page*/
+    public function shippingMethod()
+    {
+        return view('frontend.ecom.cart.shipping');
+    }
 
 }

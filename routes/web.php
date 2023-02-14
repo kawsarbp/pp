@@ -21,4 +21,4 @@ Route::get('/my-wishlist',[SiteController::class,'myWishlist'])->name('user.myWi
 Route::get('/profile/dashboard',[SiteController::class,'userDashboard'])->name('user.dashboard');
 Route::get('/my-purchase-histories',[SiteController::class,'myHistories'])->name('user.myHistories');
 Route::get('/checkout',[SiteController::class,'checkout'])->name('user.checkout');
-Route::get('/checkout',[SiteController::class,'checkout'])->name('user.checkout');
+Route::get('/shipping-method',[SiteController::class,'shippingMethod'])->name('user.shippingMethod');
