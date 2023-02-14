@@ -1,6 +1,6 @@
 @extends('frontend.ecom.inc.layouts')
 @section('head')
-    <title>Cart</title>
+    <title>Shipping Method</title>
 @endsection
 
 @section('content')
@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-md-10">
                                         <div class="form-check">
-                                            <input class="form-check-input email-check-field" type="radio" name="flexRadioDefault" id="flatRate" checked>
+                                            <input class="form-check-input email-check-field" type="radio" name="flatRate" id="flatRate" checked>
                                             <label class="form-check-label email-check-text flat-rate-text" for="flatRate">
                                                 Flat Rate &nbsp;&nbsp; [ Manual- 5-8 days - [ <span class="shipping-flat-rate-text">Flat Rate</span> ] ]
                                             </label>
@@ -54,7 +54,7 @@
                                 <div class="row">
                                     <div class="col-md-10">
                                         <div class="form-check">
-                                            <input class="form-check-input email-check-field" type="radio" name="flexRadioDefault" id="freeShipping" >
+                                            <input class="form-check-input email-check-field" type="radio" name="flatRate" id="freeShipping" >
                                             <label class="form-check-label email-check-text flat-rate-text" for="freeShipping">
                                                 Free Shipping &nbsp;&nbsp; [ Manual- 8-12 days - [ <span class="shipping-flat-rate-text">Flat Rate</span> ] ]
                                             </label>
@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <div class="col-md-10">
                                         <div class="form-check">
-                                            <input class="form-check-input email-check-field" type="radio" name="flexRadioDefault" id="asdasd" >
+                                            <input class="form-check-input email-check-field" type="radio" name="flatRate" id="asdasd" >
                                             <label class="form-check-label email-check-text flat-rate-text" for="asdasd">
                                                 asdasd &nbsp;&nbsp; [ Manual- 3-5 days - [ <span class="shipping-flat-rate-text">Per Hundred</span> ] ]
                                             </label>
@@ -84,7 +84,7 @@
                             </div>
                             <br>
                             <div class="d-flex flex-row align-items-center">
-                                <div><a href="" class="continue-to-payment-btn">continue to payment</a></div>
+                                <div><a href="{{route('user.paymentMethod')}}" class="continue-to-payment-btn">continue to payment</a></div>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div><a href="{{route('user.checkout')}}" class="return-to-information-btn">return to information</a></div>
                             </div>

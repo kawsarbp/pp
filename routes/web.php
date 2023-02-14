@@ -22,3 +22,4 @@ Route::get('/profile/dashboard',[SiteController::class,'userDashboard'])->name('
 Route::get('/my-purchase-histories',[SiteController::class,'myHistories'])->name('user.myHistories');
 Route::get('/checkout',[SiteController::class,'checkout'])->name('user.checkout');
 Route::get('/shipping-method',[SiteController::class,'shippingMethod'])->name('user.shippingMethod');
+Route::get('/payment-method',[SiteController::class,'paymentMethod'])->name('user.paymentMethod');

@@ -132,7 +132,7 @@ body {
         }
 
         .category-dpd-btn {
-            background: #FD4949;
+            background: #FF2732;
             padding: 10px 30px;
             color: #fff;
             font-weight: 500;
@@ -2133,13 +2133,176 @@ body {
             }
 
         }
+        .payment-area{
+            .payment-text{
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 11px;
+                color: #00124e;
+            }
+            .payment-type-des{
+                font-size: 14px;
+                color: #687083;
+                text-transform: capitalize;
+                font-weight: 400;
+                margin-bottom: 10px;
+            }
+            .payment-type{
+                border: 1px solid #f1f1f1;
+                padding: 12px;
+            }
+            .payment-type-name{
+                color: #687083;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .pay-now-btn{
+                display: inline-block;
+                padding: 14.5px 24px 12.5px 24px;
+                font-size: 14px;
+                color: #fff;
+                font-weight: 700;
+                border: 1px solid transparent;
+                transition: .3s;
+                background: #FF2732;
+                text-decoration: none;
+                text-transform: uppercase;
+                min-width: 200px;
+                text-align: center;
+            }
+            .pay-now-btn:hover{
+                background: #00124E;
+            }
+            .return-to-shipping-btn{
+                display: inline-block;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 700;
+                text-decoration: none;
+                color: #FF2732;
+            }
+
+        }
 
     }
-
-
 }
 
 //add to cart page end
+
+#payment-method{
+    background: #F5F8FA;
+    padding: 50px 0 60px 0;
+    .purchase-area{
+        background: #fff;
+
+        .purchase-text{
+            font-size: 1.75rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #00124E;
+        }
+        .purchase-number{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+            color: #687083;
+            margin-bottom: 0;
+        }
+        .purchase-product-box{
+            border: 1px solid #f1f1f1;
+            .purchase-product-img{
+                width: 90px;
+                height: 90px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .purchase-product-name{
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                    color: #00124E;
+                    font-weight: 700;
+                    transition: .3s;
+                }
+                a:hover{
+                    color: #FF2732;
+                }
+            }
+            .purchase-date{
+                font-weight: 500;
+                color: #00124E;
+                margin-top: 20px;
+            }
+
+        }
+        .view-order-details{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+            color: #687083;
+            margin-bottom: 0;
+            span{
+                font-size: 16px;
+                line-height: 26px;
+                color: #687083;
+                font-weight: 500;
+            }
+        }
+        .purchase-view-order-btn{
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+            background: #FF2732;
+            padding: 14.5px 24px 12.5px 24px;
+        }
+        .confirm-email-text-box{
+            font-weight: 400;
+            line-height: 26px;
+            color: #687083;
+            margin-bottom: 0;
+            padding: 20px;
+            border: 1px solid #f1f1f1;
+            svg{
+                margin-top: -3px;
+            }
+        }
+        .order-summary{
+            background: #FCFDFD;
+            border: 1px solid #f1f1f1;
+            .order-summary-text{
+                font-size: 25px;
+                font-weight: 500;
+                color: #00124E;
+            }
+            .order-summary-amount{
+                font-size: 20px;
+                font-weight: 500;
+                color: #FF2732;
+            }
+        }
+        .purchase-page-continue-shopping{
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 14.5px 24px 12.5px 24px;
+            background: #FF2732;
+            color: #fff;
+            transition: .3s;
+        }
+        .purchase-page-continue-shopping:hover{
+            background: #00124E;
+        }
+
+    }
+}
+
+
 
 
 /*responsive*/
