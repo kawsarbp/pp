@@ -30,7 +30,7 @@
             <div class="cart-items-bg px-4 py-2 mb-3">
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-12 ">
-                        <a href="" class="cart-item-img">
+                        <a href="{{route('user.productDetails')}}" class="cart-item-img">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="{{asset('src/img/product/6.png')}}" alt=""> &nbsp;&nbsp;
                                 <div class="cart-product-name">Nikon dslr camera</div>
@@ -82,7 +82,7 @@
                     <div class="col-lg-4 col-md-12 ">
                         <a href="" class="cart-item-img">
                             <div class="d-flex flex-row align-items-center">
-                                <img src="{{asset('src/img/product/6.png')}}" alt=""> &nbsp;&nbsp;
+                                <img src="{{asset('src/img/product/7.png')}}" alt=""> &nbsp;&nbsp;
                                 <div class="cart-product-name">Nikon dslr camera</div>
                             </div>
                         </a>
@@ -132,7 +132,7 @@
                     <div class="col-lg-4 col-md-12 ">
                         <a href="" class="cart-item-img">
                             <div class="d-flex flex-row align-items-center">
-                                <img src="{{asset('src/img/product/6.png')}}" alt=""> &nbsp;&nbsp;
+                                <img src="{{asset('src/img/product/8.png')}}" alt=""> &nbsp;&nbsp;
                                 <div class="cart-product-name">Nikon dslr camera</div>
                             </div>
                         </a>
