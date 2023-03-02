@@ -1,6 +1,6 @@
 @extends('frontend.ecom.inc.layouts')
 @section('head')
-    <title>Payment Method</title>
+    <title>Product Details</title>
 @endsection
 
 @section('content')
@@ -9,7 +9,12 @@
             <div class="row my-5">
                 <div class="col-lg-4">
                     <div class="product-details-img">
-                        <img src="{{asset('src/img/product/2.png')}}" alt="">
+                        <img src="{{asset('src/img/product/2.png')}}" id="xzoom" data-zoom-image="{{asset('src/img/product/2.png')}}" >
+                        <div class="xzoom-thumbs">
+                            <a href="{{asset('src/img/product/2.png')}}" target="_blank">
+                                <img src="{{asset('src/img/product/2.png')}}" class="xzoom-gallery" xpreview="{{asset('src/img/product/2.png')}}">
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -633,5 +638,11 @@
     </div>
 @endsection
 
+@section('footer')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.min.js" integrity="sha512-UH428GPLVbCa8xDVooDWXytY8WASfzVv3kxCvTAFkxD2vPjouf1I3+RJ2QcSckESsb7sI+gv3yhsgw9ZhM7sDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script>
+        // $("#xzoom").elevateZoom();
+    </script>
+@endsection
 

@@ -1560,6 +1560,15 @@ body {
   #product-details .product-details-img img {
     width: 100%;
     height: 100%; }
+  #product-details .product-details-img .xzoom-thumbs {
+    margin-top: 20px;
+    width: 80px;
+    height: 80px; }
+    #product-details .product-details-img .xzoom-thumbs a {
+      display: inline-block; }
+    #product-details .product-details-img .xzoom-thumbs img {
+      width: 100%;
+      height: 100%; }
 #product-details .product-details-area .in-stock-text span {
   display: inline-block;
   background: #13C481;

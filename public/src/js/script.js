@@ -24,7 +24,4 @@ $(document).ready(function(){
     });
     // owl carousel
 
-
-    // show hide btn for contact box
-
 });

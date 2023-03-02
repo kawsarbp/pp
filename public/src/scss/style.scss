@@ -2470,10 +2470,21 @@ body {
         height: 450px;
         background: #F7F7F7;
         padding: 20px;
-
         img {
             width: 100%;
             height: 100%;
+        }
+        .xzoom-thumbs{
+            margin-top: 20px;
+            width: 80px;
+            height: 80px;
+            a{
+                display: inline-block;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 
