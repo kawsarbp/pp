@@ -99,6 +99,8 @@
                                  /
                              </span>
                             &nbsp;
+{{--                            <a href="{{ route('user.dashboard') }} {{ route('logout') }}" class="customer_box_text mt-1">logOut</a>--}}
+
                             <form method="POST" class="mt-1" action="{{ route('logout') }}">
                                 @csrf
 

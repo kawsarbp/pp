@@ -29,9 +29,13 @@ Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.
 Route::get('/product-details',[SiteController::class,'productDetails'])->name('user.productDetails');
 
 /*backend page routes*/
+
+Route::post('/logout',[DashboardController::class,'logout'])->name('logout');
 Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified' ])->group(function () {
+
     Route::get('/dashboard',[RedirectController::class,'redirect'])->name('dashboard');
     /*blog*/
     Route::get('/add-blog',[DashboardController::class,'addBlog'])->name('addBlog');
     Route::get('/manage-blog',[DashboardController::class,'manageBlog'])->name('manageBlog');
+
 });

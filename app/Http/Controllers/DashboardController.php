@@ -17,6 +17,18 @@ class DashboardController extends Controller
         return view('backend.blog.manage-blog');
     }
     /*blog*/
+    /*logout*/
+    public function logout()
+    {
+        auth()->logout();
+
+        session()->invalidate();
+
+        session()->regenerateToken();
+
+        return redirect()->route('user.home');
+    }
+    /*logout*/
 
 
 }
