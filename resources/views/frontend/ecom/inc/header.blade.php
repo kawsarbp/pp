@@ -93,7 +93,7 @@
                             </svg>
                         </span>
 
-                            <a href="{{ route('user.dashboard') }}" class="customer_box_text mt-1">Dashboard</a>
+                            <a href="{{--{{ route('user.dashboard') }}--}} {{ route('dashboard') }}" class="customer_box_text mt-1">Dashboard</a>
                             &nbsp;
                             <span class="mt-1">
                                  /

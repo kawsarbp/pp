@@ -1,6 +1,6 @@
 @extends('backend.inc.layouts')
-@section('title','Dahboard')
+@section('title','Manage Blog')
 
 @section('content')
-dashboard
+    manage blog
 @endsection

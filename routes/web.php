@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,7 @@ Route::get('/product-details',[SiteController::class,'productDetails'])->name('u
 /*backend page routes*/
 Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified' ])->group(function () {
     Route::get('/dashboard',[RedirectController::class,'redirect'])->name('dashboard');
+    /*blog*/
+    Route::get('/add-blog',[DashboardController::class,'addBlog'])->name('addBlog');
+    Route::get('/manage-blog',[DashboardController::class,'manageBlog'])->name('manageBlog');
 });
