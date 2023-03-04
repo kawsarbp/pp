@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\SiteController;
+use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,8 @@ Route::get('/shipping-method',[SiteController::class,'shippingMethod'])->name('u
 Route::get('/payment-method',[SiteController::class,'paymentMethod'])->name('user.paymentMethod');
 Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.orderDetails');
 Route::get('/product-details',[SiteController::class,'productDetails'])->name('user.productDetails');
+
+/*backend page routes*/
+Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified' ])->group(function () {
+    Route::get('/dashboard',[RedirectController::class,'redirect'])->name('dashboard');
+});

@@ -11,6 +11,7 @@ class SiteController extends Controller
     public function index()
     {
         return view('frontend.home-page');
+        /*frontend.home-page*/
     }
     /*view contact page*/
     public function contact()
