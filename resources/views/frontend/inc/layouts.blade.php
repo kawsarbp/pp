@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     @include('frontend.inc.css')
+    <link rel="shortcut icon" href="{{asset('src/img/logo/favicon.png')}}" type="image/x-icon">
 </head>
 <body>
 

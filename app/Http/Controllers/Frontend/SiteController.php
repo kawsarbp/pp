@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -21,6 +22,17 @@ class SiteController extends Controller
     /*view user home page*/
     public function home()
     {
+        if (Auth::id())
+        {
+            $admin = Auth::user()->role == 1;
+            if ($admin)
+            {
+                return redirect()->route('dashboard');
+            }else{
+                return view('frontend.ecom.home');
+            }
+        }
+
         return view('frontend.ecom.home');
     }
     /*view contact us page*/
