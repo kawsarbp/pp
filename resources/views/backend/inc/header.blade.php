@@ -20,8 +20,9 @@
     <link href="{{asset('admin/assets/dist/css/style.min.css')}}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="{{asset('admin/assets/dist/css/pages/dashboard1.css')}}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <link rel="stylesheet" href="/admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="/admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -196,14 +197,11 @@
                     <li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                 class="ti-layout-grid2"></i><span class="hide-menu">Blog</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{route('addBlog')}}">Add Blog</a></li>
-                            <li><a href="{{route('manageBlog')}}">Manage Blog</a></li>
+                            <li><a href="{{route('blog.addBlog')}}">Create Blog</a></li>
+                            <li><a href="{{route('blog.manageBlog')}}">Manage Blog</a></li>
 
                         </ul>
                     </li>
-
-
-
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

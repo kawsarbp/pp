@@ -20,33 +20,6 @@
                 <li><a href="javascript:void(0)" data-skin="skin-purple-dark" class="purple-dark-theme">11</a></li>
                 <li><a href="javascript:void(0)" data-skin="skin-megna-dark" class="megna-dark-theme ">12</a></li>
             </ul>
-            <ul class="m-t-20 chatonline">
-                <li><b>Chat option</b></li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><img src="/admin/assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
@@ -59,14 +32,8 @@
 <footer class="footer">
     &copy; 2023 Eliteadmin by Kawsar faz
 </footer>
-<!-- ============================================================== -->
 <!-- End footer -->
-<!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
 <!-- All Jquery -->
 <!-- ============================================================== -->
 <script src="{{asset('admin/assets/node_modules/jquery/jquery-3.2.1.min.js')}}"></script>
@@ -93,18 +60,19 @@
 <!-- Chart JS -->
 <script src="{{asset('admin/assets/dist/js/dashboard1.js')}}"></script>
 <script src="{{asset('admin/assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
-<script>
-    $.toast({
-        heading: '{{"Welcome to Faz Group"}}'
-        , text: '{{"Use the predefined ones, or specify a custom position object."}}'
-        , position: 'top-right'
-        , loaderBg: '#ff6849'
-        , icon: 'info'
-        , hideAfter: 2500
-        , stack: 6
-    })
-</script>
-</body>
 
+<script src="/admin/assets/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/admin/assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
+
+{{--<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>--}}
+
+@yield('script')
+</body>
 </html>
 

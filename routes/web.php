@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\RedirectController;
@@ -35,7 +36,17 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
     /*redirect route*/
     Route::get('/dashboard',[RedirectController::class,'redirect'])->name('dashboard');
     /*blog*/
-    Route::get('/add-blog',[DashboardController::class,'addBlog'])->name('addBlog');
-    Route::get('/manage-blog',[DashboardController::class,'manageBlog'])->name('manageBlog');
+    Route::prefix('/blog')->name('blog.')->group(function (){
+        Route::get('/add-blog',[BlogController::class,'addBlog'])->name('addBlog');
+        Route::get('/manage-blog',[BlogController::class,'manageBlog'])->name('manageBlog');
+        Route::post('/store',[BlogController::class,'store'])->name('store');
+        Route::delete('/destroy/{id}',[BlogController::class,'destroy'])->name('destroy');
+        Route::get('/edit/{id}',[BlogController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
+        Route::put('/blog-status/{id}',[BlogController::class,'blogStatus'])->name('blogStatus');
+
+    });
+
+
 
 });
