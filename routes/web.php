@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,8 +56,14 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::get('/category-edit/{id}',[CategoryController::class,'categoryEdit'])->name('categoryEdit');
         Route::put('/category-edit/{id}',[CategoryController::class,'categoryUpdate'])->name('categoryUpdate');
         Route::put('/category-status/{id}',[CategoryController::class,'categoryStatus'])->name('categoryStatus');
+    });
+    Route::prefix('/subcategory')->name('subcategory.')->group(function (){
+        Route::get('/index',[SubcategoryController::class,'index'])->name('index');
+        Route::get('/subcategory-create',[SubcategoryController::class,'subcategoryCreate'])->name('subcategoryCreate');
+        Route::post('/subcategory-store',[SubcategoryController::class,'subcategoryStore'])->name('subcategoryStore');
 
     });
+
 
 
 

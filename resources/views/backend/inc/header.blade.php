@@ -199,7 +199,7 @@
                                 class="ti-layout-grid2"></i><span class="hide-menu">Category</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('category.index')}}">Categories</a></li>
-
+                            <li><a href="{{route('subcategory.index')}}">Sub Categories</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
