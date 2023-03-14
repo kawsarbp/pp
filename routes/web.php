@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\RedirectController;
@@ -44,6 +45,16 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::get('/edit/{id}',[BlogController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
         Route::put('/blog-status/{id}',[BlogController::class,'blogStatus'])->name('blogStatus');
+    });
+    /*category*/
+    Route::prefix('/category')->name('category.')->group(function (){
+        Route::get('/index',[CategoryController::class,'index'])->name('index');
+        Route::get('/category-create',[CategoryController::class,'categoryCreate'])->name('categoryCreate');
+        Route::post('/category-store',[CategoryController::class,'categoryStore'])->name('categoryStore');
+        Route::delete('/category-destroy/{id}',[CategoryController::class,'categoryDestroy'])->name('categoryDestroy');
+        Route::get('/category-edit/{id}',[CategoryController::class,'categoryEdit'])->name('categoryEdit');
+        Route::put('/category-edit/{id}',[CategoryController::class,'categoryUpdate'])->name('categoryUpdate');
+        Route::put('/category-status/{id}',[CategoryController::class,'categoryStatus'])->name('categoryStatus');
 
     });
 
