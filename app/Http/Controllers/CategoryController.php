@@ -37,7 +37,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->back()->with(['type'=>'success','message' => 'Category Delete Success']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Category Delete Success.']);
     }
     /*category edit*/
     public function categoryEdit($id)
@@ -66,7 +66,6 @@ class CategoryController extends Controller
     public function categoryStatus($id)
     {
         $status = Category::findOrFail($id);
-
         if ($status->status == 'active')
         {
             $status->status = 'inactive';

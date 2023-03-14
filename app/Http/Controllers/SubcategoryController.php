@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\subcategory;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
@@ -11,7 +11,7 @@ class SubcategoryController extends Controller
     /*subcategory view*/
     public function index()
     {
-        $subcategories = subcategory::with('category')->orderBy('id','desc')->get();
+        $subcategories = Subcategory::with('category')->orderBy('id','desc')->get();
         return view('backend.category.subcategories',compact('subcategories'));
     }
     /*subcategory create form*/
@@ -27,15 +27,59 @@ class SubcategoryController extends Controller
             'category_id'=>'required',
             'subcategory_name'=>'required|unique:subcategories|min:3'
         ]);
-        subcategory::create([
+        Subcategory::create([
             'category_id' => $request->category_id,
             'subcategory_name' => $request->subcategory_name,
             'subcategory_slug' => str_replace(' ','-',$request->subcategory_name),
             'status' => $request->status,
         ]);
-
-        return redirect()->back()->with(['type'=>'success','message' => 'SubCategory Create Done.']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Create Done.']);
     }
+    /*subcategory delete*/
+    public function subcategoryDestroy($id)
+    {
+        $subcategory = Subcategory::find($id);
+        $subcategory->delete();
+        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Delete Success']);
+    }
+    /*edit subcategory*/
+    public function subcategoryEdit($id)
+    {
+        $activeCat = Category::where('status','active')->get();
+        $subcategory = Subcategory::find($id);
+        return view('backend.category.edit-subcategory',compact('activeCat','subcategory'));
+    }
+
+    public function subcategoryUpdate(Request $request,$id)
+    {
+        $request->validate([
+            'category_id'=>'required',
+            'subcategory_name'=>'required|string|min:3|max:30|unique:subcategories,id,'.$id,
+        ]);
+        $subcategory = Subcategory::find($id);
+        $subcategory->category_id = $request->category_id;
+        $subcategory->subcategory_name = $request->subcategory_name;
+        $subcategory->subcategory_slug = str_replace(' ','-',$request->subcategory_name);
+        $subcategory->status = $request->status;
+        $subcategory->save();
+        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Update Success']);
+    }
+    /*status change*/
+    public function subcategoryStatus($id)
+    {
+        $status = Subcategory::findOrFail($id);
+        if ($status->status == 'active')
+        {
+            $status->status = 'inactive';
+            $status->save();
+        }else{
+
+            $status->status = 'active';
+            $status->save();
+        }
+        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Status Update Done.']);
+    }
+
 
 
 }

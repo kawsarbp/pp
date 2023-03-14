@@ -54,7 +54,7 @@
                                                     <td>{{ $subcategory->subcategory_name }}</td>
                                                     <td>{{ $subcategory->subcategory_slug }}</td>
                                                     <td>
-                                                        <form action="{{ route('category.categoryStatus',$subcategory->id) }}" method="POST">
+                                                        <form action="{{ route('subcategory.subcategoryStatus',$subcategory->id) }}" method="POST">
                                                             @csrf
                                                             @method('PUT')
 
@@ -66,11 +66,11 @@
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('category.categoryEdit',$subcategory->id) }}" class="btn btn-info btn-sm"><i class=" fas fa-edit"></i></a>
-                                                        <form action="{{ route('category.categoryDestroy',$subcategory->id) }}" method="POST">
+                                                        <a href="{{ route('subcategory.subcategoryEdit',$subcategory->id) }}" class="btn btn-info btn-sm"><i class=" fas fa-edit"></i></a>
+                                                        <form action="{{ route('subcategory.subcategoryDestroy',$subcategory->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure !')" type="submit">
+                                                            <button class="btn btn-sm btn-danger" type="submit">
                                                                 <i class=" fas fa-trash-alt"></i>
                                                             </button>
                                                         </form>
