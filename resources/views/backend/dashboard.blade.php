@@ -1,10 +1,10 @@
 @extends('backend.inc.layouts')
-@section('title','Dahboard')
+@section('title','Dashboard')
 
 @section('content')
-    <div class="row mt-4">
+    <div class="row">
         <div class="col-lg-12">
-            <h1 class="text-center">Admin Panel</h1>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut debitis exercitationem impedit magni modi unde voluptatem? Adipisci autem enim fuga fugit hic minus numquam odit officiis omnis, pariatur reprehenderit?
         </div>
     </div>
 @endsection

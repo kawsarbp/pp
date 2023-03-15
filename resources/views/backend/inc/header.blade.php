@@ -9,35 +9,36 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('src/img/logo/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/favicon.png') }}">
     <title>@yield('title')</title>
-    <!-- This page CSS -->
-    <!-- chartist CSS -->
-    <link href="{{asset('admin/assets/node_modules/morrisjs/morris.css')}}" rel="stylesheet">
-    <!--Toaster Popup message CSS -->
-    <link href="{{asset('admin/assets/node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{{asset('admin/assets/dist/css/style.min.css')}}" rel="stylesheet">
-    <!-- Dashboard 1 Page CSS -->
-    <link href="{{asset('admin/assets/dist/css/pages/dashboard1.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="/admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="/admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- chartist CSS -->
+    <link href="{{ asset('admin/assets/plugins/chartist-js/dist/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/chartist-js/dist/chartist-init.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}" rel="stylesheet">
+    <!--This page css - Morris CSS -->
+    <link href="{{ asset('admin/assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="{{ asset('admin/css/colors/blue.css') }}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
-<body class="skin-default fixed-layout">
+<body class="fix-header fix-sidebar card-no-border">
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
 <div class="preloader">
-    <div class="loader">
-        <div class="loader__figure"></div>
-        <p class="loader__label">Elite admin</p>
-    </div>
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
 </div>
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
@@ -47,27 +48,25 @@
     <!-- Topbar header - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <header class="topbar">
-        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="">
+                <a class="navbar-brand" href="{{ route('dashboard') }}">
                     <!-- Logo icon --><b>
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
-                        <img src="{{asset('admin/assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo"/>
+                        <img src="/admin/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         <!-- Light Logo icon -->
-                        <img src="{{asset('admin/assets/images/logo-light-icon.png')}}" alt="homepage"
-                             class="light-logo"/>
+                        <img src="/admin/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="{{asset('admin/assets/images/logo-text.png')}}" alt="homepage" class="dark-logo"/>
+                         <img src="/admin/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         <!-- Light Logo text -->
-                         <img src="{{asset('admin/assets/images/logo-light-text.png')}}" class="light-logo"
-                              alt="homepage"/></span> </a>
+                         <img src="/admin/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
             </div>
             <!-- ============================================================== -->
             <!-- End Logo -->
@@ -76,148 +75,151 @@
                 <!-- ============================================================== -->
                 <!-- toggle and nav items -->
                 <!-- ============================================================== -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto mt-md-0">
                     <!-- This is  -->
-                    <li class="nav-item"><a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                                            href="javascript:void(0)"><i class="ti-menu"></i></a></li>
-                    <li class="nav-item"><a
-                            class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
-                            href="javascript:void(0)"><i class="icon-menu"></i></a></li>
+                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                    <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                     <!-- ============================================================== -->
                     <!-- Search -->
                     <!-- ============================================================== -->
-                    <li class="nav-item">
-                        <form class="app-search d-none d-md-block d-lg-block">
-                            <input type="text" class="form-control" placeholder="Search & enter">
-                        </form>
+                    <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <form class="app-search">
+                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
                     </li>
-                </ul>
-                <!-- ============================================================== -->
-                <!-- User profile and search -->
-                <!-- ============================================================== -->
-                <ul class="navbar-nav my-lg-0">
                     <!-- ============================================================== -->
+                    <!-- Messages -->
+                    <!-- ============================================================== -->
+
+                    <!-- End Messages -->
+                </ul>
+                <!-- User profile and search -->
+                <ul class="navbar-nav my-lg-0">
                     <!-- Comment -->
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"> <i class="ti-email"></i>
-                            <div class="notify"><span class="heartbit"></span> <span class="point"></span></div>
+                        <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
+                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                         </a>
-
                     </li>
+                    <!-- End Comment -->
                     <!-- Messages -->
-                    <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-note"></i>
-                            <div class="notify"><span class="heartbit"></span> <span class="point"></span></div>
+                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
+                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                         </a>
-
                     </li>
-
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href=""
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img
-                                src="{{asset('src/img/logo/favicon.ico')}}" alt="user-img"
-                                class="rounded-circle h-10 w-10">
-
-                            <span
-                                class="hidden-md-down">{{auth()->user()->name }} &nbsp;{{--<i class="fa fa-angle-down"></i>--}}</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right animated flipInY">
-                            <!-- text-->
-                            <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                            <!-- text-->
-                            <a href="javascript:void(0)" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                            <!-- text-->
-                            <a href="javascript:void(0)" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                            <!-- text-->
-                            <div class="dropdown-divider"></div>
-                            <!-- text-->
-                            <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Account
-                                Setting</a>
-                            <!-- text-->
-                            <div class="dropdown-divider"></div>
-                            <!-- text-->
-
-                            <form method="POST" class="" action="{{ route('logout') }}">
-                                @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <!-- End Messages -->
+                    <!-- Profile -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                        <div class="dropdown-menu dropdown-menu-right scale-up">
+                            <ul class="dropdown-user">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-img"><img src="{{ asset('admin/favicon.png') }}" alt="user"></div>
+                                        <div class="u-text">
+                                            <h4>Steave Jobs</h4>
+                                            <p class="text-muted">varun@gmail.com</p><a href="" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+                                <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <form method="POST" class="" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         this.closest('form').submit(); ">
-                                    <i class="fa fa-power-off"></i>
-                                    {{ __('LogOut') }}
-                                </a>
-                            </form>
+                                            <i class="fa fa-power-off"></i>
+                                            {{ __('LogOut') }}
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
                         </div>
                     </li>
-                    <!-- End User Profile -->
-                    <li class="nav-item right-side-toggle"><a class="nav-link  waves-effect waves-light"
-                                                              href="javascript:void(0)"><i class="ti-settings"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Language -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right scale-up"> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-in"></i> India</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> China</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> Dutch</a> </div>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
     <aside class="left-sidebar">
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
+            <!-- User profile -->
+            <div class="user-profile" style="background: url({{ asset('admin/assets/images/background/user-info.jpg') }}) no-repeat;">
+                <!-- User profile image -->
+                <div class="profile-img"> <img src="{{ asset('admin/favicon.png') }}" alt="user" /> </div>
+                <!-- User profile text-->
+                <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
+                    <div class="dropdown-menu animated flipInY"> <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a> <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a> <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+                        <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <form method="POST" class="" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        this.closest('form').submit(); ">
+                                <i class="fa fa-power-off"></i>
+                                {{ __('LogOut') }}
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End User profile text-->
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="user-pro"><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                            aria-expanded="false"><img
-                                src="{{asset('src/img/logo/favicon.ico')}}" alt="user-img"
-                                class="rounded-circle h-12 w-12"><span class="hide-menu">{{auth()->user()->name }}</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
-                            <li>
-                                <form method="POST" class="" action="{{ route('logout') }}">
-                                    @csrf
-                                    <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        this.closest('form').submit(); ">
-                                        <i class="fa fa-power-off"></i>
-                                        {{ __('LogOut') }}
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-small-cap">---DASHBOARD</li>
-                    <li><a class="waves-effect waves-dark" href="{{route('dashboard')}}" aria-expanded="false"><i
-                                class="icon-speedometer"></i><span class="hide-menu">Dashboard </span></a>
-
-                    </li>
-
-                    <li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
-                                class="ti-layout-grid2"></i><span class="hide-menu">Category</span></a>
+                    <li class="nav-small-cap">DASHBOARD</li>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('category.index')}}">Categories</a></li>
                             <li><a href="{{route('subcategory.index')}}">Sub Categories</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
-                                class="ti-layout-grid2"></i><span class="hide-menu">Blog</span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{route('blog.addBlog')}}">Create Blog</a></li>
-                            <li><a href="{{route('blog.manageBlog')}}">Manage Blog</a></li>
-
+                            <li><a href="{{route('blog.addBlog')}}">Categories</a></li>
+                            <li><a href="{{route('blog.manageBlog')}}">Sub Categories</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
+        <!-- Bottom points-->
+        <div class="sidebar-footer">
+            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+        <!-- End Bottom points-->
     </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
     <div class="page-wrapper">
+        <!-- ============================================================== -->
         <!-- Container fluid  -->
+        <!-- ============================================================== -->
         <div class="container-fluid">
