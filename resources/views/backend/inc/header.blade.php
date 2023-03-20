@@ -25,7 +25,9 @@
     <!-- You can change the theme colors from here -->
     <link href="{{ asset('admin/css/colors/blue.css') }}" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!-- WARNING: Res
+    pond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -187,16 +189,16 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="nav-small-cap">DASHBOARD</li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Categories </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('category.index')}}">Categories</a></li>
                             <li><a href="{{route('subcategory.index')}}">Sub Categories</a></li>
                         </ul>
                     </li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-tumblr-reblog"></i><span class="hide-menu">blogs </span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{route('blog.addBlog')}}">Categories</a></li>
-                            <li><a href="{{route('blog.manageBlog')}}">Sub Categories</a></li>
+                            <li><a href="{{route('blog.addBlog')}}">Create Blog</a></li>
+                            <li><a href="{{route('blog.manageBlog')}}">Manage Blogs</a></li>
                         </ul>
                     </li>
 
