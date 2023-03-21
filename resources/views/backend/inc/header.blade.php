@@ -189,7 +189,7 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="nav-small-cap">DASHBOARD</li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Categories </span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-source-branch"></i><span class="hide-menu">Categories </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('category.index')}}">Categories</a></li>
                             <li><a href="{{route('subcategory.index')}}">Sub Categories</a></li>
@@ -198,7 +198,13 @@
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Brand </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('brand.create')}}">Create Brand</a></li>
-                            <li><a href="{{route('brand.index')}}">Brands</a></li>
+                            <li><a href="{{route('brand.index')}}">Manage Brands</a></li>
+                        </ul>
+                    </li>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Product </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{route('product.create')}}">Create Product</a></li>
+                            <li><a href="{{route('product.index')}}">Manage Product</a></li>
                         </ul>
                     </li>
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-tumblr-reblog"></i><span class="hide-menu">blogs </span></a>

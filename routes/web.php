@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\SubcategoryController;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::put('/category-edit/{id}',[CategoryController::class,'categoryUpdate'])->name('categoryUpdate');
         Route::put('/category-status/{id}',[CategoryController::class,'categoryStatus'])->name('categoryStatus');
     });
+    /*subcategory*/
     Route::prefix('/subcategory')->name('subcategory.')->group(function (){
         Route::get('/index',[SubcategoryController::class,'index'])->name('index');
         Route::get('/subcategory-create',[SubcategoryController::class,'subcategoryCreate'])->name('subcategoryCreate');
@@ -67,6 +69,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::put('/subcategory-edit/{id}',[SubcategoryController::class,'subcategoryUpdate'])->name('subcategoryUpdate');
         Route::put('/subcategory-status/{id}',[SubcategoryController::class,'subcategoryStatus'])->name('subcategoryStatus');
     });
+    /*brand*/
     Route::prefix('/brand')->name('brand.')->group(function (){
         Route::get('/index',[BrandController::class,'index'])->name('index');
         Route::get('/create',[BrandController::class,'create'])->name('create');
@@ -75,7 +78,12 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::delete('/brand-destroy/{id}',[BrandController::class,'destroy'])->name('destroy');
         Route::get('/brand-edit/{id}',[BrandController::class,'edit'])->name('brandEdit');
         Route::put('/brand-update/{id}',[BrandController::class,'update'])->name('update');
-
+    });
+    /*product*/
+    Route::prefix('/product')->name('product.')->group(function (){
+        Route::get('/index',[ProductController::class,'index'])->name('index');
+        Route::get('/create',[ProductController::class,'create'])->name('create');
+        Route::post('/store',[ProductController::class,'store'])->name('store');
     });
 
 
