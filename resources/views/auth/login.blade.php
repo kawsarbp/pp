@@ -68,7 +68,7 @@
                                 <label for="checkbox-signup"> Remember me </label>
                             </div>
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}" id="to-recover" class="text-dark pull-right"><i
+                                <a href="{{ route('password.request') }}" {{--id="to-recover"--}} class="text-dark pull-right"><i
                                         class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
                             @endif
                         </div>

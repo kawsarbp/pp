@@ -2,7 +2,7 @@
 @section('title','Sub Categories')
 
 @section('content')
-    <div class="row mt-4">
+    <div class="row pt-4">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">

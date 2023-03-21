@@ -195,6 +195,12 @@
                             <li><a href="{{route('subcategory.index')}}">Sub Categories</a></li>
                         </ul>
                     </li>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Brand </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{route('brand.create')}}">Create Brand</a></li>
+                            <li><a href="{{route('brand.index')}}">Brands</a></li>
+                        </ul>
+                    </li>
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-tumblr-reblog"></i><span class="hide-menu">blogs </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('blog.addBlog')}}">Create Blog</a></li>

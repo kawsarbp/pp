@@ -1,13 +1,12 @@
 @extends('backend.inc.layouts')
-@section('title','Categories')
+@section('title','Brand')
 
 @section('content')
     <div class="row pt-4">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
-                    <h6 class="card-subtitle"><a href="{{ route('category.categoryCreate') }}" class="btn btn-outline-info">Add Category</a></h6>
+                    <h4 class="card-title">Brands</h4>
                     <div class="table-responsive m-t-10">
                         <div id="example23_wrapper" class="dataTables_wrapper">
 
@@ -23,14 +22,15 @@
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Position: activate to sort column ascending" style="">
-                                        Category Name
+                                        Brand Name
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Office: activate to sort column ascending" style="">
-                                        Category Slug
+                                        Brand Image
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Status
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="">Status
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Start date: activate to sort column ascending"
@@ -39,40 +39,43 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category)
-                                    <tr>
-                                        <td>{{ ++$loop->index }}</td>
-                                        <td>{{ $category->category_name }}</td>
-                                        <td>{{ $category->category_slug }}</td>
-                                        <td>
-                                            <form action="{{ route('category.categoryStatus',$category->id) }}"
-                                                  method="POST">
-                                                @csrf
-                                                @method('PUT')
+                                @foreach($brands as $brand)
+                                <tr>
+                                    <td>{{ ++$loop->index }}</td>
+                                    <td>{{ $brand->brand_name }}</td>
+                                    <td>
+                                        <img  style="height: 50px; width: 150px;" src="/uploads/brand/{{ $brand->brand_photo }}" alt="...">
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('brand.brandStatus',$brand->id) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('PUT')
 
-                                                @if($category->status == 'active')
-                                                    <button type="submit"
-                                                            class="btn btn-info btn-sm">{{ucfirst($category->status)}}</button>
-                                                @else
-                                                    <button type="submit"
-                                                            class="btn btn-warning btn-sm">{{ucfirst($category->status)}}</button>
-                                                @endif
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('category.categoryEdit',$category->id) }}"
-                                               class="btn btn-info btn-sm m-1"><i class="mdi mdi-account-edit"></i></a>
-                                            <form action="{{ route('category.categoryDestroy',$category->id) }}"
-                                                  method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger m-1"
-                                                        onclick="return confirm('Are you sure !')" type="submit">
-                                                    <i class="mdi mdi-delete-forever"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                            @if($brand->status == 'active')
+                                                <button type="submit"
+                                                        class="btn btn-info btn-sm">{{ucfirst($brand->status)}}</button>
+                                            @else
+                                                <button type="submit"
+                                                        class="btn btn-warning btn-sm">{{ucfirst($brand->status)}}</button>
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+
+                                        <a href="{{ route('brand.brandEdit',$brand->id) }}"
+                                           class="btn btn-info btn-sm m-1"><i class="mdi mdi-account-edit"></i></a>
+                                        <form action="{{ route('brand.destroy',$brand->id) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-danger m-1"
+                                                    onclick="return confirm('Are you sure !')" type="submit">
+                                                <i class="mdi mdi-delete-forever"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
                                 </tbody>
                             </table>

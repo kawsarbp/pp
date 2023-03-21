@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
@@ -65,6 +66,16 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::get('/subcategory-edit/{id}',[SubcategoryController::class,'subcategoryEdit'])->name('subcategoryEdit');
         Route::put('/subcategory-edit/{id}',[SubcategoryController::class,'subcategoryUpdate'])->name('subcategoryUpdate');
         Route::put('/subcategory-status/{id}',[SubcategoryController::class,'subcategoryStatus'])->name('subcategoryStatus');
+    });
+    Route::prefix('/brand')->name('brand.')->group(function (){
+        Route::get('/index',[BrandController::class,'index'])->name('index');
+        Route::get('/create',[BrandController::class,'create'])->name('create');
+        Route::post('/store',[BrandController::class,'store'])->name('store');
+        Route::put('/brand-status/{id}',[BrandController::class,'brandStatus'])->name('brandStatus');
+        Route::delete('/brand-destroy/{id}',[BrandController::class,'destroy'])->name('destroy');
+        Route::get('/brand-edit/{id}',[BrandController::class,'edit'])->name('brandEdit');
+        Route::put('/brand-update/{id}',[BrandController::class,'update'])->name('update');
+
     });
 
 
