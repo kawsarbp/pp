@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('product_title');
             $table->string('product_price');
-            $table->string('product_discount');
+            $table->string('product_discount')->nullable();
             $table->string('product_quantity');
             $table->string('product_photo');
             $table->string('description');

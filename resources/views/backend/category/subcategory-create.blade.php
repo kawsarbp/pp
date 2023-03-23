@@ -12,7 +12,7 @@
                     <form action="{{ route('subcategory.subcategoryStore') }}" method="POST" >
                         @csrf
                         <div class="form-body">
-                            <div class="card-title"><a class="btn btn-outline-purple" href="{{ route('subcategory.index') }}">Sub-categories</a></div>
+                            <div class="card-title"><a class="btn btn-outline-info" href="{{ route('subcategory.index') }}">Sub-categories</a></div>
                             <hr>
                             <!--/row-->
                             <div class="row">

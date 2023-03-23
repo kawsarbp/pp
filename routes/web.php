@@ -84,6 +84,10 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::get('/index',[ProductController::class,'index'])->name('index');
         Route::get('/create',[ProductController::class,'create'])->name('create');
         Route::post('/store',[ProductController::class,'store'])->name('store');
+        Route::put('/product-status/{id}',[ProductController::class,'productStatus'])->name('productStatus');
+        Route::delete('/destroy/{id}',[ProductController::class,'destroy'])->name('destroy');
+        Route::get('/edit/{id}',[ProductController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[ProductController::class,'update'])->name('update');
     });
 
 

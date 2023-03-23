@@ -21,12 +21,28 @@
                                         aria-label="Name: activate to sort column descending" style="">SN
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Position: activate to sort column ascending" style="">
-                                        Brand Name
+                                        aria-label="Office: activate to sort column ascending" style="">
+                                        Name
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Office: activate to sort column ascending" style="">
-                                        Brand Image
+                                        Title
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="">
+                                        Price
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="">
+                                        Discount
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="">
+                                        Quantity
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="">
+                                        Photo
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Start date: activate to sort column ascending"
@@ -39,13 +55,44 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($products as $product)
                                 <tr>
-                                    <td>ds</td>
-                                    <td>ds</td>
-                                    <td>ds</td>
-                                    <td>ds</td>
-                                    <td>ds</td>
+                                    <td>{{ ++$loop->index }}</td>
+                                    <td>{{ $product->product_name }}</td>
+                                    <td>{{ $product->product_title }}</td>
+                                    <td> ${{ $product->product_price }}</td>
+                                    <td> ${{ $product->product_discount }}</td>
+                                    <td>{{ $product->product_quantity }}</td>
+                                    <td>
+                                        <img src="/uploads/product/{{$product->product_photo}}" alt="..." style="width: 110px;"/>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('product.productStatus',$product->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+
+                                            @if($product->status == 'active')
+                                                <button type="submit"
+                                                        class="btn btn-info btn-sm">{{ucfirst($product->status)}}</button>
+                                            @else
+                                                <button type="submit"
+                                                        class="btn btn-warning btn-sm">{{ucfirst($product->status)}}</button>
+                                            @endif
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <a href=""  class="btn btn-success btn-sm m-1"><i class="mdi mdi-eye"></i></a>
+                                        <a href="{{ route('product.edit',$product->id) }}"  class="btn btn-info btn-sm m-1"><i class="mdi mdi-account-edit"></i></a>
+                                        <form action="{{ route('product.destroy',$product->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Are You Sure!')"
+                                                    class="btn btn-sm btn-danger m-1"><i class="mdi mdi-delete-forever"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
 

@@ -21,4 +21,17 @@ class Product extends Model
         'description',
         'status',
     ];
+
+    public function subcategory()
+    {
+        return $this->belongsTo(Subcategory::class);
+    }
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
