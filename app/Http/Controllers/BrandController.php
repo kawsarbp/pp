@@ -52,7 +52,7 @@ class BrandController extends Controller
         if ($brand) {
             $file->move('uploads/brand', $file_name);
         }
-        return redirect()->back()->with(['type' => 'success', 'message' => 'Brand Create Successfully.']);
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Created Successfully.']);
 
     }
 
@@ -73,7 +73,7 @@ class BrandController extends Controller
             $status->status = 'active';
             $status->save();
         }
-        return redirect()->back()->with(['type'=>'success','message' => 'Brand Status Update Success.']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Status Update.']);
     }
 
     /**
@@ -121,7 +121,7 @@ class BrandController extends Controller
         }
         $brand->status = $request->status;
         $brand->save();
-        return redirect()->route('brand.index')->with(['type'=>'success','message' => 'Brand Update Success.']);
+        return redirect()->route('brand.index')->with(['type'=>'success','message' => 'Updated Success.']);
 
     }
 
@@ -139,6 +139,6 @@ class BrandController extends Controller
             File::delete($originalPath);
         }
         $blog->delete();
-        return redirect()->back()->with(['type'=>'success','message' => 'Brand Delete Success']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Delete Success']);
     }
 }

@@ -32,7 +32,6 @@ class ProductController extends Controller
     {
         $brands = Brand::where('status', 'active')->get();
         $subcategories = Subcategory::with('category')->where('status', 'active')->get();
-//        return $subcategories;
         return view('backend.product.create-product', compact('subcategories', 'brands'));
     }
 
@@ -51,7 +50,6 @@ class ProductController extends Controller
             'product_name' => 'required',
             'product_title' => 'required',
             'product_price' => 'required',
-//            'product_discount'=>'required',
             'product_quantity' => 'required',
             'product_photo' => 'required|image',
             'description' => 'required',
@@ -77,8 +75,7 @@ class ProductController extends Controller
         if ($product) {
             $file->move('uploads/product', $file_name);
         }
-        return redirect()->back()->with(['type' => 'success', 'message' => 'Product Add Success.']);
-
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Created Success.']);
     }
 
     /*productStatus*/
@@ -94,7 +91,7 @@ class ProductController extends Controller
             $status->status = 'active';
             $status->save();
         }
-        return redirect()->back()->with(['type' => 'success', 'message' => 'Product Status Update Done.']);
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Status Update.']);
     }
 
     /**
@@ -142,7 +139,6 @@ class ProductController extends Controller
             'product_name' => 'required',
             'product_title' => 'required',
             'product_price' => 'required',
-//            'product_discount'=>'required',
             'product_quantity' => 'required',
             'product_photo' => 'image',
             'description' => 'required',
@@ -174,7 +170,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->status = $request->status;
         $product->save();
-        return redirect()->route('product.index')->with(['type' => 'success', 'message' => 'Product Update Success']);
+        return redirect()->route('product.index')->with(['type' => 'success', 'message' => 'Update Success']);
     }
 
     /**
@@ -191,6 +187,6 @@ class ProductController extends Controller
             File::delete($originalPath);
         }
         $product->delete();
-        return redirect()->back()->with(['type' => 'success', 'message' => 'Product Delete Success']);
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Delete Success']);
     }
 }

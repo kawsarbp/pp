@@ -47,7 +47,7 @@ class BlogController extends Controller
         if ($blog) {
             $file->move('uploads/blog', $file_name);
         }
-        return redirect()->back()->with(['type'=>'success','message' => 'Blog Added Done.']);
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Created Done.']);
     }
 
     /*blog delete*/
@@ -59,7 +59,7 @@ class BlogController extends Controller
             File::delete($originalPath);
         }
         $blog->delete();
-        return redirect()->back()->with(['type'=>'success','message' => 'Blog Delete Success']);
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Delete Success']);
     }
 
     /*edit blog*/
@@ -71,9 +71,7 @@ class BlogController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $blog = Blog::find($id);
-
         $blog->user_id = Auth::user()->id;
         $blog->title = $request->title;
         $blog->date = $request->date;
@@ -82,37 +80,33 @@ class BlogController extends Controller
         $file = $request->file('photo');
         if ($file == null) {
             $blog->photo = $old_photo;
-        }else{
-            if($file){
-                $file_name = uniqid().date('dmyhis.').$file->getClientOriginalExtension();
+        } else {
+            if ($file) {
+                $file_name = uniqid() . date('dmyhis.') . $file->getClientOriginalExtension();
                 $blog->photo = $file_name;
-                $file->move('uploads/blog',$file_name);
-                File::delete(public_path('/uploads/blog/'.$old_photo));
+                $file->move('uploads/blog', $file_name);
+                File::delete(public_path('/uploads/blog/' . $old_photo));
             }
         }
         $blog->status = $request->status;
         $blog->description = $request->description;
         $blog->save();
-
-        return redirect()->route('blog.manageBlog')->with(['type'=>'success','message' => 'Blog Update Done.']);
-
+        return redirect()->route('blog.manageBlog')->with(['type' => 'success', 'message' => 'Update Done.']);
     }
+
     /*status update*/
     public function blogStatus($id)
     {
         $status = Blog::findOrFail($id);
-
-        if ($status->status == 'active')
-        {
+        if ($status->status == 'active') {
             $status->status = 'inactive';
             $status->save();
-        }else{
+        } else {
 
             $status->status = 'active';
             $status->save();
         }
-        return redirect()->back()->with(['type'=>'success','message' => 'Blog Status Update Done.']);
-
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Status Update.']);
     }
     /*blog*/
 }

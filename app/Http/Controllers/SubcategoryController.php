@@ -33,14 +33,14 @@ class SubcategoryController extends Controller
             'subcategory_slug' => str_replace(' ','-',$request->subcategory_name),
             'status' => $request->status,
         ]);
-        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Create Done.']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Create Done.']);
     }
     /*subcategory delete*/
     public function subcategoryDestroy($id)
     {
         $subcategory = Subcategory::find($id);
         $subcategory->delete();
-        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Delete Success']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Delete Success']);
     }
     /*edit subcategory*/
     public function subcategoryEdit($id)
@@ -62,7 +62,7 @@ class SubcategoryController extends Controller
         $subcategory->subcategory_slug = str_replace(' ','-',$request->subcategory_name);
         $subcategory->status = $request->status;
         $subcategory->save();
-        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Update Success']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Update Success']);
     }
     /*status change*/
     public function subcategoryStatus($id)
@@ -77,7 +77,7 @@ class SubcategoryController extends Controller
             $status->status = 'active';
             $status->save();
         }
-        return redirect()->back()->with(['type'=>'success','message' => 'Subcategory Status Update Done.']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Status Updated.']);
     }
 
 
