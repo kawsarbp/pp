@@ -15,7 +15,7 @@
                             <div class="card-title"><a class="btn btn-outline-purple" href="{{ route('category.index') }}">categories</a></div>
                             <hr>
                             <!--/row-->
-                            <div class="row">
+                            <div class="row align-items-end">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="category_name">Category Name</label>

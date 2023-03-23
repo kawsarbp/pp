@@ -17,18 +17,24 @@
                             <div class="row p-t-20">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label" for="cat_id">Category Name</label>
-                                        <select name="cat_id" class="form-control" id="cat_id">
-                                            <option value="">-- Select Category --</option>
+                                        <label class="control-label" for="subcategory_id">Category Name</label>
+                                        <select name="subcategory_id" class="form-control" id="subcategory_id">
+                                            <option value="" selected disabled>Select Category</option>
+                                            @foreach($subcategories as $subcategory)
+                                            <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }} <= {{ $subcategory->category->category_name }}</option>
+                                            @endforeach
                                         </select>
-                                        @error('cat_id') <span class="text-danger font-italic">{{ $message }}</span> @enderror
+                                        @error('subcategory_id') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="brand_id">Brand Name</label>
                                         <select name="brand_id" class="form-control" id="brand_id">
-                                            <option value="" >-- Select Brand --</option>
+                                            <option value="" disabled selected >Select Brand</option>
+                                            @foreach($brands as $brand)
+                                            <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                                            @endforeach
                                         </select>
                                         @error('brand_id') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
@@ -37,7 +43,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="product_name">Product Name</label>
-                                        <input type="text" id="product_name" name="product_name" class="form-control" placeholder="Name">
+                                        <input type="text" value="{{ old('product_name') }}" id="product_name" name="product_name" class="form-control" placeholder="Name">
                                         @error('product_name') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
@@ -45,28 +51,28 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="product_title">Product Title</label>
-                                        <input type="text" id="product_title" name="product_title" class="form-control" placeholder="Title">
+                                        <input type="text" value="{{ old('product_title') }}" id="product_title" name="product_title" class="form-control" placeholder="Title">
                                         @error('product_title') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="product_price">Product Price</label>
-                                        <input type="number" id="product_price" name="product_price" class="form-control" placeholder="Price">
+                                        <input type="number" value="{{ old('product_price') }}" id="product_price" name="product_price" class="form-control" placeholder="Price">
                                         @error('product_price') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="product_discount">Product Discount</label>
-                                        <input type="number" id="product_discount" name="product_discount" class="form-control" placeholder="Discount">
+                                        <input type="number" value="{{ old('product_discount') }}" id="product_discount" name="product_discount" class="form-control" placeholder="Discount">
                                         @error('product_discount') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="product_quantity">Product Quantity</label>
-                                        <input type="number" id="product_quantity" name="product_quantity" class="form-control" placeholder="Quantity">
+                                        <input type="number" value="{{ old('product_quantity') }}" id="product_quantity" name="product_quantity" class="form-control" placeholder="Quantity">
                                         @error('product_quantity') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
@@ -81,7 +87,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="description">Product Description</label>
-                                        <textarea name="description" id="description" cols="25" rows="8" class="form-control"></textarea>
+                                        <textarea name="description" id="description" cols="25" rows="8" class="form-control">{{ old('description') }}</textarea>
                                         @error('description') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>

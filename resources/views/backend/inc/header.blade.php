@@ -201,7 +201,7 @@
                             <li><a href="{{route('brand.index')}}">Manage Brands</a></li>
                         </ul>
                     </li>
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Product </span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-projector-screen"></i><span class="hide-menu">Product </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('product.create')}}">Create Product</a></li>
                             <li><a href="{{route('product.index')}}">Manage Product</a></li>

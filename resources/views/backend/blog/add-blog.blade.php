@@ -32,7 +32,7 @@
 
                             </div>
                             <!--/row-->
-                            <div class="row">
+                            <div class="row align-items-end">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" id="photo">Blog Image</label>
