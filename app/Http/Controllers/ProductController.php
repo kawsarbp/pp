@@ -103,9 +103,14 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::with('subcategory','brand','user')->findOrFail($id);
+//        return $product;
+        if($product)
+        return view('backend.product.show',compact('product'));
+        else
+            return redirect()->back();
     }
 
     /**

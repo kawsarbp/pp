@@ -81,7 +81,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <a href=""  class="btn btn-success btn-sm m-1"><i class="mdi mdi-eye"></i></a>
+                                        <a href="{{ route('product.show',$product->id) }}" class="btn btn-success btn-sm m-1"><i class="mdi mdi-eye"></i></a>
                                         <a href="{{ route('product.edit',$product->id) }}"  class="btn btn-info btn-sm m-1"><i class="mdi mdi-account-edit"></i></a>
                                         <form action="{{ route('product.destroy',$product->id) }}" method="POST">
                                             @csrf

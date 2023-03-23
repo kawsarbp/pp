@@ -88,6 +88,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::delete('/destroy/{id}',[ProductController::class,'destroy'])->name('destroy');
         Route::get('/edit/{id}',[ProductController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[ProductController::class,'update'])->name('update');
+        Route::get('/show/{id}',[ProductController::class,'show'])->name('show');
     });
 
 
