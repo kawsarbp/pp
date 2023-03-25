@@ -61,7 +61,7 @@
                                     <td>{{ $product->product_name }}</td>
                                     <td>{{ $product->product_title }}</td>
                                     <td> ${{ $product->product_price }}</td>
-                                    <td> ${{ $product->product_discount }}</td>
+                                    <td> @if($product->product_discount == null) {{ 'no discount' }} @else  ${{ $product->product_discount }} @endif</td>
                                     <td>{{ $product->product_quantity }}</td>
                                     <td>
                                         <img src="/uploads/product/{{$product->product_photo}}" alt="..." style="width: 110px;"/>

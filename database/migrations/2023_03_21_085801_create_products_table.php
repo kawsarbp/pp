@@ -24,7 +24,7 @@ return new class extends Migration
             $table->decimal('product_discount')->nullable();
             $table->unsignedBigInteger('product_quantity');
             $table->string('product_photo');
-            $table->string('description');
+            $table->longText('description');
             $table->string('status');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

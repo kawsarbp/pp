@@ -12,7 +12,7 @@
                     <form action="{{ route('category.categoryStore') }}" method="POST" >
                         @csrf
                         <div class="form-body">
-                            <div class="card-title"><a class="btn btn-outline-purple" href="{{ route('category.index') }}">categories</a></div>
+                            <div class="card-title"><a class="btn btn-info" href="{{ route('category.index') }}">categories</a></div>
                             <hr>
                             <!--/row-->
                             <div class="row align-items-end">
