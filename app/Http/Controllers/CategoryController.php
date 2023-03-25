@@ -60,7 +60,7 @@ class CategoryController extends Controller
         $category->category_slug = str_replace(' ','-',$request->category_name);
         $category->status = $request->status;
         $category->save();
-        return redirect()->back()->with(['type'=>'success','message' => 'Category Update Done.']);
+        return redirect()->route('category.index')->with(['type'=>'success','message' => 'Category Update Done.']);
     }
     /*status change*/
     public function categoryStatus($id)
@@ -75,7 +75,7 @@ class CategoryController extends Controller
             $status->status = 'active';
             $status->save();
         }
-        return redirect()->back()->with(['type'=>'success','message' => 'Category Status Update Done.']);
+        return redirect()->back()->with(['type'=>'success','message' => 'Category Status Updated.']);
     }
 
 }

@@ -47,8 +47,10 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::delete('/destroy/{id}',[BlogController::class,'destroy'])->name('destroy');
         Route::get('/edit/{id}',[BlogController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[BlogController::class,'update'])->name('update');
+        Route::get('/show/{id}',[BlogController::class,'show'])->name('show');
         Route::put('/blog-status/{id}',[BlogController::class,'blogStatus'])->name('blogStatus');
     });
+
     /*category*/
     Route::prefix('/category')->name('category.')->group(function (){
         Route::get('/index',[CategoryController::class,'index'])->name('index');

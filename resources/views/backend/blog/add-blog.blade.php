@@ -2,7 +2,7 @@
 @section('title','Add Blog')
 
 @section('content')
-    <div class="row mt-4">
+    <div class="row pt-4">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header bg-info">

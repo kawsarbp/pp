@@ -103,7 +103,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('subcategory','brand','user')->findOrFail($id);
-//        return $product;
         if($product)
         return view('backend.product.show',compact('product'));
         else

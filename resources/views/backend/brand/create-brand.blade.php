@@ -18,7 +18,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Brand Name</label>
-                                        <input type="text" id="brand_name" name="brand_name" class="form-control" placeholder="Brand Name">
+                                        <input type="text" value="{{ old('brand_name') }}" id="brand_name" name="brand_name" class="form-control" placeholder="Brand Name">
                                         @error('brand_name') <span class="text-danger font-italic">{{ $message }}</span> @enderror
                                     </div>
                                 </div>

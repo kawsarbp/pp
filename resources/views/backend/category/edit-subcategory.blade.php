@@ -2,7 +2,7 @@
 @section('title','Sub Category Edit')
 
 @section('content')
-    <div class="row mt-4 justify-content-center">
+    <div class="row pt-4 justify-content-center">
         <div class="col-lg-10">
             <div class="card">
                 <div class="card-header bg-info">

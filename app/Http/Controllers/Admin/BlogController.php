@@ -108,5 +108,15 @@ class BlogController extends Controller
         }
         return redirect()->back()->with(['type' => 'success', 'message' => 'Status Update.']);
     }
+    /*show*/
+    public function show($id)
+    {
+        $blog = Blog::with('user')->findOrFail($id);
+
+        if($blog)
+            return view('backend.blog.show',compact('blog'));
+        else
+            return redirect()->back();
+    }
     /*blog*/
 }

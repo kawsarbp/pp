@@ -20,9 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->string('product_name');
             $table->string('product_title');
-            $table->string('product_price');
-            $table->string('product_discount')->nullable();
-            $table->string('product_quantity');
+            $table->decimal('product_price');
+            $table->decimal('product_discount')->nullable();
+            $table->unsignedBigInteger('product_quantity');
             $table->string('product_photo');
             $table->string('description');
             $table->string('status');

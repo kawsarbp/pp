@@ -72,7 +72,7 @@
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-sm btn-danger m-1" type="submit">
+                                                <button class="btn btn-sm btn-danger m-1" onclick="return confirm('Are you sure !')" type="submit">
                                                     <i class="mdi mdi-delete-forever"></i>
                                                 </button>
                                             </form>

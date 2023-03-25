@@ -62,7 +62,7 @@ class SubcategoryController extends Controller
         $subcategory->subcategory_slug = str_replace(' ','-',$request->subcategory_name);
         $subcategory->status = $request->status;
         $subcategory->save();
-        return redirect()->back()->with(['type'=>'success','message' => 'Update Success']);
+        return redirect()->route('subcategory.index')->with(['type'=>'success','message' => 'Update Success']);
     }
     /*status change*/
     public function subcategoryStatus($id)

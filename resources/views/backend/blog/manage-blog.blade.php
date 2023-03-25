@@ -2,7 +2,7 @@
 @section('title','Manage Blog')
 
 @section('content')
-    <div class="row mt-4">
+    <div class="row pt-4">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -37,10 +37,6 @@
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Salary: activate to sort column ascending" style="">
-                                        Description
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Salary: activate to sort column ascending" style="">
                                         status
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
@@ -54,11 +50,10 @@
                                     <tr role="row" class="">
                                         <td class="sorting_1">{{ $loop->iteration }}</td>
                                         <td>{{$blog->user->name}}</td>
-                                        <td>{{$blog->title}}</td>
+                                        <td>{{substr($blog->title,0,20)}}...</td>
                                         <td>{{date('d-M-Y',strtotime($blog->date))}}</td>
                                         <td><img src="/uploads/blog/{{$blog->photo}}" alt="..." style="width: 110px;">
                                         </td>
-                                        <td>{{$blog->description}}</td>
                                         <td>
                                             <form action="{{ route('blog.blogStatus',$blog->id) }}" method="POST">
                                                 @csrf
@@ -76,6 +71,9 @@
 
                                         <td>
                                             <a href="{{route('blog.edit',$blog->id)}}"  class="btn btn-info btn-sm m-1"><i class="mdi mdi-account-edit"></i></a>
+
+                                            <a href="{{ route('blog.show',$blog->id) }}"  class="btn btn-success btn-sm m-1"><i class="mdi mdi-eye"></i></a>
+
                                             <form action="{{route('blog.destroy',$blog->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
