@@ -1536,6 +1536,10 @@ body {
     .blog_search_box {
         border: 1px solid #f1f1f1;
         padding: 12px 18px;
+        button{
+            border: none;
+            background: none;
+        }
 
         svg {
             color: #FF2732;
@@ -1655,6 +1659,25 @@ body {
 
     }
 
+    .blog-date{
+        font-size: 14px;
+        font-weight: 400;
+        color: #687083;
+    }
+    .blog-title{
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.33;
+        max-width: 487px;
+        margin: 20px 0 32px 0;
+        color: #00124e;
+    }
+    .blog-des{
+        font-size: 16px;
+        color: #687083;
+        font-weight: 400;
+        line-height: 1.8;
+    }
 
 }
 

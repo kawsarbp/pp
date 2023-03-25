@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,9 +47,13 @@ class SiteController extends Controller
         return view('frontend.ecom.about-us');
     }
     /*view blog page*/
-    public function blog()
+    public function blog(Request $request)
     {
-        return view('frontend.ecom.blog');
+        $value = $request->search;
+        $search = Blog::where('title','LIKE','%'.$value.'%')->get();
+
+        $blogs = Blog::where('status','active')->get();
+        return view('frontend.ecom.blog',compact('blogs','search'));
     }
     /*view addToCart page*/
     public function addToCart()
@@ -95,6 +100,24 @@ class SiteController extends Controller
     public function productDetails()
     {
         return view('frontend.ecom.product.product-details');
+    }
+    /*single blog post*/
+    public function blogPost($id)
+    {
+        $blog = Blog::findOrfail($id);
+        if($blog)
+        return view('frontend.ecom.single-blog',compact('blog'));
+        else
+            return redirect()->back();
+    }
+    /*blog post search*/
+    public static function blogSearch(Request $request)
+    {
+        $value = $request->search;
+
+        $search = Blog::where('title','LIKE','%'.$value.'%')->get();
+        $blogs = Blog::where('status','active')->get();
+        return view('frontend.ecom.blog',compact('blogs','search'));
     }
 
 }
