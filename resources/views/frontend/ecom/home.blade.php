@@ -82,7 +82,7 @@
                                 <div class="discount_amount">$ {{ $product->product_discount }}%</div>
                             @endif
                             <div class="product_brand_name">{{ $product->brand->brand_name }}</div>
-                            <a href="javascript:void (0)"
+                            <a href="{{ route('user.productDetails',$product->id) }}"
                                class="product_name">{{ substr($product->product_title,0,20) }}...</a>
                             <div class="product_rating">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

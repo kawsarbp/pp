@@ -28,19 +28,19 @@ class SiteController extends Controller
     /*view user home page*/
     public function home()
     {
-        $brands = Brand::where('status','active')->orderBy('id','desc')->limit(12)->get();
-        $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id','desc')->get();
-        $productslimit = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id','desc')->limit(6)->get();
+        $brands = Brand::where('status', 'active')->orderBy('id', 'desc')->limit(12)->get();
+        $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->get();
+        $productslimit = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->limit(6)->get();
 
         if (Auth::id()) {
             $admin = Auth::user()->role == 1;
             if ($admin) {
                 return redirect()->route('dashboard');
             } else {
-                return view('frontend.ecom.home', compact('products','productslimit','brands'));
+                return view('frontend.ecom.home', compact('products', 'productslimit', 'brands'));
             }
         }
-        return view('frontend.ecom.home', compact('products','productslimit','brands'));
+        return view('frontend.ecom.home', compact('products', 'productslimit', 'brands'));
     }
 
     /*view contact us page*/
@@ -60,7 +60,6 @@ class SiteController extends Controller
     {
         $value = $request->search;
         $search = Blog::where('title', 'LIKE', '%' . $value . '%')->get();
-
         $blogs = Blog::where('status', 'active')->get();
         return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
@@ -114,9 +113,11 @@ class SiteController extends Controller
     }
 
     /*view shippingMethod  page*/
-    public function productDetails()
+    public function productDetails($id)
     {
-        return view('frontend.ecom.product.product-details');
+        $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->get();
+        $product = Product::with('brand', 'subcategory', 'user')->find($id);
+        return view('frontend.ecom.product.product-details',compact('product','products'));
     }
 
     /*single blog post*/
