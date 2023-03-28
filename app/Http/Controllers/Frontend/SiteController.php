@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,7 +66,32 @@ class SiteController extends Controller
     }
 
     /*view addToCart page*/
-    public function addToCart()
+    public function addToCart(Request $request,$id)
+    {
+        if(Auth::id()){
+            $product = Product::findOrfail($id);
+            $data = [
+                'user_id' => Auth::id(),
+                'product_id' => $product->id,
+                'name' => Auth::user()->name,
+                'email' => Auth::user()->email,
+                'phone' => Auth::user()->phone,
+                'address' => Auth::user()->address,
+                'product_name' => $product->product_name,
+                'product_price' => $product->product_price,
+                'product_discount' => $product->product_discount,
+                'product_qty' => 1,
+                'product_photo' => $product->product_photo,
+            ];
+            Cart::updateOrcreate($data);
+//            $this->mount();
+            return redirect()->route('user.Cart');
+        }else
+        {
+            return redirect()->route('login');
+        }
+    }
+    public function Cart()
     {
         return view('frontend.ecom.cart.cart');
     }

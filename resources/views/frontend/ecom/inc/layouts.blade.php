@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="{{asset('src/img/logo/favicon.png')}}" type="image/x-icon">
     @yield('head')
     @include('frontend.ecom.inc.css')
+
+    @livewireStyles
 </head>
 <body>
 
@@ -34,5 +36,7 @@
 @include('frontend.ecom.inc.script')
 
 @yield('footer')
+
+@livewireScripts
 </body>
 </html>

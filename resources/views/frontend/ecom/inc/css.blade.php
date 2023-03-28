@@ -15,3 +15,5 @@
 <link rel="stylesheet" href="{{ asset('src/scss/style.css') }}">
 {{--jquery--}}
 <script src="{{asset('src/js/jquery/jquery-3.6.3.min.js')}}"></script>
+{{--toastr--}}
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">

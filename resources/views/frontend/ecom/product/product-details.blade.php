@@ -72,7 +72,6 @@
                         </div>
                         <hr>
                         @php
-
                             $discount = $product->product_price * ($product->product_discount / 100);
                             $discountedPrice = $product->product_price - $discount;
                         @endphp

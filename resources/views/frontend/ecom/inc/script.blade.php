@@ -8,3 +8,15 @@
 <script src="{{asset('src/js/fixednav/navbar-fixed.js')}}"></script>
 {{--core js--}}
 <script src="{{asset('src/js/script.js')}}"></script>
+{{--toastr--}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        toastr.success(@if(session()->has('message'))'{{ session('message') }}' @endif, @if(session()->has('message'))'{{ session('type') }}' @endif, {
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "showDuration": "200",
+        });
+    });
+</script>
