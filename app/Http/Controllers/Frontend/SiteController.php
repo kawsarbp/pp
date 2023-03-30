@@ -70,30 +70,33 @@ class SiteController extends Controller
     {
         if (Auth::id()) {
             $product = Product::find($id);
+            $aleryAdded = Cart::where('product_id', $product->id)->first();
 
-            $aleryAdded = Cart::where('product_id', $product->id)->get();
+            if($aleryAdded == null){
+                $data = [
+                    'user_id' => Auth::id(),
+                    'product_id' => $product->id,
+                    'name' => Auth::user()->name,
+                    'email' => Auth::user()->email,
+                    'phone' => Auth::user()->phone,
+                    'address' => Auth::user()->address,
+                    'product_name' => $product->product_name,
+                    'product_price' => $product->product_price,
+                    'product_discount' => $product->product_discount,
+                    'product_qty' => 1,
+                    'product_photo' => $product->product_photo,
+                ];
+                Cart::updateOrcreate($data);
 
-            $data = [
-                'user_id' => Auth::id(),
-                'product_id' => $product->id,
-                'name' => Auth::user()->name,
-                'email' => Auth::user()->email,
-                'phone' => Auth::user()->phone,
-                'address' => Auth::user()->address,
-                'product_name' => $product->product_name,
-                'product_price' => $product->product_price,
-                'product_discount' => $product->product_discount,
-                'product_qty' => 1,
-                'product_photo' => $product->product_photo,
-            ];
-            Cart::updateOrcreate($data);
+                $product->product_quantity = $product->product_quantity - 1;
+                $product->save();
 
-            $product->product_quantity = $product->product_quantity - 1;
-            $product->save();
+            }else{
 
-            if ($aleryAdded) {
                 return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Already Added in cart.']);
             }
+
+
 
 
             return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Added cart.']);

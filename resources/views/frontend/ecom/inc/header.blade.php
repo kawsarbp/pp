@@ -74,7 +74,11 @@
                         use App\Models\Cart;
                         $cart = Cart::all();
                     @endphp
-                    <a href="{{route('user.Cart')}}" class="top-icon-text">Cart ({{count($cart)}})</a>
+                    <a href="{{route('user.Cart')}}" class="top-icon-text">Cart (@if (auth()->id())
+                        {{count($cart)}}
+                        @else
+                        {{'0'}}
+                        @endif)</a>
                 </div>
             </div>
         </div>

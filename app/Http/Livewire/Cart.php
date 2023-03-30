@@ -23,17 +23,20 @@ class Cart extends Component
 
         if ($shoppingCart->product_qty <= 1) {
             $shoppingCart->product_qty = 1;
+
             if ($shoppingCart->product_qty == 1){
                 session()->flash('cartmsg','Not less than that');
                 session()->flash('type','warning');
             }
+
         } else {
             $shoppingCart->product_qty -= 1;
+            $product->product_quantity = $product->product_quantity += 1;
+            $product->save();
         }
 
         $shoppingCart->save();
-        $product->product_quantity = $product->product_quantity += 1;
-        $product->save();
+
 
     }
 
@@ -46,17 +49,21 @@ class Cart extends Component
 
         if ($shoppingCart->product->product_quantity > $shoppingCart->product_qty) {
             $shoppingCart->product_qty += 1;
+            
+            $product->product_quantity = $product->product_quantity -= 1;
+            $product->save();
+
 
             if ($shoppingCart->product_qty == $shoppingCart->product->product_quantity){
                 session()->flash('cartmsg','not more than that');
                 session()->flash('type','warning');
             }
+
         } else {
             $shoppingCart->product_qty = $shoppingCart->product->product_quantity;
         }
         $shoppingCart->save();
-        $product->product_quantity = $product->product_quantity -= 1;
-        $product->save();
+
 
 
     }
