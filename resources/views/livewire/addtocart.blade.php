@@ -1,10 +1,4 @@
-@extends('frontend.ecom.inc.layouts')
-@section('head')
-    <title>Home Page</title>
-@endsection
 
-{{--carousel start--}}
-@section('content')
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
@@ -1835,6 +1829,4 @@
 
         </div>
     </div>
-@endsection
-{{--top brand end--}}
 

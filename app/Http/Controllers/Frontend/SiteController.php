@@ -66,10 +66,13 @@ class SiteController extends Controller
     }
 
     /*view addToCart page*/
-    public function addToCart(Request $request,$id)
+    public function addToCart(Request $request, $id)
     {
-        if(Auth::id()){
-            $product = Product::findOrfail($id);
+        if (Auth::id()) {
+            $product = Product::find($id);
+
+            $aleryAdded = Cart::where('product_id', $product->id)->get();
+
             $data = [
                 'user_id' => Auth::id(),
                 'product_id' => $product->id,
@@ -84,14 +87,23 @@ class SiteController extends Controller
                 'product_photo' => $product->product_photo,
             ];
             Cart::updateOrcreate($data);
-//            $this->mount();
-            return redirect()->route('user.Cart');
-        }else
-        {
+
+            $product->product_quantity = $product->product_quantity - 1;
+            $product->save();
+
+            if ($aleryAdded) {
+                return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Already Added in cart.']);
+            }
+
+
+            return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Added cart.']);
+
+        } else {
             return redirect()->route('login');
         }
     }
-    public function Cart()
+
+    public function cart()
     {
         return view('frontend.ecom.cart.cart');
     }
@@ -143,7 +155,7 @@ class SiteController extends Controller
     {
         $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->get();
         $product = Product::with('brand', 'subcategory', 'user')->find($id);
-        return view('frontend.ecom.product.product-details',compact('product','products'));
+        return view('frontend.ecom.product.product-details', compact('product', 'products'));
     }
 
     /*single blog post*/

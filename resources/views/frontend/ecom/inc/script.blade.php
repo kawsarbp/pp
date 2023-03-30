@@ -11,6 +11,15 @@
 {{--toastr--}}
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+{{--@if(session()->has('message'))
+    <script>
+        $(document).ready(function () {
+            toastr.success('{{ session()->get('message') }}','null')
+        });
+    </script>
+@endif--}}
+
+
 <script>
     $(document).ready(function () {
         toastr.success(@if(session()->has('message'))'{{ session('message') }}' @endif, @if(session()->has('message'))'{{ session('type') }}' @endif, {

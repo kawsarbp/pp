@@ -1757,7 +1757,9 @@ body {
 
     .cart-product-remove-icon {
         text-align: end;
-
+        button{
+            border: none;
+        }
         svg {
             color: #00124e;
         }

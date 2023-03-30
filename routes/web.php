@@ -26,7 +26,7 @@ Route::get('/blog',[SiteController::class,'blog'])->name('user.blog');
 Route::get('/blog-post/{id}',[SiteController::class,'blogPost'])->name('user.blogPost');
 Route::get('/blog-search',[SiteController::class,'blogSearch'])->name('user.blogSearch');
 Route::get('/add-cart/{id?}',[SiteController::class,'addToCart'])->name('user.addToCart');
-Route::get('/cart/',[SiteController::class,'Cart'])->name('user.Cart');
+Route::get('/cart/',[SiteController::class,'cart'])->name('user.Cart');
 Route::get('/my-wishlist',[SiteController::class,'myWishlist'])->name('user.myWishlist');
 Route::get('/profile/dashboard',[SiteController::class,'userDashboard'])->name('user.dashboard');
 Route::get('/my-purchase-histories',[SiteController::class,'myHistories'])->name('user.myHistories');

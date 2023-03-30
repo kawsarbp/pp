@@ -1101,6 +1101,8 @@ body {
   text-align: center; }
 #cart-products .cart-product-remove-icon {
   text-align: end; }
+  #cart-products .cart-product-remove-icon button {
+    border: none; }
   #cart-products .cart-product-remove-icon svg {
     color: #00124e; }
 #cart-products .cart-items-qty .card-items-ind-btn {
