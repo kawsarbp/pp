@@ -74,13 +74,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="name" class="label-name">Name <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="text" placeholder="Enter Your Name" id="name" name="" class="form-control contact-info-field">
+                                            <input type="text" value="{{ $user->name }}" placeholder="Enter Your Name" id="name" name="" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="address" class="label-name">Address <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="text" id="address" placeholder="Enter Your Address" name="" class="form-control contact-info-field">
+                                            <input type="text" value="{{ $user->address }}" id="address" placeholder="Enter Your Address" name="" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                 </div>
@@ -88,13 +88,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="email" class="label-name">E-mail <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="email" placeholder="Enter Your E-mail" id="email" name="" class="form-control contact-info-field">
+                                            <input type="email" value="{{ $user->email }}" placeholder="Enter Your E-mail" id="email" name="" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="phone" class="label-name">Phone <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="number" id="phone" placeholder="Enter Your Address" name="" class="form-control contact-info-field">
+                                            <input type="number" value="{{ $user->phone }}" id="phone" placeholder="Enter Your Address" name="" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                 </div>
@@ -103,16 +103,16 @@
                                         <div class="mb-3">
                                             <label for="country" class="label-name">Country <span class="d-inline-block text-danger">*</span></label>
                                             <select name="" id="country" class="form-select contact-info-field">
-                                                <option value="">Select</option>
-                                                <option value="">bangladesh</option>
-                                                <option value="">india</option>
+                                                <option value="" readonly="">Select</option>
+                                                <option value="bangladesh">bangladesh</option>
+                                                <option value="india">india</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="state" class="label-name">State <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="text" id="state" placeholder="Enter Your Address" name="" class="form-control contact-info-field">
+                                            <input type="text" value="{{ $user->state }}" id="state" placeholder="Enter Your Address" name="" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                 </div>
@@ -120,13 +120,13 @@
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="city" class="label-name">City <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="text" id="city" placeholder="City" class="form-control contact-info-field">
+                                            <input type="text" value="{{ $user->city }}" id="city" placeholder="City" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="p-code" class="label-name">Postal Code <span class="d-inline-block text-danger">*</span></label>
-                                            <input type="text" id="p-code" placeholder="Postal Code" name="" class="form-control contact-info-field">
+                                            <input type="text" id="p-code" value="{{ $user->postcode }}" placeholder="Postal Code" name="" class="form-control contact-info-field">
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="note" class="note-text">Note</label>
-                                            <textarea name="" id="note" cols="10" rows="5" placeholder="Note" class="form-control contact-note-field"></textarea>
+                                            <textarea name="" id="note" cols="10" rows="5" placeholder="Note" class="form-control contact-note-field">{{ $user->note }}</textarea>
                                         </div>
                                     </div>
                                 </div>

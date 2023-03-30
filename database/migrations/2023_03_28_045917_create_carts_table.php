@@ -25,9 +25,11 @@ return new class extends Migration
             $table->string('product_name')->nullable();
             $table->string('product_price')->nullable();
             $table->string('product_discount')->nullable();
-            $table->string('product_qty')->nullable();
+            $table->unsignedBigInteger('product_qty')->nullable();
             $table->string('product_photo')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

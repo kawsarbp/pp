@@ -71,7 +71,7 @@ class SiteController extends Controller
     {
         if (Auth::id()) {
             $product = Product::find($id);
-            $aleryAdded = Cart::where('product_id', $product->id)->first();
+            $aleryAdded = Cart::where(['product_id'=> $product->id,'user_id'=>Auth::id()])->first();
 
             if ($aleryAdded == null) {
                 $data = [

@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('role')->default(0);
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
+            $table->string('profile_photo')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('postcode')->nullable();
             $table->string('note')->nullable();
-
+            $table->boolean('condition')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
