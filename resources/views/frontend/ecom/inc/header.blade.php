@@ -72,13 +72,9 @@
                     </span>
                     @php
                         use App\Models\Cart;
-                        $cart = Cart::all();
+                        $cart = Cart::where('user_id',auth()->id())->get();
                     @endphp
-                    <a href="{{route('user.Cart')}}" class="top-icon-text">Cart (@if (auth()->id())
-                        {{count($cart)}}
-                        @else
-                        {{'0'}}
-                        @endif)</a>
+                    <a href="{{route('user.Cart')}}" class="top-icon-text">Cart (<?= isset($cart)?count($cart):'0' ?>)</a>
                 </div>
             </div>
         </div>

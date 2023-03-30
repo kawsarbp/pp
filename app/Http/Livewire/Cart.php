@@ -18,8 +18,8 @@ class Cart extends Component
     public function decQty($id)
     {
         $shoppingCart = ShoppingCart::whereId($id)->first();
-        $product_id = $shoppingCart->product_id;
-        $product = Product::find($product_id);
+        /*$product_id = $shoppingCart->product_id;
+        $product = Product::find($product_id);*/
 
         if ($shoppingCart->product_qty <= 1) {
             $shoppingCart->product_qty = 1;
@@ -31,8 +31,8 @@ class Cart extends Component
 
         } else {
             $shoppingCart->product_qty -= 1;
-            $product->product_quantity = $product->product_quantity += 1;
-            $product->save();
+            /*$product->product_quantity = $product->product_quantity += 1;
+            $product->save();*/
         }
 
         $shoppingCart->save();
@@ -49,15 +49,16 @@ class Cart extends Component
 
         if ($shoppingCart->product->product_quantity > $shoppingCart->product_qty) {
             $shoppingCart->product_qty += 1;
-            
-            $product->product_quantity = $product->product_quantity -= 1;
-            $product->save();
 
 
-            if ($shoppingCart->product_qty == $shoppingCart->product->product_quantity){
+            /*$product->product_quantity = $product->product_quantity -= 1;
+            $product->save();*/
+
+
+            /*if ($shoppingCart->product_qty == $shoppingCart->product->product_quantity){
                 session()->flash('cartmsg','not more than that');
                 session()->flash('type','warning');
-            }
+            }*/
 
         } else {
             $shoppingCart->product_qty = $shoppingCart->product->product_quantity;
@@ -77,8 +78,8 @@ class Cart extends Component
         {
             $cart->delete();
         }
-        $product->product_quantity = $product->product_quantity + $cart->product_qty;
-        $product->save();
+        /*$product->product_quantity = $product->product_quantity + $cart->product_qty;
+        $product->save();*/
         session()->flash('cartmsg','Cart product remove successfully.');
         session()->flash('type','success');
 

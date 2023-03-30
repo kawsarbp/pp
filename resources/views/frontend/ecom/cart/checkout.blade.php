@@ -14,7 +14,7 @@
                             <div class="checkout-img"><img class="rounded-circle" src="{{asset('src/img/profile.png')}}" alt=""></div>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <div class="">
-                                <span class="checkout-customer-name">Customer</span> <span class="checkout-email">(customer@gmail.com)</span>
+                                <span class="checkout-customer-name">{{ strtok( $user->name , " ") }}</span> <span class="checkout-email">({{ $user->email }})</span>
                             </div>
                         </div>
                         <form action="javascript:void (0)">
@@ -34,28 +34,28 @@
                             <div class="contact-information-box">
 
                                 <div class="row mb-2">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div class="table-responsive">
                                             <table class="table  table-borderless overflow-y-auto overflow-x-auto">
                                                 <tr>
                                                     <td>Name</td>
-                                                    <td>: Otto</td>
+                                                    <td>: {{ $user->name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td>: Mejia</td>
+                                                    <td>: {{ $user->email }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Address</td>
-                                                    <td>: sowrov@gmail.com</td>
+                                                    <td>: {{ $user->address }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Phone</td>
-                                                    <td>: +50246413848</td>
+                                                    <td>: {{ $user->phone }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Postal Code / Pin Code 	</td>
-                                                    <td>: 19009</td>
+                                                    <td>: {{ $user->postcode }}</td>
                                                 </tr>
                                             </table>
 
@@ -150,7 +150,7 @@
                             <div class="d-flex flex-row align-items-center my-3">
                                 <div class="continue-shopping"><a href="{{route('user.shippingMethod')}}">Continue To Shipping </a></div>
                                 &nbsp;&nbsp;&nbsp;
-                                <div class="return-to-cart-btn"><a href="{{ route('user.addToCart') }}">Return To Cart</a></div>
+                                <div class="return-to-cart-btn"><a href="{{ route('user.Cart') }}">Return To Cart</a></div>
                             </div>
 
 

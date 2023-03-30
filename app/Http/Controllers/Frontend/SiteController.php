@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,7 +73,7 @@ class SiteController extends Controller
             $product = Product::find($id);
             $aleryAdded = Cart::where('product_id', $product->id)->first();
 
-            if($aleryAdded == null){
+            if ($aleryAdded == null) {
                 $data = [
                     'user_id' => Auth::id(),
                     'product_id' => $product->id,
@@ -88,15 +89,13 @@ class SiteController extends Controller
                 ];
                 Cart::updateOrcreate($data);
 
-                $product->product_quantity = $product->product_quantity - 1;
-                $product->save();
+                /*$product->product_quantity = $product->product_quantity - 1;
+                $product->save();*/
 
-            }else{
+            } else {
 
                 return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Already Added in cart.']);
             }
-
-
 
 
             return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Added cart.']);
@@ -132,7 +131,16 @@ class SiteController extends Controller
     /*view checkout  page*/
     public function checkout()
     {
-        return view('frontend.ecom.cart.checkout');
+        $cart = Cart::where('user_id', Auth::id())->get();
+
+        if (Auth::id()) {
+            if (count($cart) > 0) {
+                $user = User::find(Auth::id());
+                return view('frontend.ecom.cart.checkout',compact('user'));
+            } else {
+                return redirect()->back()->with(['type' => 'success', 'message' => 'Please added product in Cart']);
+            }
+        }
     }
 
     /*view shippingMethod  page*/
