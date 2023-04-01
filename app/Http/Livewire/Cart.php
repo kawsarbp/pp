@@ -55,10 +55,10 @@ class Cart extends Component
             $product->save();*/
 
 
-            /*if ($shoppingCart->product_qty == $shoppingCart->product->product_quantity){
+            if ($shoppingCart->product_qty == $shoppingCart->product->product_quantity){
                 session()->flash('cartmsg','not more than that');
                 session()->flash('type','warning');
-            }*/
+            }
 
         } else {
             $shoppingCart->product_qty = $shoppingCart->product->product_quantity;

@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Cart;
+use App\Models\Cart as ShoppingCart;
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Auth\CreatesUserProviders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -71,7 +73,7 @@ class SiteController extends Controller
     {
         if (Auth::id()) {
             $product = Product::find($id);
-            $aleryAdded = Cart::where(['product_id'=> $product->id,'user_id'=>Auth::id()])->first();
+            $aleryAdded = Cart::where(['product_id' => $product->id, 'user_id' => Auth::id()])->first();
 
             if ($aleryAdded == null) {
                 $data = [
@@ -131,22 +133,68 @@ class SiteController extends Controller
     /*view checkout  page*/
     public function checkout()
     {
+        $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
         $cart = Cart::where('user_id', Auth::id())->get();
-
         if (Auth::id()) {
             if (count($cart) > 0) {
                 $user = User::find(Auth::id());
-                return view('frontend.ecom.cart.checkout',compact('user'));
+                return view('frontend.ecom.cart.checkout', compact('user','cartValues'));
             } else {
                 return redirect()->back()->with(['type' => 'success', 'message' => 'Please added product in Cart']);
             }
         }
     }
 
+    /*user update*/
+    public function userUpdate(Request $request, $id)
+    {
+
+//        return $request->all();
+        $request->validate([
+            'condition' => 'required'
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->postcode = $request->postcode;
+        $user->note = $request->note;
+        $user->country = $request->country;
+        $user->state = $request->state;
+        $user->city = $request->city;
+        if ($request->condition == true) {
+            $user->condition = true;
+        } else {
+            $user->condition = false;
+        }
+
+        $user->save();
+        return redirect()->route('user.shippingMethod')->with(['type' => 'success', 'message' => 'information Updated']);
+
+    }
+
     /*view shippingMethod  page*/
     public function shippingMethod()
     {
-        return view('frontend.ecom.cart.shipping');
+        $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+
+        $cart = Cart::where('user_id', Auth::id())->get();
+        if (Auth::id()) {
+            $user = User::find(Auth::id());
+            return view('frontend.ecom.cart.shipping', compact('user','cartValues'));
+        }
+    }
+
+    public function paymentOption()
+    {
+
+        $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        $cart = Cart::where('user_id', Auth::id())->get();
+        if (Auth::id()) {
+            $user = User::find(Auth::id());
+            return view('frontend.ecom.payment.payment-option',compact('user','cartValues'));
+        }
     }
 
     /*view shippingMethod  page*/

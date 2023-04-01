@@ -31,7 +31,9 @@ Route::get('/my-wishlist',[SiteController::class,'myWishlist'])->name('user.myWi
 Route::get('/profile/dashboard',[SiteController::class,'userDashboard'])->name('user.dashboard');
 Route::get('/my-purchase-histories',[SiteController::class,'myHistories'])->name('user.myHistories');
 Route::get('/checkout',[SiteController::class,'checkout'])->name('user.checkout');
+Route::post('/user-update/{id}',[SiteController::class,'userUpdate'])->name('user.userUpdate');
 Route::get('/shipping-method',[SiteController::class,'shippingMethod'])->name('user.shippingMethod');
+Route::get('/payment-option',[SiteController::class,'paymentOption'])->name('user.paymentOption');
 Route::get('/payment-method',[SiteController::class,'paymentMethod'])->name('user.paymentMethod');
 Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.orderDetails');
 Route::get('/product-details/{id?}',[SiteController::class,'productDetails'])->name('user.productDetails');

@@ -1928,7 +1928,7 @@ body {
         }
 
         .continue-shopping {
-            a {
+            button {
                 display: inline-block;
                 padding: 14.5px 24px 12.5px 24px;
                 font-size: 14px;
@@ -1941,7 +1941,7 @@ body {
                 text-decoration: none;
             }
 
-            a:hover {
+            button:hover {
                 background: #00124E;
             }
         }
@@ -2103,6 +2103,12 @@ body {
                 margin-bottom: 11px;
                 color: #00124e;
             }
+            .encrypted-text{
+                font-size: 14px;
+                color: #687083;
+                text-transform: capitalize;
+                font-weight: 400;
+            }
 
             .shipping-method-type-box {
                 border: 1px solid #f1f1f1;
@@ -2144,6 +2150,7 @@ body {
                 font-size: 14px;
                 font-weight: 700;
                 transition: .3s;
+                border: none;
             }
 
             .continue-to-payment-btn:hover {
@@ -2763,6 +2770,23 @@ body {
     }
 
 }
+.cart-products-payment-discount{
+    background: #29C489;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
 
 
 /*responsive*/

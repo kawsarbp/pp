@@ -32,63 +32,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="shipping-method-box">
-                            <div class="shipping-method-text">Shipping Method</div>
-                            <div class="shipping-method-type-box p-3">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="form-check">
-                                            <input class="form-check-input email-check-field" type="radio" name="flatRate" id="flatRate" checked>
-                                            <label class="form-check-label email-check-text flat-rate-text" for="flatRate">
-                                                Flat Rate &nbsp;&nbsp; [ Manual- 5-8 days - [ <span class="shipping-flat-rate-text">Flat Rate</span> ] ]
-                                            </label>
-                                        </div>
-                                        <div class="shipping-method-delivery-text">Minimum shopping amount (without shipping cost): $ 0.00</div>
-                                    </div>
-                                    <div class="col-md-2 mt-2 mt-lg-0 text-start text-lg-end">
-                                        <div class="shipping-amount">$ 75.00</div>
-                                    </div>
+                        <form action="" method="POST" class="shipping-method-box">
+                            <div class="shipping-method-text">Payment Method</div>
+                            <div class="encrypted-text">All Transactions Are Secure And Encrypted.</div>
+                            <br>
+
+                            <div class="form-check border">
+                                <div class="p-3">
+                                    <input class="form-check-input" type="radio" value="cashondelivery" name="payment" id="cashondelivery" checked>
+                                    <label class="form-check-label" for="cashondelivery">
+                                        Cash On Delivery
+                                    </label>
                                 </div>
                             </div>
-                            <div class="shipping-method-type-box p-3">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="form-check">
-                                            <input class="form-check-input email-check-field" type="radio" name="flatRate" id="freeShipping" >
-                                            <label class="form-check-label email-check-text flat-rate-text" for="freeShipping">
-                                                Free Shipping &nbsp;&nbsp; [ Manual- 8-12 days - [ <span class="shipping-flat-rate-text">Flat Rate</span> ] ]
-                                            </label>
-                                        </div>
-                                        <div class="shipping-method-delivery-text">Minimum shopping amount (without shipping cost): $ 0.00</div>
-                                    </div>
-                                    <div class="col-md-2 mt-2 mt-lg-0 text-start text-lg-end">
-                                        <div class="shipping-amount">$ 75.00</div>
-                                    </div>
+                            <div class="form-check border">
+                                <div class="p-3">
+                                    <input class="form-check-input" value="stripe" type="radio" name="payment" id="Stripe" >
+                                    <label class="form-check-label" for="Stripe">
+                                        Stripe
+                                    </label>
                                 </div>
                             </div>
-                            <div class="shipping-method-type-box p-3">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="form-check">
-                                            <input class="form-check-input email-check-field" type="radio" name="flatRate" id="asdasd" >
-                                            <label class="form-check-label email-check-text flat-rate-text" for="asdasd">
-                                                asdasd &nbsp;&nbsp; [ Manual- 3-5 days - [ <span class="shipping-flat-rate-text">Per Hundred</span> ] ]
-                                            </label>
-                                        </div>
-                                        <div class="shipping-method-delivery-text">Minimum shopping amount (without shipping cost): $ 0.00</div>
-                                    </div>
-                                    <div class="col-md-2 mt-2 mt-lg-0 text-start text-lg-end">
-                                        <div class="shipping-amount">$ 75.00</div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <br>
                             <div class="d-flex flex-row align-items-center">
-                                <div><a href="{{route('user.paymentOption')}}" class="continue-to-payment-btn">continue to payment</a></div>
+                                <div><button type="submit" {{--href="{{route('user.paymentMethod')}}"--}} class="continue-to-payment-btn">continue to payment</button></div>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div><a href="{{route('user.checkout')}}" class="return-to-information-btn">return to information</a></div>
                             </div>
-                        </div>
+                        </form>
 
                     </div>
                 </div>
