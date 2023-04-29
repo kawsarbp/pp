@@ -235,5 +235,10 @@ class SiteController extends Controller
         $blogs = Blog::where('status', 'active')->get();
         return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
+    /*user profile page*/
+    public function userProfile()
+    {
+        return view('frontend.ecom.user.profile');
+    }
 
 }

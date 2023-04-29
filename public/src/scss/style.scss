@@ -609,6 +609,26 @@ body {
             background: #fff;
             border-radius: 5px;
 
+            .active-dashboard-menu{
+                text-decoration: none;
+                display: block;
+                .dashboard-control-icon {
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        color: #FD4949;
+                    }
+                }
+
+                .dashboard-control-text {
+                    color: #FD4949;
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding: 10px 0;
+
+                }
+            }
+
             .dashboard-control-box {
                 text-decoration: none;
                 display: block;
@@ -642,6 +662,7 @@ body {
                     color: #FD4949;
                 }
             }
+
 
         }
 
@@ -958,6 +979,11 @@ body {
 
 
             }
+
+        }
+
+        .profile_info_box{
+            background: #fff;
 
         }
 

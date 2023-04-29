@@ -381,6 +381,18 @@ body {
     padding: 12px 15px;
     background: #fff;
     border-radius: 5px; }
+    #product .my-wishlist .dashboard-history-area .active-dashboard-menu {
+      text-decoration: none;
+      display: block; }
+      #product .my-wishlist .dashboard-history-area .active-dashboard-menu .dashboard-control-icon svg {
+        width: 20px;
+        height: 20px;
+        color: #FD4949; }
+      #product .my-wishlist .dashboard-history-area .active-dashboard-menu .dashboard-control-text {
+        color: #FD4949;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 0; }
     #product .my-wishlist .dashboard-history-area .dashboard-control-box {
       text-decoration: none;
       display: block; }
@@ -609,6 +621,8 @@ body {
       border: 1px solid #F1416C; }
       #product .my-wishlist .purchase-history-area .purchase-history-table .purchase-history-download-btn:hover svg {
         color: #fff; }
+  #product .my-wishlist .profile_info_box {
+    background: #fff; }
 
 #categories .category_text {
   font-size: 30px;

@@ -2,7 +2,7 @@
 <!-- End Container fluid  -->
 <!-- footer -->
 <!-- ============================================================== -->
-<footer class="footer"> © 2017 Material Pro Admin by wrappixel.com</footer>
+<footer class="footer"> &copy; Faz group LTD </footer>
 <!-- End footer -->
 </div>
 <!-- ============================================================== -->
