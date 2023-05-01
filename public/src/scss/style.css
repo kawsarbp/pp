@@ -154,7 +154,7 @@ body {
 #product .product_box {
   overflow: hidden;
   position: relative;
-  border: 1px solid #f1f1f1; }
+  border: 1px solid #e3e3e3; }
   #product .product_box .product_brand_name {
     text-transform: capitalize;
     text-align: center;

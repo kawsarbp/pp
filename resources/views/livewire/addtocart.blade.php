@@ -55,7 +55,7 @@
                                             d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/>
                                     </svg>
                                 </a>
-                                <a href="" class="favorite_icon">
+                                <a href="{{ route('user.addToWishlist',$product->id) }}" class="favorite_icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-heart" viewBox="0 0 16 16">
                                         <path

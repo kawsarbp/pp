@@ -9,6 +9,7 @@ use App\Models\Cart;
 use App\Models\Cart as ShoppingCart;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Auth\CreatesUserProviders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,44 @@ class SiteController extends Controller
         $blogs = Blog::where('status', 'active')->get();
         return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
+    /*add to wishlist*/
+    public function addToWishlist(Request $request,$id)
+    {
+        if (Auth::id()){
+
+            $product = Product::find($id);
+            $aleryAdded = Wishlist::where(['product_id' => $product->id, 'user_id' => Auth::id()])->first();
+
+            if ($aleryAdded == null) {
+                $data = [
+                    'user_id' => Auth::id(),
+                    'product_id' => $product->id,
+                    'name' => Auth::user()->name,
+                    'email' => Auth::user()->email,
+                    'phone' => Auth::user()->phone,
+                    'address' => Auth::user()->address,
+                    'product_name' => $product->product_name,
+                    'product_price' => $product->product_price,
+                    'product_discount' => $product->product_discount,
+                    'product_qty' => 1,
+                    'product_photo' => $product->product_photo,
+                ];
+                Wishlist::updateOrcreate($data);
+
+                /*$product->product_quantity = $product->product_quantity - 1;
+                $product->save();*/
+
+            } else {
+
+                return redirect()->route('user.myWishlist')->with(['type' => 'success', 'message' => 'Product Already Added in Wishlist.']);
+            }
+
+            return redirect()->route('user.myWishlist')->with(['type' => 'success', 'message' => 'Product Added Wishlist.']);
+
+        }else{
+            return redirect()->route('login');
+        }
+    }
 
     /*view addToCart page*/
     public function addToCart(Request $request, $id)
@@ -107,6 +146,7 @@ class SiteController extends Controller
         }
     }
 
+    /*view cart page*/
     public function cart()
     {
         return view('frontend.ecom.cart.cart');
@@ -117,7 +157,9 @@ class SiteController extends Controller
     {
         $id = Auth::id();
         $user = User::where('id',$id)->first();
-        return view('frontend.ecom.wishlist.wishlist',compact('user'));
+        $wishlistValues = Wishlist::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+
+        return view('frontend.ecom.wishlist.wishlist',compact('user','wishlistValues'));
     }
 
     /*view userDashboard  page*/
@@ -277,8 +319,8 @@ class SiteController extends Controller
         }
         $user->save();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Update Done.']);
-
-
     }
+
+
 
 }

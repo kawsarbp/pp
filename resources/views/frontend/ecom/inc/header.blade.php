@@ -58,7 +58,12 @@
                                 d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                         </svg>
                     </span>
-                    <a href="{{route('user.myWishlist')}}" class="top-icon-text">Wishlist (0)</a>
+
+                    @php
+                        use App\Models\Wishlist;
+                        $wishlist = Wishlist::where('user_id',auth()->id())->get();
+                    @endphp
+                    <a href="{{route('user.myWishlist')}}" class="top-icon-text">Wishlist (<?= isset($wishlist)?count($wishlist):'0' ?>)</a>
                 </div>
                 <div class="top-icon-text-box ms-5">
                     <span class="top-icon">
@@ -467,7 +472,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-hover" aria-current="page" target="_blank"
+                        <a class="nav-link menu-hover" aria-current="page"
                            href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
