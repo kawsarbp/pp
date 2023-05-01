@@ -75,12 +75,14 @@ class SiteController extends Controller
         if (Auth::id()){
 
             $product = Product::find($id);
+
             $aleryAdded = Wishlist::where(['product_id' => $product->id, 'user_id' => Auth::id()])->first();
 
             if ($aleryAdded == null) {
                 $data = [
                     'user_id' => Auth::id(),
                     'product_id' => $product->id,
+                    'brand_id' => $product->brand_id,
                     'name' => Auth::user()->name,
                     'email' => Auth::user()->email,
                     'phone' => Auth::user()->phone,
@@ -157,8 +159,7 @@ class SiteController extends Controller
     {
         $id = Auth::id();
         $user = User::where('id',$id)->first();
-        $wishlistValues = Wishlist::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
-
+        $wishlistValues = Wishlist::with('product','brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
         return view('frontend.ecom.wishlist.wishlist',compact('user','wishlistValues'));
     }
 

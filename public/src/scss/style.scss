@@ -357,6 +357,19 @@ body {
             opacity: 0;
             z-index: 999999;
 
+            .active_wishlist_icon {
+                display: block;
+                text-decoration: none;
+                border-bottom: 1px solid #f1f1f1;
+                padding: 4px 0;
+                svg {
+                    color: red;
+                    transition: .3s;
+                    width: 17px;
+                    height: 17px;
+                }
+            }
+
             .favorite_icon {
                 display: block;
                 text-decoration: none;

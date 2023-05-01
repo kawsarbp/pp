@@ -212,6 +212,16 @@ body {
     transition: .3s;
     opacity: 0;
     z-index: 999999; }
+    #product .product_box .favorite_box .active_wishlist_icon {
+      display: block;
+      text-decoration: none;
+      border-bottom: 1px solid #f1f1f1;
+      padding: 4px 0; }
+      #product .product_box .favorite_box .active_wishlist_icon svg {
+        color: red;
+        transition: .3s;
+        width: 17px;
+        height: 17px; }
     #product .product_box .favorite_box .favorite_icon {
       display: block;
       text-decoration: none;
