@@ -253,7 +253,7 @@
                                             @if($cartValue->product_discount)
                                                 <span class="cart-products-payment-discount">
                                             $ {{ $cartValue->product_discount }}%
-                                        </span>
+                                                </span>
                                             @endif
                                         </div>
                                     </div>

@@ -249,16 +249,30 @@
                                         <div class="purchase-history-see-all"><a href="{{route('user.addToCart')}}">see all</a></div>
                                     </div>
                                     <hr>
-                                    <a href="" class="my-wishlist-box mb-3">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div class="my-wishlist-box-img"><img src="{{asset('src/img/product/8.png')}}" alt=""></div>
-                                            &nbsp;&nbsp;&nbsp;
-                                            <div>
-                                                <div class="my-wishlist-box-product-name"> Exclsive Bag 2  </div>
-                                                <div class="my-wishlist-box-product-price">$ 22.00 </div>
+                                    @if(empty($cartValues))
+                                        <h2 class="text-warning">This Cart is Empty</h2>
+                                    @else
+                                        @foreach($cartValues as $cartValue)
+                                        <a href="" class="my-wishlist-box mb-3">
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div class="my-wishlist-box-img"><img src="/uploads/product/{{$cartValue->product_photo}}" alt=""></div>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <div>
+                                                    <div class="my-wishlist-box-product-name">{{ $cartValue->product->product_name }}</div>
+                                                    <div class="my-wishlist-box-product-price">
+                                                        $ {{ $cartValue->product_price }}
+                                                        @if($cartValue->product_discount)
+                                                            <span class="cart-products-payment-discount">
+                                                                $ {{ $cartValue->product_discount }}%
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                        @endforeach
+                                    @endif
+
 
                                 </div>
                             </div>

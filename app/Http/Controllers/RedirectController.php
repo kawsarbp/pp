@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,9 @@ class RedirectController extends Controller
         } else {
             $id = Auth::id();
             $user = User::where('id',$id)->first();
-            return view('frontend.ecom.user.dashboard',compact('user'));
+            $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+
+            return view('frontend.ecom.user.dashboard',compact('user','cartValues'));
         }
     }
 }

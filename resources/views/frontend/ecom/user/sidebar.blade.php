@@ -76,7 +76,7 @@
             <div class="dashboard-control-text">Purchase History</div>
         </div>
     </a>
-    <a href="" class=" dashboard-control-box ">
+    <a href="{{ route('user.myWishlist') }}" class="{{ request()->routeIs('user.myWishlist') ?'active-dashboard-menu':'dashboard-control-box' }}">
         <div class="d-flex flex-row align-items-center">
             <div class="dashboard-control-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">

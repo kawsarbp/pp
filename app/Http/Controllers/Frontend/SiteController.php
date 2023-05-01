@@ -100,7 +100,6 @@ class SiteController extends Controller
                 return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Already Added in cart.']);
             }
 
-
             return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Added cart.']);
 
         } else {
@@ -116,7 +115,9 @@ class SiteController extends Controller
     /*view addToCart page*/
     public function myWishlist()
     {
-        return view('frontend.ecom.wishlist.wishlist');
+        $id = Auth::id();
+        $user = User::where('id',$id)->first();
+        return view('frontend.ecom.wishlist.wishlist',compact('user'));
     }
 
     /*view userDashboard  page*/
@@ -222,8 +223,10 @@ class SiteController extends Controller
     public function blogPost($id)
     {
         $blog = Blog::findOrfail($id);
-        if ($blog)
-            return view('frontend.ecom.single-blog', compact('blog'));
+        $blogs = Blog::where('status', 'active')->get();
+
+        if ($blog and $blogs)
+            return view('frontend.ecom.single-blog', compact('blog','blogs'));
         else
             return redirect()->back();
     }

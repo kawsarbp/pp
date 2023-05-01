@@ -98,7 +98,7 @@
                         <div class="d-flex flex-row align-items-center">
                             <div class="product-qty-text me-3">Quantity:</div>
                             <div class="product-qty-box">
-                                <form action="">
+                                <form action="javascript:void(0)">
                                     <div class="d-flex flex-row align-items-center">
                                         <button type="submit">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -107,8 +107,8 @@
                                                       d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
                                             </svg>
                                         </button>
-                                        <input type="number" min="1" value="1" readonly>
-                                        <button type="submit">
+                                        <input type="number" min="1" value="1" >
+                                        <button type="submit" readonly="">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                  fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd"
@@ -119,11 +119,12 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="total-product-amount">Total: $ {{ $discountedPrice*2 }}</div>
+                        <div class="total-product-amount">Total: $ {{ $discountedPrice }}</div>
                         <div class="row mx-0">
                             <div class="col-lg-5 mb-2">
                                 <div class="product-add-to-cart-btn">
-                                    <button type="submit">add to cart</button>
+                                    <a href="{{ route('user.addToCart',$product->id) }}">add to cart</a>
+{{--                                    <button type="submit">add to cart</button>--}}
                                 </div>
                             </div>
                             <div class="col-lg-5 mb-2 text-start text-lg-end">

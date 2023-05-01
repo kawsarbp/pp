@@ -44,21 +44,12 @@
                         <div class="blog-popular-post-text">
                             Popular Posts
                         </div>
+                        @foreach($blogs as $blog)
                         <hr>
-                        <div class="blog-post-heading"><a href="">Connecting to Care</a></div>
-                        <div class="blog-post-date">23rd Nov, 2021</div>
+                        <div class="blog-post-heading"><a href=" {{ route('user.blogPost',$blog->id)}} ">{{ substr($blog->title,0,15) }}...</a></div>
+                        <div class="blog-post-date">{{ $blog->date }}</div>
+                        @endforeach
 
-                        <hr>
-                        <div class="blog-post-heading"><a href="">Nature is a teacher – What happens when you allow...</a></div>
-                        <div class="blog-post-date">23rd Nov, 2021</div>
-
-                        <hr>
-                        <div class="blog-post-heading"><a href="">Society – The soil in which we grow</a></div>
-                        <div class="blog-post-date">23rd Nov, 2021</div>
-
-                        <hr>
-                        <div class="blog-post-heading"><a href="">Nature Connection Exercise – Perceive and Receive</a></div>
-                        <div class="blog-post-date">23rd Nov, 2021</div>
 
                     </div>
                     <div class="blog-keywords mt-4">
