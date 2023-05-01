@@ -6,8 +6,8 @@
             </div>
             &nbsp;&nbsp;&nbsp;
             <div class="customer-order-details">
-                <div class="customer-details-name">Customer</div>
-                <div class="customer-details-email">customer@gmail.com</div>
+                <div class="customer-details-name">{{ $user->name }}</div>
+                <div class="customer-details-email">{{ $user->email }}</div>
             </div>
         </div>
         <div class="order-details-edit-btn">

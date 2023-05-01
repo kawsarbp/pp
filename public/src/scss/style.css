@@ -623,6 +623,32 @@ body {
         color: #fff; }
   #product .my-wishlist .profile_info_box {
     background: #fff; }
+    #product .my-wishlist .profile_info_box .profile_info_update_btn {
+      border: none;
+      background: #FF2732;
+      padding: 14.5px 50px 12.5px 50px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      transition: .3s; }
+    #product .my-wishlist .profile_info_box .profile_info_update_btn:hover {
+      background: #00124E; }
+    #product .my-wishlist .profile_info_box .profile_input_field:focus {
+      outline: none;
+      box-shadow: none; }
+    #product .my-wishlist .profile_info_box .basic_info_btn {
+      background: #FF2732;
+      border: none;
+      border-radius: 3px;
+      font-weight: 700;
+      padding: 8px 16px;
+      color: #fff; }
+    #product .my-wishlist .profile_info_box .avater_photo {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-top: 85px; }
 
 #categories .category_text {
   font-size: 30px;

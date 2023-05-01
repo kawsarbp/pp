@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Auth\CreatesUserProviders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class SiteController extends Controller
 {
@@ -238,7 +239,43 @@ class SiteController extends Controller
     /*user profile page*/
     public function userProfile()
     {
-        return view('frontend.ecom.user.profile');
+        $id = Auth::id();
+        $user = User::where('id',$id)->first();
+
+        return view('frontend.ecom.user.profile',compact('user'));
+    }
+    /*user profile edit*/
+    public function userProfileEdit(Request $request, $id)
+    {
+        $request->validate([
+            'name'=>'required|string|min:3|max:30',
+            'email'=>'required|email',
+            'address'=>'required',
+            'phone'=>'required|numeric',
+
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+
+        $old_photo = $user->profile_photo;
+        $file = $request->file('profile_photo');
+        if ($file == null) {
+            $user->profile_photo = $old_photo;
+        } else {
+            if ($file) {
+                $file_name = uniqid() . date('dmyhis.') . $file->getClientOriginalExtension();
+                $user->profile_photo = $file_name;
+                $file->move('uploads/user', $file_name);
+                File::delete(public_path('/uploads/user/' . $old_photo));
+            }
+        }
+        $user->save();
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Update Done.']);
+
+
     }
 
 }
