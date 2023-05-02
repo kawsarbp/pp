@@ -72,7 +72,7 @@
                                             @endif
                                             <span class="original_price">${{ $wishlist->product_price }}</span>
                                         </div>
-                                        <a href="" class="add_to_cart_btn ">Add to cart</a>
+                                        <a href="{{ route('user.addToCart',$wishlist->product_id) }}" class="add_to_cart_btn ">Add to cart</a>
                                     </div>
                                 </div>
                             </div>

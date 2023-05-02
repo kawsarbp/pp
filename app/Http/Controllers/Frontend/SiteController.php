@@ -69,10 +69,11 @@ class SiteController extends Controller
         $blogs = Blog::where('status', 'active')->get();
         return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
+
     /*add to wishlist*/
-    public function addToWishlist(Request $request,$id)
+    public function addToWishlist(Request $request, $id)
     {
-        if (Auth::id()){
+        if (Auth::id()) {
 
             $product = Product::find($id);
 
@@ -105,7 +106,7 @@ class SiteController extends Controller
 
             return redirect()->route('user.myWishlist')->with(['type' => 'success', 'message' => 'Product Added Wishlist.']);
 
-        }else{
+        } else {
             return redirect()->route('login');
         }
     }
@@ -116,6 +117,13 @@ class SiteController extends Controller
         if (Auth::id()) {
             $product = Product::find($id);
             $aleryAdded = Cart::where(['product_id' => $product->id, 'user_id' => Auth::id()])->first();
+
+            $wishlist = Wishlist::where(['product_id' => $product->id, 'user_id' => Auth::id()])->first();
+            $wishlistID = $wishlist->id ?? '';
+            if (isset($wishlist)) {
+                $dltWishlist = Wishlist::find($wishlistID);
+                $dltWishlist->delete();
+            }
 
             if ($aleryAdded == null) {
                 $data = [
@@ -137,10 +145,8 @@ class SiteController extends Controller
                 $product->save();*/
 
             } else {
-
                 return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Already Added in cart.']);
             }
-
             return redirect()->route('user.Cart')->with(['type' => 'success', 'message' => 'Product Added cart.']);
 
         } else {
@@ -158,18 +164,20 @@ class SiteController extends Controller
     public function myWishlist()
     {
         $id = Auth::id();
-        $user = User::where('id',$id)->first();
-        $wishlistValues = Wishlist::with('product','brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
-        return view('frontend.ecom.wishlist.wishlist',compact('user','wishlistValues'));
+        $user = User::where('id', $id)->first();
+        $wishlistValues = Wishlist::with('product', 'brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        return view('frontend.ecom.wishlist.wishlist', compact('user', 'wishlistValues'));
     }
+
     /*mywishlist alert*/
     public function myWishlistAlert()
     {
         return redirect()->back()->with(['type' => 'success', 'message' => 'Please before login and view wishlist']);
     }
+
     /*wishlist delete*/
     public function myWishlistDelete($id)
-    {   
+    {
         $wishlist = Wishlist::find($id);
         $wishlist->delete();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Wishlist Product Remove']);
@@ -195,7 +203,7 @@ class SiteController extends Controller
         if (Auth::id()) {
             if (count($cart) > 0) {
                 $user = User::find(Auth::id());
-                return view('frontend.ecom.cart.checkout', compact('user','cartValues'));
+                return view('frontend.ecom.cart.checkout', compact('user', 'cartValues'));
             } else {
                 return redirect()->back()->with(['type' => 'success', 'message' => 'Please added product in Cart']);
             }
@@ -239,7 +247,7 @@ class SiteController extends Controller
         $cart = Cart::where('user_id', Auth::id())->get();
         if (Auth::id()) {
             $user = User::find(Auth::id());
-            return view('frontend.ecom.cart.shipping', compact('user','cartValues'));
+            return view('frontend.ecom.cart.shipping', compact('user', 'cartValues'));
         }
     }
 
@@ -250,7 +258,7 @@ class SiteController extends Controller
         $cart = Cart::where('user_id', Auth::id())->get();
         if (Auth::id()) {
             $user = User::find(Auth::id());
-            return view('frontend.ecom.payment.payment-option',compact('user','cartValues'));
+            return view('frontend.ecom.payment.payment-option', compact('user', 'cartValues'));
         }
     }
 
@@ -281,7 +289,7 @@ class SiteController extends Controller
         $blogs = Blog::where('status', 'active')->get();
 
         if ($blog and $blogs)
-            return view('frontend.ecom.single-blog', compact('blog','blogs'));
+            return view('frontend.ecom.single-blog', compact('blog', 'blogs'));
         else
             return redirect()->back();
     }
@@ -294,22 +302,24 @@ class SiteController extends Controller
         $blogs = Blog::where('status', 'active')->get();
         return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
+
     /*user profile page*/
     public function userProfile()
     {
         $id = Auth::id();
-        $user = User::where('id',$id)->first();
+        $user = User::where('id', $id)->first();
 
-        return view('frontend.ecom.user.profile',compact('user'));
+        return view('frontend.ecom.user.profile', compact('user'));
     }
+
     /*user profile edit*/
     public function userProfileEdit(Request $request, $id)
     {
         $request->validate([
-            'name'=>'required|string|min:3|max:30',
-            'email'=>'required|email',
-            'address'=>'required',
-            'phone'=>'required|numeric',
+            'name' => 'required|string|min:3|max:30',
+            'email' => 'required|email',
+            'address' => 'required',
+            'phone' => 'required|numeric',
 
         ]);
         $user = User::find($id);
@@ -333,7 +343,6 @@ class SiteController extends Controller
         $user->save();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Update Done.']);
     }
-
 
 
 }
