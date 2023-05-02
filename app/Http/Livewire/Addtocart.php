@@ -13,12 +13,12 @@ class Addtocart extends Component
 {
     public function render()
     {
-//        $wishlist = Wishlist::with('product')->where('user_id',Auth::id())->get();
+        $wishlist = Wishlist::with('product')->where('user_id',Auth::id())->get();
 
         $brands = Brand::where('status', 'active')->orderBy('id', 'desc')->limit(12)->get();
         $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->get();
         $productslimit = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->limit(6)->get();
-        return view('livewire.addtocart',compact('brands','products','productslimit'));
+        return view('livewire.addtocart',compact('brands','products','productslimit','wishlist'));
     }
 
 //    public function addtocart($id)

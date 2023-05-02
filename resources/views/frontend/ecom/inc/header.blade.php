@@ -51,6 +51,11 @@
                     <a href="javascript:void (0)" class="top-icon-text">Compare</a>
                 </div>
                 <div class="top-icon-text-box ms-5 ">
+                    @php
+                        use App\Models\Wishlist;
+                        $wishlist = Wishlist::where('user_id',auth()->id())->get();
+                    @endphp
+                    @if(auth()->id())
                     <span class="top-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-heart-fill" viewBox="0 0 16 16">
@@ -58,12 +63,17 @@
                                 d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                         </svg>
                     </span>
-
-                    @php
-                        use App\Models\Wishlist;
-                        $wishlist = Wishlist::where('user_id',auth()->id())->get();
-                    @endphp
                     <a href="{{route('user.myWishlist')}}" class="top-icon-text">Wishlist (<?= isset($wishlist)?count($wishlist):'0' ?>)</a>
+                    @else
+                        <span class="top-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-heart-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd"
+                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                    </span>
+                        <a href="{{route('user.myWishlistAlert')}}" class="top-icon-text">Wishlist (<?= isset($wishlist)?count($wishlist):'0' ?>)</a>
+                    @endif
                 </div>
                 <div class="top-icon-text-box ms-5">
                     <span class="top-icon">

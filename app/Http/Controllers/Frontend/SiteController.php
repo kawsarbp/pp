@@ -162,6 +162,18 @@ class SiteController extends Controller
         $wishlistValues = Wishlist::with('product','brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
         return view('frontend.ecom.wishlist.wishlist',compact('user','wishlistValues'));
     }
+    /*mywishlist alert*/
+    public function myWishlistAlert()
+    {
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Please before login and view wishlist']);
+    }
+    /*wishlist delete*/
+    public function myWishlistDelete($id)
+    {   
+        $wishlist = Wishlist::find($id);
+        $wishlist->delete();
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Wishlist Product Remove']);
+    }
 
     /*view userDashboard  page*/
     public function userDashboard()
