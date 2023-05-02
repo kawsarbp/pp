@@ -4,6 +4,8 @@
 @endsection
 
 @section('content')
+
+
     <div id="cart-products">
         <div class="container-fluid">
             <div class="row">
@@ -46,7 +48,7 @@
                                         <div class="shipping-method-delivery-text">Minimum shopping amount (without shipping cost): $ 0.00</div>
                                     </div>
                                     <div class="col-md-2 mt-2 mt-lg-0 text-start text-lg-end">
-                                        <div class="shipping-amount">$ 75.00</div>
+                                        <div class="shipping-amount">$ 00.00</div>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +64,7 @@
                                         <div class="shipping-method-delivery-text">Minimum shopping amount (without shipping cost): $ 0.00</div>
                                     </div>
                                     <div class="col-md-2 mt-2 mt-lg-0 text-start text-lg-end">
-                                        <div class="shipping-amount">$ 75.00</div>
+                                        <div class="shipping-amount">$ 00.00</div>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +80,7 @@
                                         <div class="shipping-method-delivery-text">Minimum shopping amount (without shipping cost): $ 0.00</div>
                                     </div>
                                     <div class="col-md-2 mt-2 mt-lg-0 text-start text-lg-end">
-                                        <div class="shipping-amount">$ 75.00</div>
+                                        <div class="shipping-amount">$ 00.00</div>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +102,6 @@
             <div class="container">
 
                 <?php $subtotal = 0; $total = 0; $totalDiscount = 0;?>
-
                 @if(count($cartValues)>0)
                     @foreach($cartValues as $cartValue)
                         @php

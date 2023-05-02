@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\SubcategoryController;
@@ -40,6 +41,7 @@ Route::post('/user-update/{id}',[SiteController::class,'userUpdate'])->name('use
 Route::get('/shipping-method',[SiteController::class,'shippingMethod'])->name('user.shippingMethod');
 Route::get('/payment-option',[SiteController::class,'paymentOption'])->name('user.paymentOption');
 Route::get('/payment-method',[SiteController::class,'paymentMethod'])->name('user.paymentMethod');
+Route::post('/payment',[OrderController::class,'payment'])->name('user.payment');
 Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.orderDetails');
 Route::get('/product-details/{id?}',[SiteController::class,'productDetails'])->name('user.productDetails');
 

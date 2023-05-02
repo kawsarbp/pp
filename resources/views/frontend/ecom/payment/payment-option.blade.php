@@ -32,7 +32,8 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="" method="POST" class="shipping-method-box">
+                        <form action="{{ route('user.payment') }}" method="POST" class="shipping-method-box">
+                            @csrf
                             <div class="shipping-method-text">Payment Method</div>
                             <div class="encrypted-text">All Transactions Are Secure And Encrypted.</div>
                             <br>

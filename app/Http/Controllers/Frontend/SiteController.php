@@ -160,7 +160,7 @@ class SiteController extends Controller
         return view('frontend.ecom.cart.cart');
     }
 
-    /*view addToCart page*/
+    /*view wishlist page*/
     public function myWishlist()
     {
         $id = Auth::id();
@@ -256,7 +256,6 @@ class SiteController extends Controller
 
     public function paymentOption()
     {
-
         $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
         $cart = Cart::where('user_id', Auth::id())->get();
         if (Auth::id()) {
@@ -264,6 +263,7 @@ class SiteController extends Controller
             return view('frontend.ecom.payment.payment-option', compact('user', 'cartValues'));
         }
     }
+
 
     /*view shippingMethod  page*/
     public function paymentMethod()
