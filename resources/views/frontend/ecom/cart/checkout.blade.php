@@ -1,6 +1,6 @@
 @extends('frontend.ecom.inc.layouts')
 @section('head')
-    <title>Cart</title>
+    <title>Checkout</title>
 @endsection
 
 @section('content')

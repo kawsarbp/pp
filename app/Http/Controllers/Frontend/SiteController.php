@@ -207,7 +207,10 @@ class SiteController extends Controller
             } else {
                 return redirect()->back()->with(['type' => 'success', 'message' => 'Please added product in Cart']);
             }
+        }else{
+            return redirect()->back()->with(['type' => 'success', 'message' => 'Please Login']);
         }
+
     }
 
     /*user update*/
