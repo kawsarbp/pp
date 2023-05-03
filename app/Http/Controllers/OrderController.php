@@ -16,7 +16,7 @@ class OrderController extends Controller
         if ($request->payment == 'cashondelivery') {
 
             $carts = Cart::where('user_id', Auth::id())->get();
-             foreach ($carts as $cart) {
+            foreach ($carts as $cart) {
                 Order::create([
                     'user_id' => Auth::id(),
                     'product_id' => $cart->product_id,
@@ -34,16 +34,6 @@ class OrderController extends Controller
                     'payment_status' => 'Cash On Delivery',
                     'delivery_status' => 'Processing',
                 ]);
-                $pid = $cart->product_id;
-                $product = Product::find($pid);
-                $product->product_quantity = $product->product_quantity - $cart->product_qty;
-                $product->save();
-
-                $cartID = $cart->id;
-                $cart = Cart::find($cartID);
-                $cart->delete();
-
-                return redirect()->route('user.paymentMethod')->with(['type' => 'success', 'message' => 'Thank you for your purchase!']);
             }
             return view('frontend.ecom.cart.payment_method');
         } elseif ($request->payment == 'stripe') {

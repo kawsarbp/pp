@@ -1,9 +1,16 @@
 <div class="customer-details-area">
     <div class="customer-details-box">
         <div class="d-flex flex-row align-items-center">
-            <div class="customer-order-img">
-                <img src="{{asset('src/img/profile.png')}}" alt="">
-            </div>
+            @if(empty($user->profile_photo))
+                <div class="customer-order-img">
+                    <img src="{{asset('src/img/profile.png')}}" alt="">
+                </div>
+            @else
+                <div class="customer-order-img">
+                    <img class="rounded-circle" src="/uploads/user/{{$user->profile_photo}}" alt="">
+                </div>
+            @endif
+
             &nbsp;&nbsp;&nbsp;
             <div class="customer-order-details">
                 <div class="customer-details-name">{{ $user->name }}</div>
