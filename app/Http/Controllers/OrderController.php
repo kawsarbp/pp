@@ -23,7 +23,7 @@ class OrderController extends Controller
                     'cart_id' => $cart->id,
                     'order_id' => date('dmyhis') . uniqid(),
                     'name' => $cart->name,
-                    'email' => $cart->eamil,
+                    'email' => $cart->email,
                     'address' => $cart->address,
                     'phone' => $cart->phone,
                     'product_name' => $cart->product_name,
@@ -34,8 +34,14 @@ class OrderController extends Controller
                     'payment_status' => 'Cash On Delivery',
                     'delivery_status' => 'Processing',
                 ]);
+                $product = Product::find($cart->product_id);
+                $product->product_quantity = $product->product_quantity - $cart->product_qty;
+                $product->save();
             }
-            return view('frontend.ecom.cart.payment_method');
+            $ids = Cart::where('user_id', Auth::id())->pluck('id')->toArray();
+            Cart::whereIn('id', $ids)->delete();
+            return redirect()->route('user.paymentMethod')->with(['type' => 'success', 'message' => 'Thank you for your purchase!']);
+            /*return view('frontend.ecom.cart.payment_method');*/
         } elseif ($request->payment == 'stripe') {
             return 'processing';
         }
