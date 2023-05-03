@@ -5,5 +5,6 @@
 
 {{--carousel start--}}
 @section('content')
+
 <livewire:addtocart/>
 @endsection

@@ -16,8 +16,17 @@ class Addtocart extends Component
         $wishlist = Wishlist::with('product')->where('user_id',Auth::id())->get();
 
         $brands = Brand::where('status', 'active')->orderBy('id', 'desc')->limit(12)->get();
-        $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->get();
-        $productslimit = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->limit(6)->get();
+        $products = Product::with('brand', 'subcategory', 'user')
+            ->leftJoin('wishlists','products.id','=','wishlists.product_id')
+            ->where('status', 'active')
+            ->select('products.*','wishlists.id as w_id')
+            ->orderBy('id', 'desc')->get();
+        $productslimit = Product::with('brand', 'subcategory', 'user')
+            ->leftJoin('wishlists','products.id','=','wishlists.product_id')
+            ->where('status', 'active')
+            ->select('products.*','wishlists.id as w_id')
+            ->orderBy('id', 'desc')
+            ->limit(6)->get();
         return view('livewire.addtocart',compact('brands','products','productslimit','wishlist'));
     }
 
