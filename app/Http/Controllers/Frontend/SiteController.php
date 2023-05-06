@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Cart as ShoppingCart;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -36,15 +37,15 @@ class SiteController extends Controller
     {
         $brands = Brand::where('status', 'active')->orderBy('id', 'desc')->limit(12)->get();
         $products = Product::with('brand', 'subcategory', 'user')
-            ->leftJoin('wishlists','products.id','=','wishlists.product_id')
+            ->leftJoin('wishlists', 'products.id', '=', 'wishlists.product_id')
             ->where('status', 'active')
-            ->select('products.*','wishlists.id as w_id')
+            ->select('products.*', 'wishlists.id as w_id')
             ->orderBy('id', 'desc')->get();
 
         $productslimit = Product::with('brand', 'subcategory', 'user')
-            ->leftJoin('wishlists','products.id','=','wishlists.product_id')
+            ->leftJoin('wishlists', 'products.id', '=', 'wishlists.product_id')
             ->where('status', 'active')
-            ->select('products.*','wishlists.id as w_id')
+            ->select('products.*', 'wishlists.id as w_id')
             ->orderBy('id', 'desc')
             ->limit(6)->get();
 
@@ -217,7 +218,7 @@ class SiteController extends Controller
             } else {
                 return redirect()->back()->with(['type' => 'success', 'message' => 'Please added product in Cart']);
             }
-        }else{
+        } else {
             return redirect()->back()->with(['type' => 'success', 'message' => 'Please Login']);
         }
 
@@ -278,7 +279,8 @@ class SiteController extends Controller
     /*view shippingMethod  page*/
     public function paymentMethod()
     {
-        return view('frontend.ecom.cart.payment_method');
+        $orders = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->get();
+        return view('frontend.ecom.cart.payment_method',compact('orders'));
     }
 
     /*view shippingMethod  page*/

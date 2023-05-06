@@ -11,9 +11,20 @@
                     <div class="contact-info-area">
                         <div class="contact-information-text">Contact Information</div>
                         <div class="d-flex flex-row align-items-center">
-                            <div class="checkout-img"><img class="rounded-circle" src="{{asset('src/img/profile.png')}}"
-                                                           alt=""></div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            @if(empty($user->profile_photo))
+                                <div class="checkout-img"><img class="rounded-circle" src="{{asset('src/img/profile.png')}}"
+                                                               alt=""></div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                            @else
+
+                                <div class="checkout-img"><img class="rounded-circle" src="/uploads/user/{{$user->profile_photo}}"
+                                                               alt=""></div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                            @endif
+
+
+
                             <div class="">
                                 <span class="checkout-customer-name">{{ strtok( $user->name , " ") }}</span> <span
                                     class="checkout-email">({{ $user->email }})</span>

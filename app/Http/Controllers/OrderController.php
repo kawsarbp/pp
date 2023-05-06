@@ -6,7 +6,9 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class OrderController extends Controller
 {
@@ -32,8 +34,19 @@ class OrderController extends Controller
                     'product_qty' => $cart->product_qty,
                     'product_photo' => $cart->product_photo,
                     'payment_status' => 'Cash On Delivery',
-                    'delivery_status' => 'Processing',
+                    'delivery_status' => 'processing',
                 ]);
+
+
+
+
+//                File::move('uploads/order',$cart->product_photo);
+//                $file = $cart->product_photo;
+//                $file->move('uploads/order', $cart->product_photo);
+
+
+//                $path = public_path('uploads/order');
+//                File::move($path,$cart->product_photo);
                 $product = Product::find($cart->product_id);
                 $product->product_quantity = $product->product_quantity - $cart->product_qty;
                 $product->save();
