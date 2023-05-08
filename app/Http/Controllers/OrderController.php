@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
@@ -71,6 +72,18 @@ class OrderController extends Controller
         $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
         Order::whereIn('id', $ids)->delete();
         return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Your order canceled.']);
+    }
+
+    /*download invoice*/
+    public function downloadInvoice($id)
+    {
+        $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
+        $orders = Order::find($ids);
+
+        /*return view('pdf.invoice',compact('orders'));*/
+
+        $pdf = Pdf::loadView('pdf.invoice',compact('orders'));
+        return $pdf->download('invoice.pdf');
     }
 
 }

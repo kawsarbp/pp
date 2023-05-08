@@ -45,6 +45,7 @@ Route::post('/payment',[OrderController::class,'payment'])->name('user.payment')
 Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.orderDetails');
 Route::get('/product-details/{id?}',[SiteController::class,'productDetails'])->name('user.productDetails');
 Route::get('/cancel-order/{id?}',[OrderController::class,'cancelOrder'])->name('user.cancelOrder');
+Route::get('/download-invoice/{id?}',[OrderController::class,'downloadInvoice'])->name('user.downloadInvoice');
 
 /*backend page routes*/
 /*logout*/

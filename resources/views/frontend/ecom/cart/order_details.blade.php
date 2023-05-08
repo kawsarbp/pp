@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2 mb-xl-0">
-                                <a href="" class="download-invoice-btn">+ Download Invoice</a>
+                                <a href="{{ route('user.downloadInvoice',auth()->id()) }}" class="download-invoice-btn">+ Download Invoice</a>
                             </div>
 
                         </div>
