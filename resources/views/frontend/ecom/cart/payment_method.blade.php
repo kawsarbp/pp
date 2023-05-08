@@ -41,6 +41,8 @@
                                                 $total += $price * $order->product_qty;
                                                 $totalDiscount += $discount * $order->product_qty;
                                                 $subtotal += $order->product_price * $order->product_qty;
+
+
                                                 $sdate = date('d-m-y', strtotime($order->created_at));
                                                 // get the current date
                                                 $date = now();

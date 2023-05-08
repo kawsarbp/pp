@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -37,23 +38,25 @@ class OrderController extends Controller
                     'delivery_status' => 'processing',
                 ]);
 
-
-
-
-//                File::move('uploads/order',$cart->product_photo);
-//                $file = $cart->product_photo;
-//                $file->move('uploads/order', $cart->product_photo);
-
-
-//                $path = public_path('uploads/order');
-//                File::move($path,$cart->product_photo);
+                /*send mail*/
+                $data = ['name'=>auth()->user()->name,'greeting'=>'Thank you for your order!','status' => 'processing',];
+                $user['to'] = auth()->user()->email;
+                Mail::send('mail/order-mail',$data,function ($message) use ($user){
+                    $message->to($user['to']);
+                    $message->subject('Faz Group');
+                });
+                /*send mail*/
+                /*update product qty*/
                 $product = Product::find($cart->product_id);
                 $product->product_quantity = $product->product_quantity - $cart->product_qty;
                 $product->save();
+                /*update product qty*/
             }
+            /*delete product*/
             $ids = Cart::where('user_id', Auth::id())->pluck('id')->toArray();
             Cart::whereIn('id', $ids)->delete();
             return redirect()->route('user.paymentMethod')->with(['type' => 'success', 'message' => 'Thank you for your purchase!']);
+            /*delete product*/
             /*return view('frontend.ecom.cart.payment_method');*/
         } elseif ($request->payment == 'stripe') {
             return 'processing';

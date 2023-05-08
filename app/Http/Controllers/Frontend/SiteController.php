@@ -15,6 +15,7 @@ use Illuminate\Auth\CreatesUserProviders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class SiteController extends Controller
 {
@@ -286,7 +287,8 @@ class SiteController extends Controller
     /*view shippingMethod  page*/
     public function orderDetails()
     {
-        return view('frontend.ecom.cart.order_details');
+        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->get();
+        return view('frontend.ecom.cart.order_details',compact('orderDetails'));
     }
 
     /*view shippingMethod  page*/
