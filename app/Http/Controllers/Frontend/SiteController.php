@@ -280,14 +280,14 @@ class SiteController extends Controller
     /*view shippingMethod  page*/
     public function paymentMethod()
     {
-        $orders = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->get();
+        $orders = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
         return view('frontend.ecom.cart.payment_method',compact('orders'));
     }
 
     /*view shippingMethod  page*/
     public function orderDetails()
     {
-        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->get();
+        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
         return view('frontend.ecom.cart.order_details',compact('orderDetails'));
     }
 
@@ -360,6 +360,5 @@ class SiteController extends Controller
         $user->save();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Update Done.']);
     }
-
 
 }

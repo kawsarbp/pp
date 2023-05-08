@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+    @if(count($orders) > 0)
     <div id="payment-method">
         <div class="container">
             <div class="row justify-content-center">
@@ -21,7 +22,7 @@
 
 
                                         <?php $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
-                                        @if(count($orders) > 0)
+
                                             @foreach($orders as $order)
                                                 @php
                                                     $discount = $order->product_price * ($order->product_discount / 100);
@@ -58,11 +59,7 @@
                                                             href="">{{ $order->product_name }}</a></div>
                                                 </div>
                                             @endforeach
-                                        @else
-                                            <div class="d-flex flex-row align-items-center py-2">
-                                                <h3 class="text-center text-warning">No product Available</h3>
-                                            </div>
-                                        @endif
+
                                     </div>
                                     <div class="col-lg-5">
                                         <div class="purchase-date">Est arrival date: {{ $sdate }} - {{$edate}}</div>
@@ -106,6 +103,12 @@
             </div>
         </div>
     </div>
+    @else
+
+        <?php
+        return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Please Added product in cart!.']);;
+        ?>
+    @endif
 @endsection
 
 

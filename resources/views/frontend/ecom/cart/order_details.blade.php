@@ -11,7 +11,7 @@
                     <div class="order-details-box">
                         <div class="row mx-0 border px-1 py-2 align-items-center">
                             <div class="col-md-4 mb-2 mb-xl-0">
-                                <?php $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
+                                <?php use App\Models\Order;$subtotal = 0; $total = 0; $totalDiscount = 0; ?>
                                 @if(count($orderDetails) > 0)
                                     @foreach($orderDetails as $orderDtls)
                                         @php
@@ -42,7 +42,10 @@
 
                                         ?>
                                     @endforeach
-
+                                    @else
+                                    <?php
+                                        return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Please Added product in cart!.']);;
+                                        ?>
                                 @endif
                                 <div class="">
                                     <span class="order-id-text">Order ID:</span>
@@ -124,7 +127,6 @@
                                     // add 7 days to the date
                                     $futureDate = $date->addDays(7);
                                     $edate = date('d-m-y', strtotime($futureDate));
-
                                     ?>
                                     <div class="col-md-8 mb-2 mb-xl-0">
                                         <div class="d-flex flex-row align-items-center">
@@ -153,7 +155,8 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="text-end p-3"><a href="" class="order-cancel-btn">cancel order</a></div>
+
+                        <div class="text-end p-3"><a href="{{ route('user.cancelOrder',auth()->id()) }}" class="order-cancel-btn">cancel order</a></div>
                         <div class="row mx-0  px-1 py-3 justify-content-between">
                             <div class="col-md-5 mb-3 ">
                                 <div class="order-info-text-box">

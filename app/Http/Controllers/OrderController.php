@@ -39,9 +39,9 @@ class OrderController extends Controller
                 ]);
 
                 /*send mail*/
-                $data = ['name'=>auth()->user()->name,'greeting'=>'Thank you for your order!','status' => 'processing',];
+                $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'processing',];
                 $user['to'] = auth()->user()->email;
-                Mail::send('mail/order-mail',$data,function ($message) use ($user){
+                Mail::send('mail/order-mail', $data, function ($message) use ($user) {
                     $message->to($user['to']);
                     $message->subject('Faz Group');
                 });
@@ -63,4 +63,14 @@ class OrderController extends Controller
         }
 
     }
+
+
+    /*cancel order*/
+    public function cancelOrder($id)
+    {
+        $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
+        Order::whereIn('id', $ids)->delete();
+        return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Your order canceled.']);
+    }
+
 }

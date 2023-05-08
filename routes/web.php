@@ -44,6 +44,7 @@ Route::get('/payment-method',[SiteController::class,'paymentMethod'])->name('use
 Route::post('/payment',[OrderController::class,'payment'])->name('user.payment');
 Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.orderDetails');
 Route::get('/product-details/{id?}',[SiteController::class,'productDetails'])->name('user.productDetails');
+Route::get('/cancel-order/{id?}',[OrderController::class,'cancelOrder'])->name('user.cancelOrder');
 
 /*backend page routes*/
 /*logout*/
