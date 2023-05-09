@@ -94,7 +94,7 @@
             <div class="dashboard-control-text">My Wishlist</div>
         </div>
     </a>
-    <a href="" class="dashboard-control-box">
+    <a href="{{ route('user.myPurchaseOrder') }}" class="{{ request()->routeIs('user.myPurchaseOrder') ?'active-dashboard-menu':'dashboard-control-box' }}">
         <div class="d-flex flex-row align-items-center">
             <div class="dashboard-control-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-style" viewBox="0 0 16 16">
@@ -216,8 +216,17 @@
                     <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
                 </svg>
             </div>
-            &nbsp;&nbsp;&nbsp;
-            <div class="dashboard-control-text">Logout</div>
+            <div class="ps-2 ms-1">
+                <form method="POST" class="mt-1" action="{{ route('logout') }}">
+                    @csrf
+
+                    <a class="text-decoration-none dashboard-logout-btn" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        this.closest('form').submit(); " role="button">
+                        {{ __('LogOut') }}
+                    </a>
+
+                </form>
+            </div>
         </div>
     </a>
 </div>

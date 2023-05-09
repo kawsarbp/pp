@@ -365,5 +365,14 @@ class SiteController extends Controller
         $user->save();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Update Done.']);
     }
+    /*my order view*/
+    public function myPurchaseOrder()
+    {
+        $id = Auth::id();
+        $user = User::where('id',$id)->first();
+        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
+
+        return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
+    }
 
 }

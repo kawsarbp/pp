@@ -421,6 +421,14 @@ body {
       color: #FD4949; }
     #product .my-wishlist .dashboard-history-area .dashboard-control-box:hover .dashboard-control-text {
       color: #FD4949; }
+    #product .my-wishlist .dashboard-history-area .dashboard-logout-btn {
+      color: #00124e;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 0;
+      transition: .3s; }
+    #product .my-wishlist .dashboard-history-area .dashboard-logout-btn:hover {
+      color: #FD4949; }
   #product .my-wishlist .order-box {
     background: #fff;
     border-radius: 5px;
