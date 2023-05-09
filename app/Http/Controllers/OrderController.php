@@ -80,7 +80,7 @@ class OrderController extends Controller
         $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
         $orders = Order::find($ids);
 
-        /*return view('pdf.invoice',compact('orders'));*/
+//        return view('pdf.invoice',compact('orders'));
 
         $pdf = Pdf::loadView('pdf.invoice',compact('orders'));
         return $pdf->download('invoice.pdf');

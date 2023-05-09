@@ -1,6 +1,6 @@
 @extends('frontend.ecom.inc.layouts')
 @section('head')
-    <title>Payment Method</title>
+    <title>Order Details</title>
 @endsection
 
 @section('content')
@@ -42,10 +42,10 @@
 
                                         ?>
                                     @endforeach
-                                    @else
+                                @else
                                     <?php
-                                        return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Please Added product in cart!.']);;
-                                        ?>
+                                    return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Please Added product in cart!.']);;
+                                    ?>
                                 @endif
                                 <div class="">
                                     <span class="order-id-text">Order ID:</span>
@@ -69,7 +69,8 @@
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2 mb-xl-0">
-                                <a href="{{ route('user.downloadInvoice',auth()->id()) }}" class="download-invoice-btn">+ Download Invoice</a>
+                                <a href="{{ route('user.downloadInvoice',auth()->id()) }}" class="download-invoice-btn">+
+                                    Download Invoice</a>
                             </div>
 
                         </div>
@@ -156,7 +157,8 @@
                             @endif
                         </div>
 
-                        <div class="text-end p-3"><a href="{{ route('user.cancelOrder',auth()->id()) }}" class="order-cancel-btn">cancel order</a></div>
+                        <div class="text-end p-3"><a onclick="return confirm('Are you sure?')" href="{{ route('user.cancelOrder',auth()->id()) }}"
+                                                     class="order-cancel-btn">cancel order</a></div>
                         <div class="row mx-0  px-1 py-3 justify-content-between">
                             <div class="col-md-5 mb-3 ">
                                 <div class="order-info-text-box">

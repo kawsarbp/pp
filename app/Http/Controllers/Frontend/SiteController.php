@@ -204,7 +204,12 @@ class SiteController extends Controller
     /*view userDashboard  page*/
     public function myHistories()
     {
-        return view('frontend.ecom.user.histories');
+
+        $id = Auth::id();
+        $user = User::where('id',$id)->first();
+        /*order data*/
+        $orders = Order::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        return view('frontend.ecom.user.histories',compact('orders','user'));
     }
 
     /*view checkout  page*/
