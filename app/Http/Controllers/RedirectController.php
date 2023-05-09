@@ -23,7 +23,10 @@ class RedirectController extends Controller
             $wishlistValues = Wishlist::with('product', 'brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
             /*order data*/
             $orders = Order::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
-            return view('frontend.ecom.user.dashboard',compact('user','cartValues','wishlistValues','orders'));
+            $totalOrders = Order::where(['user_id'=>Auth::id()])->get();
+            $compliteOrders = Order::where(['user_id'=>Auth::id(),'delivery_status'=>'delivered'])->get();
+
+            return view('frontend.ecom.user.dashboard',compact('user','cartValues','wishlistValues','orders','totalOrders','compliteOrders'));
         }
     }
 }
