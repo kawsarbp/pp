@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Cart as ShoppingCart;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
@@ -22,7 +23,6 @@ class SiteController extends Controller
     /*view index page*/
     public function index()
     {
-
         return view('frontend.home-page');
         /*frontend.home-page*/
     }
@@ -50,15 +50,27 @@ class SiteController extends Controller
             ->orderBy('id', 'desc')
             ->limit(6)->get();
 
+        $categories = Category::with('subcategory')->where('status','active')->get();
+
+        foreach ($categories as $cat){
+            echo $cat->category_name.'=>,'.$cat->id;
+            foreach ($cat['subcategory'] as $subcat)
+            {
+                echo $subcat->subcategory_name.' ,'.$subcat->id;
+            }
+        }
+//        return $categories;
+
+
         if (Auth::id()) {
             $admin = Auth::user()->role == 1;
             if ($admin) {
                 return redirect()->route('dashboard');
             } else {
-                return view('frontend.ecom.home', compact('products', 'productslimit', 'brands'));
+                return view('frontend.ecom.home', compact('products', 'productslimit', 'brands','categories'));
             }
         }
-        return view('frontend.ecom.home', compact('products', 'productslimit', 'brands'));
+        return view('frontend.ecom.home', compact('products', 'productslimit', 'brands','categories'));
     }
 
     /*view contact us page*/

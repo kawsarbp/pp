@@ -202,7 +202,9 @@
                             All Categories
                         </a>
                         <ul class="dropdown-menu category-dpd-menu">
+                            @foreach($categories as $category)
                             <li class="category-dpd">
+
                                 <div class="d-flex flex-row justify-content-between pe-2">
                                     <a class="dropdown-item" href="#">
                                         <span class="category-icon">
@@ -213,7 +215,7 @@
                                                   d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
                                             </svg>
                                         </span>
-                                        <span class="category-dpd-icon-text">Computer & Accessories</span>
+                                        <span class="category-dpd-icon-text">{{--Computer & Accessories--}} {{ $category->category_name }}</span>
                                     </a>
                                     <span class="dropdown-right-arrow">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -225,49 +227,19 @@
                                 </div>
                                 <div class="subcategory_box">
                                     <div class="row">
+
                                         <div class="col-4 subcategories mb-5">
-                                            <a href="javascript:void (0)" class="category">Desktop Computer</a>
+                                            <a href="javascript:void (0)" class="category">{{ $category->category_name }}</a>
                                             <hr style="color: #687083">
-                                            <a href="javascript:void (0)" class="subcategory">camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">ip camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">office camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">sony camera</a>
+                                            @foreach($category['subcategory'] as $subcategory)
+                                            <a href="javascript:void (0)" class="subcategory">{{ $subcategory->subcategory_name }}</a>
+                                            @endforeach
                                         </div>
-                                        <div class="col-4 subcategories mb-5">
-                                            <a href="javascript:void (0)" class="category">Desktop Computer</a>
-                                            <hr style="color: #687083">
-                                            <a href="javascript:void (0)" class="subcategory">camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">ip camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">office camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">sony camera</a>
-                                        </div>
-                                        <div class="col-4 subcategories mb-5">
-                                            <a href="javascript:void (0)" class="category">Desktop Computer</a>
-                                            <hr style="color: #687083">
-                                            <a href="javascript:void (0)" class="subcategory">camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">ip camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">office camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">sony camera</a>
-                                        </div>
-                                        <div class="col-4 subcategories mb-5">
-                                            <a href="javascript:void (0)" class="category">Desktop Computer</a>
-                                            <hr style="color: #687083">
-                                            <a href="javascript:void (0)" class="subcategory">camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">ip camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">office camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">sony camera</a>
-                                        </div>
-                                        <div class="col-4 subcategories mb-5">
-                                            <a href="javascript:void (0)" class="category">Desktop Computer</a>
-                                            <hr style="color: #687083">
-                                            <a href="javascript:void (0)" class="subcategory">camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">ip camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">office camera</a>
-                                            <a href="javascript:void (0)" class="subcategory">sony camera</a>
-                                        </div>
+
                                     </div>
                                 </div>
                             </li>
+                            @endforeach
                             <li class="category-dpd">
                                 <div class="top1">
                                     <div class="d-flex flex-row justify-content-between pe-2">

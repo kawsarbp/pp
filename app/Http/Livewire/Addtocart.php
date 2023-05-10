@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Brand;
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,10 @@ class Addtocart extends Component
             ->select('products.*','wishlists.id as w_id')
             ->orderBy('id', 'desc')
             ->limit(6)->get();
-        return view('livewire.addtocart',compact('brands','products','productslimit','wishlist'));
+        $categories = Category::with('subcategory')->where('status','active')->get();
+
+
+        return view('livewire.addtocart',compact('brands','products','productslimit','wishlist','categories'));
     }
 
 //    public function addtocart($id)
