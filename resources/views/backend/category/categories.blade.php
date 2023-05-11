@@ -48,7 +48,7 @@
                                         <td>{{ ++$loop->index }}</td>
                                         <td>{{ $category->category_name }}</td>
                                         <td>{{ $category->category_slug }}</td>
-                                        <td>{{ $category->category_icon }}</td>
+                                        <td>{!! $category->category_icon !!}</td>
                                         <td>
                                             <form action="{{ route('category.categoryStatus',$category->id) }}"
                                                   method="POST">
@@ -67,7 +67,7 @@
                                         <td>
                                             <a href="{{ route('category.categoryEdit',$category->id) }}"
                                                class="btn btn-info btn-sm m-1"><i class="mdi mdi-account-edit"></i></a>
-                                            <form action="{{ route('category.categoryDestroy',$category->id) }}"
+                                            <form onclick="return confirm('Are you sure ?')" action="{{ route('category.categoryDestroy',$category->id) }}"
                                                   method="POST">
                                                 @csrf
                                                 @method('DELETE')

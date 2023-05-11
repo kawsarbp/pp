@@ -10,6 +10,7 @@ use App\Models\Cart as ShoppingCart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Subcategory;
 use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Auth\CreatesUserProviders;
@@ -30,9 +31,7 @@ class SiteController extends Controller
     /*view contact page*/
     public function contact()
     {
-
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-        return view('frontend.contact-page',compact('categories'));
+        return view('frontend.contact-page');
     }
 
     /*view user home page*/
@@ -52,7 +51,10 @@ class SiteController extends Controller
             ->orderBy('id', 'desc')
             ->limit(6)->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
+
+
+
+
 
 //        foreach ($categories as $cat){
 //            echo $cat->category_name.'=>,'.$cat->id;
@@ -69,26 +71,24 @@ class SiteController extends Controller
             if ($admin) {
                 return redirect()->route('dashboard');
             } else {
-                return view('frontend.ecom.home', compact('products', 'productslimit', 'brands','categories'));
+                return view('frontend.ecom.home', compact('products', 'productslimit', 'brands'));
             }
         }
-        return view('frontend.ecom.home', compact('products', 'productslimit', 'brands','categories'));
+        return view('frontend.ecom.home', compact('products', 'productslimit', 'brands'));
     }
 
     /*view contact us page*/
     public function contactUs()
     {
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-        return view('frontend.ecom.contact-us',compact('categories'));
+
+        return view('frontend.ecom.contact-us');
     }
 
     /*view about us page*/
     public function aboutUs()
     {
-
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-        return view('frontend.ecom.about-us',compact('categories'));
+        return view('frontend.ecom.about-us');
     }
 
     /*view blog page*/
@@ -98,9 +98,8 @@ class SiteController extends Controller
         $search = Blog::where('title', 'LIKE', '%' . $value . '%')->get();
         $blogs = Blog::where('status', 'active')->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
-        return view('frontend.ecom.blog', compact('blogs', 'search','categories'));
+        return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
 
     /*add to wishlist*/
@@ -190,8 +189,8 @@ class SiteController extends Controller
     /*view cart page*/
     public function cart()
     {
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-        return view('frontend.ecom.cart.cart',compact('categories'));
+
+        return view('frontend.ecom.cart.cart');
     }
 
     /*view wishlist page*/
@@ -201,9 +200,9 @@ class SiteController extends Controller
         $user = User::where('id', $id)->first();
         $wishlistValues = Wishlist::with('product', 'brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
-        return view('frontend.ecom.wishlist.wishlist', compact('user', 'wishlistValues','categories'));
+
+        return view('frontend.ecom.wishlist.wishlist', compact('user', 'wishlistValues'));
     }
 
     /*mywishlist alert*/
@@ -235,9 +234,7 @@ class SiteController extends Controller
         /*order data*/
         $orders = Order::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-
-        return view('frontend.ecom.user.histories',compact('orders','user','categories'));
+        return view('frontend.ecom.user.histories',compact('orders','user'));
     }
 
     /*view checkout  page*/
@@ -246,12 +243,10 @@ class SiteController extends Controller
         $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
         $cart = Cart::where('user_id', Auth::id())->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-
         if (Auth::id()) {
             if (count($cart) > 0) {
                 $user = User::find(Auth::id());
-                return view('frontend.ecom.cart.checkout', compact('user', 'cartValues','categories'));
+                return view('frontend.ecom.cart.checkout', compact('user', 'cartValues'));
             } else {
                 return redirect()->back()->with(['type' => 'success', 'message' => 'Please added product in Cart']);
             }
@@ -294,12 +289,12 @@ class SiteController extends Controller
     public function shippingMethod()
     {
         $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
+
 
         $cart = Cart::where('user_id', Auth::id())->get();
         if (Auth::id()) {
             $user = User::find(Auth::id());
-            return view('frontend.ecom.cart.shipping', compact('user', 'cartValues','categories'));
+            return view('frontend.ecom.cart.shipping', compact('user', 'cartValues'));
         }
     }
 
@@ -307,12 +302,11 @@ class SiteController extends Controller
     {
         $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
         $cart = Cart::where('user_id', Auth::id())->get();
         if (Auth::id()) {
             $user = User::find(Auth::id());
-            return view('frontend.ecom.payment.payment-option', compact('user', 'cartValues','categories'));
+            return view('frontend.ecom.payment.payment-option', compact('user', 'cartValues'));
         }
     }
 
@@ -321,18 +315,16 @@ class SiteController extends Controller
     public function paymentMethod()
     {
         $orders = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
-        return view('frontend.ecom.cart.payment_method',compact('orders','categories'));
+        return view('frontend.ecom.cart.payment_method',compact('orders'));
     }
 
     /*view shippingMethod  page*/
     public function orderDetails()
     {
         $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
-        return view('frontend.ecom.cart.order_details',compact('orderDetails','categories'));
+        return view('frontend.ecom.cart.order_details',compact('orderDetails'));
     }
 
     /*view shippingMethod  page*/
@@ -340,6 +332,7 @@ class SiteController extends Controller
     {
         $products = Product::with('brand', 'subcategory', 'user')->where('status', 'active')->orderBy('id', 'desc')->get();
         $product = Product::with('brand', 'subcategory', 'user')->find($id);
+
         return view('frontend.ecom.product.product-details', compact('product', 'products'));
     }
 
@@ -348,10 +341,9 @@ class SiteController extends Controller
     {
         $blog = Blog::findOrfail($id);
         $blogs = Blog::where('status', 'active')->get();
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
         if ($blog and $blogs)
-            return view('frontend.ecom.single-blog', compact('blog', 'blogs','categories'));
+            return view('frontend.ecom.single-blog', compact('blog', 'blogs'));
         else
             return redirect()->back();
     }
@@ -363,8 +355,7 @@ class SiteController extends Controller
         $search = Blog::where('title', 'LIKE', '%' . $value . '%')->get();
         $blogs = Blog::where('status', 'active')->get();
 
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
-        return view('frontend.ecom.blog', compact('blogs', 'search','categories'));
+        return view('frontend.ecom.blog', compact('blogs', 'search'));
     }
 
     /*user profile page*/
@@ -372,9 +363,8 @@ class SiteController extends Controller
     {
         $id = Auth::id();
         $user = User::where('id', $id)->first();
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
-        return view('frontend.ecom.user.profile', compact('user','categories'));
+        return view('frontend.ecom.user.profile', compact('user'));
     }
 
     /*user profile edit*/
@@ -414,9 +404,8 @@ class SiteController extends Controller
         $id = Auth::id();
         $user = User::where('id',$id)->first();
         $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
-        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
-        return view('frontend.ecom.user.my-order',compact('user','orderDetails','categories'));
+        return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
     }
 
 }
