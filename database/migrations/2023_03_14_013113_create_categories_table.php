@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('category_name')->unique();
             $table->string('category_slug')->unique();
+            $table->longText('category_icon')->nullable();
             $table->enum('status',['active','inactive']);
             $table->timestamps();
         });

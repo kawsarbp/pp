@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -25,8 +26,10 @@ class RedirectController extends Controller
             $orders = Order::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
             $totalOrders = Order::where(['user_id'=>Auth::id()])->get();
             $compliteOrders = Order::where(['user_id'=>Auth::id(),'delivery_status'=>'delivered'])->get();
+            /*get categories*/
+            $categories = Category::with('subcategory')->where('status','active')->get();
 
-            return view('frontend.ecom.user.dashboard',compact('user','cartValues','wishlistValues','orders','totalOrders','compliteOrders'));
+            return view('frontend.ecom.user.dashboard',compact('user','cartValues','wishlistValues','orders','totalOrders','compliteOrders','categories'));
         }
     }
 }

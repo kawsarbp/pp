@@ -30,6 +30,10 @@
                                         Category Slug
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="">
+                                        Category Icon
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Age: activate to sort column ascending" style="">Status
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
@@ -44,6 +48,7 @@
                                         <td>{{ ++$loop->index }}</td>
                                         <td>{{ $category->category_name }}</td>
                                         <td>{{ $category->category_slug }}</td>
+                                        <td>{{ $category->category_icon }}</td>
                                         <td>
                                             <form action="{{ route('category.categoryStatus',$category->id) }}"
                                                   method="POST">

@@ -85,10 +85,10 @@
                                 details
                             </div>
                             <div class="row order-summary align-items-center p-2 my-3 mx-0">
-                                <div class="col-lg-10">
+                                <div class="col-lg-8">
                                     <div class="order-summary-text">Order summary</div>
                                 </div>
-                                <div class="col-lg-2">
+                                <div class="col-lg-4 text-end">
                                     <div class="order-summary-amount">$ {{ $total }}</div>
                                 </div>
                             </div>

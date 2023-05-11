@@ -28,7 +28,7 @@ class Addtocart extends Component
             ->select('products.*','wishlists.id as w_id')
             ->orderBy('id', 'desc')
             ->limit(6)->get();
-        $categories = Category::with('subcategory')->where('status','active')->get();
+        $categories = Category::with('subcategory')->where('status','active')->orderBy('id','desc')->get();
 
 
         return view('livewire.addtocart',compact('brands','products','productslimit','wishlist','categories'));

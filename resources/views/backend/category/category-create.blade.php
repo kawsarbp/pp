@@ -25,6 +25,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="control-label" for="category_icon">Category Icon</label>
+                                        <input type="text" value="{{ old('category_icon') }}" placeholder="Category Icon" name="category_icon" id="category_icon" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="control-label">Status</label>
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="active" checked="" value="active" name="status" class="custom-control-input">
