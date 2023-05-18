@@ -100,6 +100,47 @@ class OrderController extends Controller
         else
             return redirect()->back();
     }
+    /*payment status change*/
+    public function paymentStatusChange($id)
+    {
+        /*send mail*/
+        $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'paid',];
+        $user['to'] = auth()->user()->email;
+        Mail::send('mail/order-mail', $data, function ($message) use ($user) {
+            $message->to($user['to']);
+            $message->subject('Faz Group');
+        });
+        /*send mail*/
+        $order = Order::find($id);
+        $order->payment_status = 'paid';
+        $order->delivery_status = 'delivered';
+        $order->save();
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Your order delevered.']);
+    }
+    /*payment status change*/
+    public function paymentStatusRechived($id)
+    {
+        /*send mail*/
+        $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'received',];
+        $user['to'] = auth()->user()->email;
+        Mail::send('mail/order-mail', $data, function ($message) use ($user) {
+            $message->to($user['to']);
+            $message->subject('Faz Group');
+        });
+        /*send mail*/
+        $order = Order::find($id);
+        $order->payment_status = 'Cash On Delivery';
+        $order->delivery_status = 'received';
+        $order->save();
+        return redirect()->back()->with(['type' => 'success', 'message' => 'order received.']);
+    }
+    /*order remove*/
+    public function orderRemove($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+        return redirect()->back()->with(['type' => 'success', 'message' => 'Remove Success']);
+    }
 
 
 }

@@ -111,6 +111,9 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
     Route::prefix('/order')->name('order.')->group(function (){
         Route::get('/index',[OrderController::class,'index'])->name('index');
         Route::get('/view/{id?}',[OrderController::class,'view'])->name('view');
+        Route::get('/payment-status-change/{id?}',[OrderController::class,'paymentStatusChange'])->name('paymentStatusChange');
+        Route::get('/payment-status-rechived/{id?}',[OrderController::class,'paymentStatusRechived'])->name('paymentStatusRechived');
+        Route::get('/order-remove/{id?}',[OrderController::class,'orderRemove'])->name('orderRemove');
     });
 
 

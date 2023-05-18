@@ -57,9 +57,18 @@
                                     <td>{{ $order->payment_status }}</td>
                                     <td>{{ $order->delivery_status }}</td>
                                     <td>
-                                        <a href="" onclick="return confirm('Are you sure ?')" class="m-1 btn btn-danger btn-sm"><i class="mdi mdi-window-close"></i></a>
+                                        <a href="{{ route('order.orderRemove',$order->id) }}" onclick="return confirm('Are you sure ?')" class="m-1 btn btn-danger btn-sm"><i class="mdi mdi-window-close"></i></a>
                                         <a href="{{ route('order.view',$order->id) }}" class="btn btn-info btn-sm m-1"><i class="mdi mdi-eye"></i></a>
-                                        <a href="" onclick="return confirm('Are you sure ?')" class="btn btn-primary btn-sm m-1">Delivered</a>
+                                        @if($order->payment_status == 'paid')
+                                            <button class="btn-sm m-1" disabled="">Delivered</button>
+                                            @else
+                                        <a href="{{ route('order.paymentStatusChange',$order->id) }}" onclick="return confirm('Are you sure ?')" class="btn btn-primary btn-sm m-1">Delivered</a>
+                                        @endif
+                                        @if($order->delivery_status == 'received')
+                                            <button class="btn-sm m-1" disabled="">Received</button>
+                                        @else
+                                        <a href="{{ route('order.paymentStatusRechived',$order->id) }}" onclick="return confirm('Are you sure ?')" class="btn btn-success btn-sm m-1">Received</a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

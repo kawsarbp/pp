@@ -44,7 +44,7 @@
                                                 <td><span class="purchase-history-order-pending-text"> Pending </span>
                                                 </td>
                                             @elseif($order->delivery_status == 'received')
-                                                <td><span class="purchase-history-order-processing-text">Received</span></td>
+                                                <td><span class="purchase-history-order-delivered-text">Received</span></td>
 
                                             @elseif($order->delivery_status == 'delivered')
 
