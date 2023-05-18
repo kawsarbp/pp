@@ -25,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         view()->composer('*', function ($view) {
             $categories = Category::where('status','active')->orderBy('id','desc')->get();
             $data = [];

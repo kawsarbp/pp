@@ -161,7 +161,7 @@
                                 <div class="purchase-history">
                                     <div class="d-flex flex-row justify-content-between align-items-center">
                                         <div class="purchase-history-text">My Wishlist</div>
-                                        <div class="purchase-history-see-all"><a href="">see all</a></div>
+                                        <div class="purchase-history-see-all"><a href="{{route('user.myWishlist')}}">see all</a></div>
                                     </div>
                                     @if(count($wishlistValues)>0)
                                         @foreach($wishlistValues as $wishlist)
@@ -199,7 +199,7 @@
                                 <div class="purchase-history">
                                     <div class="d-flex flex-row justify-content-between align-items-center">
                                         <div class="purchase-history-text">Product in Cart</div>
-                                        <div class="purchase-history-see-all"><a href="{{route('user.addToCart')}}">see
+                                        <div class="purchase-history-see-all"><a href="{{route('user.Cart')}}">see
                                                 all</a></div>
                                     </div>
                                     <hr>

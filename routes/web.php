@@ -107,6 +107,11 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::put('/update/{id}',[ProductController::class,'update'])->name('update');
         Route::get('/show/{id}',[ProductController::class,'show'])->name('show');
     });
+    /*customer info*/
+    Route::prefix('/order')->name('order.')->group(function (){
+        Route::get('/index',[OrderController::class,'index'])->name('index');
+        Route::get('/view/{id?}',[OrderController::class,'view'])->name('view');
+    });
 
 
 

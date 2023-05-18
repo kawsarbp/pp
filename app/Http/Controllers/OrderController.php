@@ -80,10 +80,26 @@ class OrderController extends Controller
         $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
         $orders = Order::find($ids);
 
-//        return view('pdf.invoice',compact('orders'));
-
+        //return view('pdf.invoice',compact('orders'));
         $pdf = Pdf::loadView('pdf.invoice',compact('orders'));
         return $pdf->download('invoice.pdf');
     }
+
+    /*order show in admin*/
+    public function index()
+    {
+        $orders = Order::with('product','user')->orderByDesc('id')->get();
+        return view('backend.order.index',compact('orders'));
+    }
+    /*order view*/
+    public function view($id)
+    {
+        $order =  Order::find($id);
+        if ($order)
+        return view('backend.order.view',compact('order'));
+        else
+            return redirect()->back();
+    }
+
 
 }

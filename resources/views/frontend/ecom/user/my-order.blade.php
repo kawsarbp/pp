@@ -13,6 +13,7 @@
                         @include('frontend.ecom.user.sidebar')
                     </div>
                     <div class="col-lg-9">
+                        @if(count($orderDetails) > 0)
                         <div id="order-details" class="py-5">
                             <div class="container-fluid">
                                 <div class="row">
@@ -20,8 +21,8 @@
                                         <div class="order-details-box">
                                             <div class="row mx-0 border px-1 py-2 align-items-center">
                                                 <div class="col-md-4 mb-2 mb-xl-0">
-                                                    <?php use App\Models\Order;$subtotal = 0; $total = 0; $totalDiscount = 0; ?>
-                                                    @if(count($orderDetails) > 0)
+                                                    <?php $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
+
                                                         @foreach($orderDetails as $orderDtls)
                                                             @php
                                                                 $discount = $orderDtls->product_price * ($orderDtls->product_discount / 100);
@@ -51,11 +52,7 @@
 
                                                             ?>
                                                         @endforeach
-                                                    @else
-                                                        <?php
-                                                        return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Please Added product in cart!.']);;
-                                                        ?>
-                                                    @endif
+
                                                     <div class="">
                                                         <span class="order-id-text">Order ID:</span>
                                                         <span class="order-number">{{ auth()->id() }}</span>
@@ -282,7 +279,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <br><br>
                                 <div class="row">
@@ -329,6 +325,9 @@
                                 </div>
                             </div>
                         </div>
+                        @else
+                            <h2 class="text-center text-primary">There Are No Order.</h2>
+                        @endif
                     </div>
                 </div>
             </div>
