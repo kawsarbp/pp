@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             foreach ($categories as $item => $data2)
             {
                 $data[$item] = $data2;
-                $data[$item]['subcategory'] = Subcategory::where('category_id','=',$data2->id)->limit(8)->get();
+                $data[$item]['subcategory'] = Subcategory::where('category_id','=',$data2->id)->where('status','=','active')->limit(8)->get();
             }
             $view->with('global_categories',$data);
         });

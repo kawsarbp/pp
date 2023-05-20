@@ -227,7 +227,7 @@
                                             <a href="javascript:void (0)" class="category">{{ $category->category_name }}</a>
                                             <hr style="color: #687083">
                                             @foreach($category['subcategory'] as $subcategory)
-                                            <a href="javascript:void (0)" class="subcategory">{{ $subcategory->subcategory_name }}</a>
+                                            <a href="{{ route('user.categoryProduct',$subcategory->id) }}" class="subcategory">{{ $subcategory->subcategory_name }}</a>
                                             @endforeach
                                         </div>
 

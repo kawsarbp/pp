@@ -406,5 +406,13 @@ class SiteController extends Controller
 
         return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
     }
+    /*show product with category*/
+    public function categoryProduct($id)
+    {
+
+        $products = Product::where('subcategory_id',$id)->get();
+        return view('frontend.ecom.product.products',compact('products'));
+
+    }
 
 }

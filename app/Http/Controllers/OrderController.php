@@ -137,7 +137,7 @@ class OrderController extends Controller
             $product->product_quantity = $product->product_quantity + $order->product_qty;
             $product->save();
         }
-        
+
         $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
         Order::whereIn('id', $ids)->delete();
         return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Your order canceled.']);
