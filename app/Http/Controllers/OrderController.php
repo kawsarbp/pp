@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -130,6 +131,13 @@ class OrderController extends Controller
     /*cancel order*/
     public function cancelOrder($id)
     {
+        $orders =  Order::where('user_id',auth()->id())->get();
+        foreach ($orders as $order){
+            $product = Product::find($order->product_id);
+            $product->product_quantity = $product->product_quantity + $order->product_qty;
+            $product->save();
+        }
+        
         $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
         Order::whereIn('id', $ids)->delete();
         return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Your order canceled.']);

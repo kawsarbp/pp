@@ -18,7 +18,7 @@
 <div class="container">
 
 
-    <h1 class="text-center">Pay useing your card -- {{ $totalprice }}</h1>
+    <h1 class="text-center">Pay useing your card</h1>
     <br>
 
     <div class="row">
