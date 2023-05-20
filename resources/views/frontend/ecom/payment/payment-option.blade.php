@@ -32,7 +32,32 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{ route('user.payment') }}" method="POST" class="shipping-method-box">
+                        <?php $subtotal = 0; $total = 0; $totalDiscount = 0;?>
+
+                        @if(count($cartValues)>0)
+                            @foreach($cartValues as $cartValue)
+                                @php
+                                    $discount = $cartValue->product_price * ($cartValue->product_discount / 100);
+                                    $discountedPrice = $cartValue->product_price - $discount;
+                                @endphp
+                                <?php
+                                if ($cartValue->product_discount > 0) {
+                                    $price = $discountedPrice;
+                                } else {
+                                    $price = $cartValue->product_price;
+                                }
+                                if ($cartValue->product_discount > 0) {
+                                    $discount = $cartValue->product_discount;
+                                } else {
+                                    $discount = 0;
+                                }
+                                $total += $price * $cartValue->product_qty;
+                                $totalDiscount += $discount * $cartValue->product_qty;
+                                $subtotal += $cartValue->product_price * $cartValue->product_qty;
+                                ?>
+                            @endforeach
+                        @endif
+                        <form action="{{ route('user.payment',base64_encode($total)) }}" method="GET" class="shipping-method-box">
                             @csrf
                             <div class="shipping-method-text">Payment Method</div>
                             <div class="encrypted-text">All Transactions Are Secure And Encrypted.</div>

@@ -42,7 +42,7 @@ Route::post('/user-update/{id}',[SiteController::class,'userUpdate'])->name('use
 Route::get('/shipping-method',[SiteController::class,'shippingMethod'])->name('user.shippingMethod');
 Route::get('/payment-option',[SiteController::class,'paymentOption'])->name('user.paymentOption');
 Route::get('/payment-method',[SiteController::class,'paymentMethod'])->name('user.paymentMethod');
-Route::post('/payment',[OrderController::class,'payment'])->name('user.payment');
+Route::get('/payment/{totalprice?}',[OrderController::class,'payment'])->name('user.payment');
 Route::get('/order-details',[SiteController::class,'orderDetails'])->name('user.orderDetails');
 Route::get('/product-details/{id?}',[SiteController::class,'productDetails'])->name('user.productDetails');
 Route::get('/cancel-order/{id?}',[OrderController::class,'cancelOrder'])->name('user.cancelOrder');
@@ -115,6 +115,9 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::get('/payment-status-rechived/{id?}',[OrderController::class,'paymentStatusRechived'])->name('paymentStatusRechived');
         Route::get('/order-remove/{id?}',[OrderController::class,'orderRemove'])->name('orderRemove');
     });
+
+    /*stripe payment*/
+    Route::post('/stripe/{totalprice}',[OrderController::class,'stripePost'])->name('stripe.post');
 
 
 

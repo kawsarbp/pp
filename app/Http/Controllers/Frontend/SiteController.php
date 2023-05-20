@@ -302,7 +302,6 @@ class SiteController extends Controller
     {
         $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
 
-
         $cart = Cart::where('user_id', Auth::id())->get();
         if (Auth::id()) {
             $user = User::find(Auth::id());
