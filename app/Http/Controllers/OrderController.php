@@ -137,6 +137,15 @@ class OrderController extends Controller
     /*order remove*/
     public function orderRemove($id)
     {
+        /*send mail*/
+        $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'order calceled',];
+        $user['to'] = auth()->user()->email;
+        Mail::send('mail/order-mail', $data, function ($message) use ($user) {
+            $message->to($user['to']);
+            $message->subject('Faz Group');
+        });
+        /*send mail*/
+
         $order = Order::find($id);
         $order->delete();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Remove Success']);

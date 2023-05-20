@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <strong>Payment Status: </strong>
+                        <strong>Status: </strong>
                         <span>{{ ucwords($status) }}</span>
                     </td>
                 </tr>
