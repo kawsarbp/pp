@@ -66,6 +66,8 @@ class OrderController extends Controller
             /*return view('frontend.ecom.cart.payment_method');*/
         } elseif ($request->payment == 'stripe') {
             return view('payment.stripe',compact('totalprice'));
+        }elseif ($request->payment == 'paypal') {
+            return view('payment.paypal',compact('totalprice'));
         }
 
     }

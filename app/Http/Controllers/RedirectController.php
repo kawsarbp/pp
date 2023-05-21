@@ -25,7 +25,7 @@ class RedirectController extends Controller
             /*order data*/
             $orders = Order::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
             $totalOrders = Order::where(['user_id'=>Auth::id()])->get();
-            $compliteOrders = Order::where(['user_id'=>Auth::id(),'delivery_status'=>'delivered'])->get();
+            $compliteOrders = Order::where(['user_id'=>$id,'delivery_status'=>'delivered'])->get();
             /*get categories*/
             $categories = Category::with('subcategory')->where('status','active')->get();
 

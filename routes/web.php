@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\paypalController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\SubcategoryController;
@@ -119,7 +120,11 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
 
     /*stripe payment*/
     Route::post('/stripe/{totalprice}',[OrderController::class,'stripePost'])->name('stripe.post');
-
+    /*paypal view*/
+//    Route::get('/paypal',[PaypalController::class,'paypalView'])->name('paypalView');
+    Route::get('/processPaypal/{totalprice?}',[PaypalController::class,'processPaypal'])->name('processPaypal');
+    Route::get('/processSuccess',[PaypalController::class,'processSuccess'])->name('processSuccess');
+    Route::get('/processCancel',[PaypalController::class,'processCancel'])->name('processCancel');
 
 
 

@@ -79,6 +79,14 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="form-check border">
+                                <div class="p-3">
+                                    <input class="form-check-input" value="paypal" type="radio" name="payment" id="paypal" >
+                                    <label class="form-check-label" for="paypal">
+                                        Paypal
+                                    </label>
+                                </div>
+                            </div>
 
                             <br>
                             <div class="d-flex flex-row align-items-center">
