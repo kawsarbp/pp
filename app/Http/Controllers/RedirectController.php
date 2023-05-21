@@ -13,9 +13,22 @@ class RedirectController extends Controller
 {
     public function redirect()
     {
+
         $role = Auth::user()->role;
         if ($role == '1') {
-            return view('backend.dashboard');
+
+            $users = User::where('role','0')->get();
+            $totalOrders = Order::all();
+            $compliteOrders = Order::where(['delivery_status'=>'delivered'])->get();
+
+            $toalRevenue = 0;
+            foreach ($totalOrders as $order)
+            {
+                $toalRevenue = $toalRevenue + $order->product_price;
+            }
+
+
+            return view('backend.dashboard',compact('users','totalOrders','compliteOrders','toalRevenue'));
         } else {
             $id = Auth::id();
             $user = User::where('id',$id)->first();
