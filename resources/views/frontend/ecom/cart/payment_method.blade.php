@@ -11,8 +11,10 @@
                 <div class="col-lg-8">
                     <div class="purchase-area">
                         <div class="py-3 text-center">
+                            @foreach($orders as $order)
+                            @endforeach
                             <div class="purchase-text">Thank you for your purchase!</div>
-                            <div class="purchase-number">Your order number is {{ auth()->id() }}</div>
+                            <div class="purchase-number">Your order number is {{ $order->order_id }}</div>
                             <hr>
                         </div>
                         <div class="px-4 pb-4">
@@ -26,7 +28,8 @@
                                             @foreach($orders as $order)
                                                 @php
                                                     $discount = $order->product_price * ($order->product_discount / 100);
-                                                    $discountedPrice = $order->product_price - $discount;
+                                                    $discountedPrice = $order->product_price - $discount*$order->product_qty;
+
                                                 @endphp
                                                 <?php
                                                 if ($order->product_discount > 0) {

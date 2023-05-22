@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sub_orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('order_number')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->string('order_id')->nullable();
 
@@ -33,6 +34,7 @@ return new class extends Migration
 
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('order_number')->references('id')->on('orders')->onDelete('cascade');
 
         });
     }

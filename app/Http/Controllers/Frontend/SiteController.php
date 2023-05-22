@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Subcategory;
+use App\Models\SubOrder;
 use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Auth\CreatesUserProviders;
@@ -313,7 +314,8 @@ class SiteController extends Controller
     /*view shippingMethod  page*/
     public function paymentMethod()
     {
-        $orders = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
+        $order = Order::latest()->first();
+        $orders = SubOrder::with('order')->where('order_id',$order->order_id)->get();
 
         return view('frontend.ecom.cart.payment_method',compact('orders'));
     }
@@ -321,8 +323,10 @@ class SiteController extends Controller
     /*view shippingMethod  page*/
     public function orderDetails()
     {
-        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
+//        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
 
+        $order = Order::latest()->first();
+        $orderDetails = SubOrder::with('order')->where('order_id',$order->order_id)->get();
         return view('frontend.ecom.cart.order_details',compact('orderDetails'));
     }
 

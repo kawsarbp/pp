@@ -49,7 +49,7 @@
                                 @endif
                                 <div class="">
                                     <span class="order-id-text">Order ID:</span>
-                                    <span class="order-number">{{ auth()->id() }}</span>
+                                    <span class="order-number">{{ $orderDtls->order_id }}</span>
                                 </div>
                                 <div class="">
                                     <span class="order-id-text">Order date : </span>
@@ -105,7 +105,8 @@
                                 @foreach($orderDetails as $orderDtls)
                                     @php
                                         $discount = $orderDtls->product_price * ($orderDtls->product_discount / 100);
-                                        $discountedPrice = $orderDtls->product_price - $discount;
+                                    $discountedPrice = $orderDtls->product_price - $discount*$orderDtls->product_qty;
+
                                     @endphp
                                     <?php
                                     if ($orderDtls->product_discount > 0) {
@@ -146,7 +147,7 @@
                                     </div>
                                     <div class="col-md-2 mb-2 mb-xl-0 text-start text-lg-end">
                                         <div class="order-details-qty">
-                                            $ {{ $orderDtls->product_price }}
+                                            $ {{  $orderDtls->product_qty * $orderDtls->product_price }}
                                         </div>
                                     </div>
                                 @endforeach

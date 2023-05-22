@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\SubOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -70,25 +71,72 @@ class PaypalController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
 
-            $carts = Cart::where('user_id', Auth::id())->get();
+
+            /*==========================================================================*/
+
+
+            $carts = Cart::with('product')->where('user_id', Auth::id())->get();
+
+            $total = 0;
             foreach ($carts as $cart) {
-                Order::create([
-                    'user_id' => Auth::id(),
+
+                $discount = $cart->product_price * ($cart->product_discount / 100);
+                $discountedPrice = $cart->product_price - $discount * $cart->product_qty;
+
+                if ($cart->product_discount > 0) {
+                    $price = $discountedPrice;
+                } else {
+                    $price = $cart->product_price;
+                }
+                $total += $price * $cart->product_qty;
+
+            }
+
+            Order::create([
+                'user_id' => Auth::id(),
+                'order_id' => uniqid(),
+                'name' => Auth::user()->name,
+                'email' => Auth::user()->email,
+                'address' => Auth::user()->address,
+                'phone' => Auth::user()->phone,
+                'total_price' => $total,
+                'shipping_charge' => '0',
+                'payment_status' => 'Cash On Delivery',
+                'delivery_status' => 'processing',
+            ]);
+
+            $order = Order::latest()->first();
+
+
+            foreach ($carts as $cart) {
+
+                $discount = $cart->product_price * ($cart->product_discount / 100);
+                $discountedPrice = $cart->product_price - $discount * $cart->product_qty;
+
+                if ($cart->product_discount > 0) {
+                    $price = $discountedPrice;
+                } else {
+                    $price = $cart->product_price;
+                }
+                $productTotal = $price * $cart->product_qty;
+
+                SubOrder::create([
+                    'order_number' => $order->id,
                     'product_id' => $cart->product_id,
-                    'cart_id' => $cart->id,
-                    'order_id' => date('dmyhis') . uniqid(),
-                    'name' => $cart->name,
-                    'email' => $cart->email,
-                    'address' => $cart->address,
-                    'phone' => $cart->phone,
+                    'order_id' => $order->order_id,
+                    'name' => Auth::user()->name,
+                    'email' => Auth::user()->email,
+                    'address' => Auth::user()->address,
+                    'phone' => Auth::user()->phone,
                     'product_name' => $cart->product_name,
                     'product_price' => $cart->product_price,
                     'product_discount' => $cart->product_discount,
+                    'product_total_price' => $productTotal,
                     'product_qty' => $cart->product_qty,
-                    'product_photo' => $cart->product_photo,
-                    'payment_status' => 'Cash On Delivery',
-                    'delivery_status' => 'processing',
+                    'product_photo' => $cart->product_photo
+
                 ]);
+
 
                 /*send mail*/
                 $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'processing',];
@@ -109,6 +157,11 @@ class PaypalController extends Controller
             Cart::whereIn('id', $ids)->delete();
             return redirect()->route('user.paymentMethod')->with(['type' => 'success', 'message' => 'Thank you for your purchase!']);
             /*delete product*/
+            /*return view('frontend.ecom.cart.payment_method');*/
+
+
+            /*==========================================================================*/
+
             /*return redirect()
                 ->route('user.home')
                 ->with('success', 'Transaction complete.');*/
