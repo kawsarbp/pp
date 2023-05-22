@@ -39,7 +39,8 @@
         @foreach($cartValues as $cartValue)
             @php
                 $discount = $cartValue->product_price * ($cartValue->product_discount / 100);
-                $discountedPrice = $cartValue->product_price - $discount;
+                $discountedPrice = $cartValue->product_price - $discount*$cartValue->product_qty;
+
             @endphp
             <?php
             if ($cartValue->product_discount > 0) {
@@ -108,15 +109,9 @@
                         </div>
                     </div>
                     <div class="col-lg-2  col-md-12 ">
-                        @if($cartValue->product_discount >0)
-
                             <div class="cart-product-amount-original">
-                                $ {{ $discountedPrice * $cartValue->product_qty}}</div>
-                        @else
-                            <div class="cart-product-amount-original">
-                                $ {{ $cartValue->product_price * $cartValue->product_qty}}</div>
-                        @endif
-
+                                $ {{ $cartValue->product_price * $cartValue->product_qty}}
+                            </div>
                     </div>
                     <div class="col-lg-2  col-md-12 ">
                         <div class="cart-product-remove-icon">

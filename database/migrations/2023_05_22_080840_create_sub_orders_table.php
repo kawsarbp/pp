@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('sub_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->string('order_id')->nullable();
 
             $table->string('name')->nullable();
@@ -23,14 +23,17 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
 
-            $table->string('total_price')->nullable();
-            $table->string('shipping_charge')->nullable();
+            $table->string('product_name')->nullable();
+            $table->string('product_price')->nullable();
+            $table->string('product_discount')->nullable();
+            $table->string('product_total_price')->nullable();
 
-            $table->string('payment_status')->nullable();
-            $table->string('delivery_status')->nullable();
+            $table->unsignedBigInteger('product_qty')->nullable();
+            $table->string('product_photo')->nullable();
 
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
         });
     }
 
@@ -41,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('sub_orders');
     }
 };

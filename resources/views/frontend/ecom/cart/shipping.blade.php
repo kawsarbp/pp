@@ -106,7 +106,8 @@
                     @foreach($cartValues as $cartValue)
                         @php
                             $discount = $cartValue->product_price * ($cartValue->product_discount / 100);
-                            $discountedPrice = $cartValue->product_price - $discount;
+                            $discountedPrice = $cartValue->product_price - $discount*$cartValue->product_qty;
+
                         @endphp
                         <?php
                         if ($cartValue->product_discount > 0) {

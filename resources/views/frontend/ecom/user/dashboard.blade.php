@@ -23,7 +23,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">total order</div>
-                                    <div class="order-box-amount">{{ count($totalOrders) }}</div>
+                                    <div class="order-box-amount">0{{--{{ count($totalOrders) }}--}}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -34,7 +34,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">My Wishlist</div>
-                                    <div class="order-box-amount">{{ count($wishlistValues) }}</div>
+                                    <div class="order-box-amount">0{{--{{ count($wishlistValues) }}--}}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -49,7 +49,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">Product in Cart</div>
-                                    <div class="order-box-amount">{{ count($cartValues) }}</div>
+                                    <div class="order-box-amount">0{{--{{ count($cartValues) }}--}}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -73,7 +73,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">Completed Order</div>
-                                    <div class="order-box-amount">{{ count($compliteOrders) }}</div>
+                                    <div class="order-box-amount">0{{--{{ count($compliteOrders) }}--}}</div>
                                 </div>
                             </div>
 
@@ -93,7 +93,7 @@
                                         <div class="purchase-history-text-word">Amount</div>
                                         <div class="purchase-history-text-word">Status</div>
                                     </div>
-                                    @foreach($orders as $order)
+                                    {{--@foreach($orders as $order)
                                     <div
                                         class="d-flex flex-row purchase-history-box justify-content-between align-items-center">
                                         <div class="">
@@ -108,7 +108,7 @@
                                         @endif
                                     </div>
                                     <hr>
-                                    @endforeach
+                                    @endforeach--}}
 
 
                                 </div>
