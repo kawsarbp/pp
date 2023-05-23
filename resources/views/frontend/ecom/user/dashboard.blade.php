@@ -49,7 +49,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">Product in Cart</div>
-                                    <div class="order-box-amount">0{{ count($cartValues) }}</div>
+                                    <div class="order-box-amount">{{ count($cartValues) }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -93,6 +93,7 @@
                                         <div class="purchase-history-text-word">Amount</div>
                                         <div class="purchase-history-text-word">Status</div>
                                     </div>
+                                    @if(count($orders) > 0)
                                     @foreach($orders as $order)
                                     <div
                                         class="d-flex flex-row purchase-history-box justify-content-between align-items-center">
@@ -100,17 +101,18 @@
                                             <div class="purchase-history-number">Order ID: {{ $order->order_id }}</div>
                                             <div class="purchase-history-date">{{ date('d-M-Y',strtotime($order->created_at)) }}</div>
                                         </div>
-                                        <div class="purchase-history-amount">$ {{$order->order->total_price}}</div>
-                                        @if($order->order->delivery_status == 'processing')
+                                        <div class="purchase-history-amount">$ {{$order->total_price}}</div>
+                                        @if($order->delivery_status == 'processing')
                                         <div class="purchase-history-processing">Processing</div>
-                                        @elseif($order->order->delivery_status == 'delivered')
+                                        @elseif($order->delivery_status == 'delivered')
                                             <div class="purchase-history-delivered">Delivered</div>
                                         @endif
                                     </div>
                                     <hr>
                                     @endforeach
-
-
+                                    @else
+                                    <h5 class="text-info text-center">No Product Available</h5>
+                                    @endif
                                 </div>
                             </div>
 

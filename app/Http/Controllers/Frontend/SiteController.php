@@ -229,13 +229,10 @@ class SiteController extends Controller
     /*view userDashboard  page*/
     public function myHistories()
     {
-
         $id = Auth::id();
         $user = User::where('id',$id)->first();
         /*order data*/
-
         $orders = Order::where('user_id',$id)->get();
-
         return view('frontend.ecom.user.histories',compact('orders','user'));
     }
 
@@ -324,11 +321,16 @@ class SiteController extends Controller
     /*view shippingMethod  page*/
     public function orderDetails()
     {
-//        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
-
+        $user = User::where('id',Auth::id())->first();
         $order = Order::latest()->first();
-        $orderDetails = SubOrder::with('order')->where('order_id',$order->order_id)->get();
-        return view('frontend.ecom.cart.order_details',compact('orderDetails'));
+        if($order->user_id == Auth::id())
+        {
+            $orderDetails = SubOrder::with('order')->where(['order_id'=>$order->order_id])->get();
+            return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
+        }else{
+            return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);
+        }
+
     }
 
     /*view shippingMethod  page*/
@@ -409,9 +411,13 @@ class SiteController extends Controller
         $user = User::where('id',$id)->first();
 
         $order = Order::latest()->first();
-        $orderDetails = SubOrder::with('order')->where('order_id',$order->order_id)->get();
-
+        if($order->user_id == $id)
+        {
+        $orderDetails = SubOrder::with('order')->where(['order_id'=>$order->order_id])->get();
         return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
+        }else{
+            return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);
+        }
     }
     /*show product with category*/
     public function categoryProduct($id)

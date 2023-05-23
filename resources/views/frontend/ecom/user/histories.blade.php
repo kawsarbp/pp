@@ -24,6 +24,7 @@
                                         <th>Payment Status</th>
                                         <th>Action</th>
                                     </tr>
+                                    @if(count($orders) > 0)
                                     @foreach($orders as $order)
                                         <tr>
                                             <td>
@@ -67,8 +68,11 @@
                                                 </td>
                                         </tr>
                                     @endforeach
+                                    @else
 
                                 </table>
+                                <h5 class="text-center text-capitalize text-info">no product history</h5>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -39,7 +39,7 @@ class RedirectController extends Controller
             /*order data*/
 
             $order = Order::latest()->first();
-            $orders = SubOrder::with('order')->get();
+            $orders = Order::where('user_id',$id)->get();
             $totalOrders = Order::where(['user_id'=>Auth::id()])->get();
             $compliteOrders = Order::where(['user_id'=>Auth::id(),'delivery_status'=>'delivered'])->get();
 

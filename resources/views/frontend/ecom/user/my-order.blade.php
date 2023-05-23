@@ -89,13 +89,13 @@
                                                 <div class="col-md-4 mb-2 mb-xl-0">
                                                     <div class="">
                                                         <span class="order-id-text">Package Code: </span>
-                                                        <span class="order-number"> {{ auth()->id() }}</span>
+                                                        <span class="order-number"> {{ $orderDtls->order_id }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-2 mb-xl-0 text-start text-lg-center">
                                                     <div class="">
                                                         <span class="order-id-text">Order amount:  </span>
-                                                        <span class="order-number"> $ 37.05</span>
+                                                        <span class="order-number"> $ {{ $total  }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-2 mb-xl-0 text-start text-lg-end">
