@@ -9,7 +9,7 @@
 <body>
 
 <div class="text-center mt-5">
-    <a class="btn btn-primary" href="{{route('processPaypal',$totalprice)}}">Pay {{$totalprice}}$</a>
+    <a class="btn btn-info" href="{{route('processPaypal',$totalprice)}}">Pay ${{$totalprice}}</a>
 </div>
 
 @if(\Session::has('error'))

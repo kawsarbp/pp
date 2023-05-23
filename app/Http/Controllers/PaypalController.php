@@ -101,7 +101,7 @@ class PaypalController extends Controller
                 'phone' => Auth::user()->phone,
                 'total_price' => $total,
                 'shipping_charge' => '0',
-                'payment_status' => 'Cash On Delivery',
+                'payment_status' => 'paypal payment',
                 'delivery_status' => 'processing',
             ]);
 

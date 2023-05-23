@@ -406,7 +406,9 @@ class SiteController extends Controller
     {
         $id = Auth::id();
         $user = User::where('id',$id)->first();
-        $orderDetails = Order::where(['user_id' => Auth::id(), 'delivery_status' => 'processing'])->orderBy('id','desc')->get();
+
+        $order = Order::latest()->first();
+        $orderDetails = SubOrder::with('order')->where('order_id',$order->order_id)->get();
 
         return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
     }

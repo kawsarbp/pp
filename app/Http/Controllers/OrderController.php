@@ -169,7 +169,7 @@ class OrderController extends Controller
             'phone' => Auth::user()->phone,
             'total_price' => $total,
             'shipping_charge' => '0',
-            'payment_status' => 'Cash On Delivery',
+            'payment_status' => 'Stripe payment',
             'delivery_status' => 'processing',
         ]);
 
@@ -235,16 +235,22 @@ class OrderController extends Controller
     /*cancel order*/
     public function cancelOrder($id)
     {
+        $order = Order::latest()->first();
+        $orders = SubOrder::where(['order_id'=>$order->order_id])->get();
 
-        $orders = Order::where('user_id', auth()->id())->get();
         foreach ($orders as $order) {
             $product = Product::find($order->product_id);
             $product->product_quantity = $product->product_quantity + $order->product_qty;
             $product->save();
         }
 
-        $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
-        Order::whereIn('id', $ids)->delete();
+        $dltorder =  Order::where('order_id',$id)->first();
+        $dltorder->delete();
+
+
+        /*$ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
+        Order::whereIn('id', $ids)->delete();*/
+
         return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Your order canceled.']);
     }
 

@@ -16,7 +16,7 @@
                                     @foreach($orderDetails as $orderDtls)
                                         @php
                                             $discount = $orderDtls->product_price * ($orderDtls->product_discount / 100);
-                                            $discountedPrice = $orderDtls->product_price - $discount;
+                                            $discountedPrice = $orderDtls->product_price - $discount*$orderDtls->product_qty;
                                         @endphp
                                         <?php
                                         if ($orderDtls->product_discount > 0) {
@@ -59,7 +59,7 @@
                             <div class="col-md-2 mb-2 mb-xl-0">
                                 <div class="">
                                     <span class="order-id-text">Status: </span>
-                                    <span class="order-number">{{ $orderDtls->delivery_status }}</span>
+                                    <span class="order-number">{{ $orderDtls->order->delivery_status }}</span>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2 mb-xl-0">
@@ -81,13 +81,13 @@
                             <div class="col-md-4 mb-2 mb-xl-0">
                                 <div class="">
                                     <span class="order-id-text">Package Code: </span>
-                                    <span class="order-number"> {{ auth()->id() }}</span>
+                                    <span class="order-number"> {{ $orderDtls->order_id }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-2 mb-xl-0 text-start text-lg-center">
                                 <div class="">
                                     <span class="order-id-text">Order amount:  </span>
-                                    <span class="order-number"> $ 37.05</span>
+                                    <span class="order-number"> $ {{ $total }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-2 mb-xl-0 text-start text-lg-end">
@@ -147,7 +147,7 @@
                                     </div>
                                     <div class="col-md-2 mb-2 mb-xl-0 text-start text-lg-end">
                                         <div class="order-details-qty">
-                                            $ {{  $orderDtls->product_qty * $orderDtls->product_price }}
+                                            $ {{ $orderDtls->product_total_price }}
                                         </div>
                                     </div>
                                 @endforeach
@@ -158,8 +158,13 @@
                             @endif
                         </div>
 
-                        <div class="text-end p-3"><a onclick="return confirm('Are you sure?')" href="{{ route('user.cancelOrder',auth()->id()) }}"
-                                                     class="order-cancel-btn">cancel order</a></div>
+                        <div class="text-end p-3">
+                            @php
+                                $order = Order::latest()->first();
+                                @endphp
+                            <a onclick="return confirm('Are you sure?')" href="{{ route('user.cancelOrder',$order->order_id) }}"
+                                                     class="order-cancel-btn">cancel order</a>
+                        </div>
                         <div class="row mx-0  px-1 py-3 justify-content-between">
                             <div class="col-md-5 mb-3 ">
                                 <div class="order-info-text-box">
@@ -259,7 +264,7 @@
                                     </div>
                                     <div class="d-flex flex-row justify-content-between my-2">
                                         <div class="order-info-name"><span>Paid By</span> :</div>
-                                        <div class="order-info-addr"> Cash On Delivery</div>
+                                        <div class="order-info-addr"> {{ $orderDtls->order->payment_status }}</div>
                                     </div>
                                     <div class="d-flex flex-row justify-content-between my-2">
                                         <div class="order-info-name"><span>TXN ID</span> :</div>
@@ -267,7 +272,7 @@
                                     </div>
                                     <div class="d-flex flex-row justify-content-between my-2">
                                         <div class="order-info-name"><span>Payment Status</span> :</div>
-                                        <div class="order-info-addr">{{ $orderDtls->delivery_status }}</div>
+                                        <div class="order-info-addr">{{ $orderDtls->order->delivery_status }}</div>
                                     </div>
                                 </div>
                             </div>
