@@ -74,9 +74,8 @@ class OrderController extends Controller
                 $productTotal = $price * $cart->product_qty;
 
                 SubOrder::create([
-                    'order_number' => $order->id,
-                    'product_id' => $cart->product_id,
                     'order_id' => $order->order_id,
+                    'product_id' => $cart->product_id,
                     'name' => Auth::user()->name,
                     'email' => Auth::user()->email,
                     'address' => Auth::user()->address,
@@ -189,9 +188,8 @@ class OrderController extends Controller
             $productTotal = $price * $cart->product_qty;
 
             SubOrder::create([
-                'order_number' => $order->id,
-                'product_id' => $cart->product_id,
                 'order_id' => $order->order_id,
+                'product_id' => $cart->product_id,
                 'name' => Auth::user()->name,
                 'email' => Auth::user()->email,
                 'address' => Auth::user()->address,
@@ -235,8 +233,11 @@ class OrderController extends Controller
     /*cancel order*/
     public function cancelOrder($id)
     {
+
         $order = Order::latest()->first();
-        $orders = SubOrder::where(['order_id'=>$order->order_id])->get();
+        $orders = SubOrder::where(['order_id'=>$id])->get();
+
+        
 
         foreach ($orders as $order) {
             $product = Product::find($order->product_id);
@@ -247,9 +248,8 @@ class OrderController extends Controller
         $dltorder =  Order::where('order_id',$id)->first();
         $dltorder->delete();
 
-
-        /*$ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
-        Order::whereIn('id', $ids)->delete();*/
+        $ids = SubOrder::where(['order_id'=>$id])->pluck('id')->toArray();
+        SubOrder::whereIn('id', $ids)->delete();
 
         return redirect()->route('user.home')->with(['type' => 'success', 'message' => 'Your order canceled.']);
     }
@@ -261,7 +261,7 @@ class OrderController extends Controller
 //        $orders = Order::find($ids);
 
         $order = Order::latest()->first();
-        $orders = SubOrder::with('order')->where('order_id',$order->order_id)->get();
+        $orders = SubOrder::where('order_id',$order->order_id)->get();
 
         //return view('pdf.invoice',compact('orders'));
         $pdf = Pdf::loadView('pdf.invoice', compact('orders'));

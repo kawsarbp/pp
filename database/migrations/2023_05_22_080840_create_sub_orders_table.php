@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('sub_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_number')->nullable();
-            $table->unsignedBigInteger('product_id')->nullable();
             $table->string('order_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
 
             $table->string('name')->nullable();
             $table->string('email')->nullable();
@@ -25,17 +24,15 @@ return new class extends Migration
             $table->string('phone')->nullable();
 
             $table->string('product_name')->nullable();
-            $table->string('product_price')->nullable();
-            $table->string('product_discount')->nullable();
-            $table->string('product_total_price')->nullable();
+            $table->decimal('product_price')->default(0);
+            $table->decimal('product_discount')->nullable();
+            $table->decimal('product_total_price')->default(0);
 
             $table->unsignedBigInteger('product_qty')->nullable();
             $table->string('product_photo')->nullable();
 
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('order_number')->references('id')->on('orders')->onDelete('cascade');
-
         });
     }
 

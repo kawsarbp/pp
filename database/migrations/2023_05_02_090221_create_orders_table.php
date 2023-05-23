@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
 
-            $table->string('total_price')->nullable();
-            $table->string('shipping_charge')->nullable();
+            $table->decimal('total_price')->default(0);
+            $table->decimal('shipping_charge')->default(0);
 
             $table->string('payment_status')->nullable();
             $table->string('delivery_status')->nullable();

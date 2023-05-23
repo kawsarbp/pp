@@ -121,9 +121,8 @@ class PaypalController extends Controller
                 $productTotal = $price * $cart->product_qty;
 
                 SubOrder::create([
-                    'order_number' => $order->id,
-                    'product_id' => $cart->product_id,
                     'order_id' => $order->order_id,
+                    'product_id' => $cart->product_id,
                     'name' => Auth::user()->name,
                     'email' => Auth::user()->email,
                     'address' => Auth::user()->address,

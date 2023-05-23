@@ -232,7 +232,7 @@ class SiteController extends Controller
         $id = Auth::id();
         $user = User::where('id',$id)->first();
         /*order data*/
-        $orders = Order::where('user_id',$id)->get();
+        $orders = Order::where('user_id',$id)->orderBy('id','desc')->get();
         return view('frontend.ecom.user.histories',compact('orders','user'));
     }
 
@@ -325,7 +325,8 @@ class SiteController extends Controller
         $order = Order::latest()->first();
         if($order->user_id == Auth::id())
         {
-            $orderDetails = SubOrder::with('order')->where(['order_id'=>$order->order_id])->get();
+            $orderDetails = SubOrder::where(['order_id'=>$order->order_id])->get();
+//            return $orderDetails;
             return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
         }else{
             return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);

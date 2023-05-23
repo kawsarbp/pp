@@ -13,7 +13,7 @@
                         @include('frontend.ecom.user.sidebar')
                     </div>
                     <div class="col-lg-9">
-                        <?php use App\Models\Order; ?>
+                        <?php use App\Models\Order; $order = Order::latest()->first();  ?>
                         @if(count($orderDetails) > 0)
                         <div id="order-details" class="py-5">
                             <div class="container-fluid">
@@ -22,7 +22,7 @@
                                         <div class="order-details-box">
                                             <div class="row mx-0 border px-1 py-2 align-items-center">
                                                 <div class="col-md-4 mb-2 mb-xl-0">
-                                                    <?php  $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
+                                                    <?php   $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
 
                                                         @foreach($orderDetails as $orderDtls)
                                                             @php
@@ -67,7 +67,7 @@
                                                 <div class="col-md-2 mb-2 mb-xl-0">
                                                     <div class="">
                                                         <span class="order-id-text">Status: </span>
-                                                        <span class="order-number">{{ $orderDtls->order->delivery_status }}</span>
+                                                        <span class="order-number">{{ $order->delivery_status }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 mb-2 mb-xl-0">
@@ -275,7 +275,7 @@
                                                         </div>
                                                         <div class="d-flex flex-row justify-content-between my-2">
                                                             <div class="order-info-name"><span>Paid By</span> :</div>
-                                                            <div class="order-info-addr"> {{ $orderDtls->order->payment_status }}</div>
+                                                            <div class="order-info-addr"> {{ $order->payment_status }}</div>
                                                         </div>
                                                         <div class="d-flex flex-row justify-content-between my-2">
                                                             <div class="order-info-name"><span>TXN ID</span> :</div>
@@ -283,7 +283,7 @@
                                                         </div>
                                                         <div class="d-flex flex-row justify-content-between my-2">
                                                             <div class="order-info-name"><span>Payment Status</span> :</div>
-                                                            <div class="order-info-addr">{{ $orderDtls->order->delivery_status }}</div>
+                                                            <div class="order-info-addr">{{ $order->delivery_status }}</div>
                                                         </div>
                                                     </div>
                                                 </div>

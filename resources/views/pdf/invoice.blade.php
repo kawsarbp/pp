@@ -47,7 +47,7 @@
                         <th class="th">Product Qty</th>
                         <th class="th">Product Price</th>
                     </tr>
-                    <?php $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
+                    <?php use App\Models\Order; $odr = Order::latest()->first(); $subtotal = 0; $total = 0; $totalDiscount = 0; ?>
                     @foreach($orders as $order)
                         @php
                             $discount = $order->product_price * ($order->product_discount / 100);
@@ -131,14 +131,14 @@
                         <div style="font-weight: bold; color: #00124E;">Paid By</div>
                     </td>
                     <td class="px-3">:</td>
-                    <td>{{ $order->payment_status }}</td>
+                    <td>{{ $odr->payment_status }}</td>
                 </tr>
                 <tr>
                     <td>
                         <div style="font-weight: bold; color: #00124E;">Payment Status</div>
                     </td>
                     <td class="px-3">:</td>
-                    <td>{{ ucwords($order->delivery_status) }}</td>
+                    <td>{{ ucwords($odr->delivery_status) }}</td>
                 </tr>
             </table>
         </div>
