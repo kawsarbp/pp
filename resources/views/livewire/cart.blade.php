@@ -57,6 +57,8 @@
             $totalDiscount += $discount * $cartValue->product_qty;
             $subtotal += $cartValue->product_price * $cartValue->product_qty;
 
+            $productTotal = $price * $cartValue->product_qty;
+
             ?>
             <div class="cart-items-bg px-4 py-2 mb-3">
                 <div class="row align-items-center">
@@ -64,7 +66,7 @@
                         <a href="{{route('user.productDetails',$cartValue->product_id)}}" class="cart-item-img">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/uploads/product/{{ $cartValue->product_photo }}" alt=""> &nbsp;&nbsp;
-                                <div class="cart-product-name">{{ $cartValue->product_name }}</div>
+                                <div class="cart-product-name">  {{ $cartValue->product_name }}</div>
                             </div>
                         </a>
                     </div>
@@ -110,7 +112,7 @@
                     </div>
                     <div class="col-lg-2  col-md-12 ">
                             <div class="cart-product-amount-original">
-                                $ {{ $cartValue->product_price * $cartValue->product_qty}}
+                                $ {{ $productTotal }}
                             </div>
                     </div>
                     <div class="col-lg-2  col-md-12 ">
