@@ -28,13 +28,13 @@
                                         <tr>
                                             <td>
                                                 <div class="purchase-history-order-number">Order
-                                                    ID: {{ auth()->id() }}</div>
+                                                    ID: {{ $order->order_id }}</div>
                                                 <div
                                                     class="purchase-history-order-date">{{ date('d-M-Y',strtotime($order->created_at)) }}</div>
                                             </td>
                                             <td>
                                                 <div class="purchase-history-order-amount">
-                                                    $ {{$order->product_price}}</div>
+                                                    $ {{$order->total_price}}</div>
                                             </td>
                                             @if($order->delivery_status == 'processing')
                                                 <td><span

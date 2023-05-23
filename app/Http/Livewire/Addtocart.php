@@ -20,12 +20,12 @@ class Addtocart extends Component
         $products = Product::with('brand', 'subcategory', 'user')
             ->leftJoin('wishlists','products.id','=','wishlists.product_id')
             ->where('status', 'active')
-            ->select('products.*','wishlists.id as w_id')
+            ->select('products.*', 'wishlists.id as w_id','wishlists.user_id as u_id')
             ->orderBy('id', 'desc')->get();
         $productslimit = Product::with('brand', 'subcategory', 'user')
             ->leftJoin('wishlists','products.id','=','wishlists.product_id')
             ->where('status', 'active')
-            ->select('products.*','wishlists.id as w_id')
+            ->select('products.*', 'wishlists.id as w_id','wishlists.user_id as u_id')
             ->orderBy('id', 'desc')
             ->limit(6)->get();
 

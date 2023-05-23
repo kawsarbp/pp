@@ -27,7 +27,8 @@
                                                         @foreach($orderDetails as $orderDtls)
                                                             @php
                                                                 $discount = $orderDtls->product_price * ($orderDtls->product_discount / 100);
-                                                                $discountedPrice = $orderDtls->product_price - $discount;
+                                                                $discountedPrice = $orderDtls->product_price - $discount*$orderDtls->product_qty;
+
                                                             @endphp
                                                             <?php
                                                             if ($orderDtls->product_discount > 0) {
@@ -112,7 +113,8 @@
                                                     @foreach($orderDetails as $orderDtls)
                                                         @php
                                                             $discount = $orderDtls->product_price * ($orderDtls->product_discount / 100);
-                                                            $discountedPrice = $orderDtls->product_price - $discount;
+                                                            $discountedPrice = $orderDtls->product_price - $discount*$orderDtls->product_qty;
+
                                                         @endphp
                                                         <?php
                                                         if ($orderDtls->product_discount > 0) {

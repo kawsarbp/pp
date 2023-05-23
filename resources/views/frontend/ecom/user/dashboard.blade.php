@@ -23,7 +23,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">total order</div>
-                                    <div class="order-box-amount">0{{--{{ count($totalOrders) }}--}}</div>
+                                    <div class="order-box-amount">{{ count($totalOrders) }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -34,7 +34,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">My Wishlist</div>
-                                    <div class="order-box-amount">0{{--{{ count($wishlistValues) }}--}}</div>
+                                    <div class="order-box-amount">{{ count($wishlistValues) }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -49,7 +49,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">Product in Cart</div>
-                                    <div class="order-box-amount">0{{--{{ count($cartValues) }}--}}</div>
+                                    <div class="order-box-amount">0{{ count($cartValues) }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -73,7 +73,7 @@
                                         </svg>
                                     </div>
                                     <div class="order-box-text">Completed Order</div>
-                                    <div class="order-box-amount">0{{--{{ count($compliteOrders) }}--}}</div>
+                                    <div class="order-box-amount">{{ count($compliteOrders) }}</div>
                                 </div>
                             </div>
 
@@ -93,22 +93,22 @@
                                         <div class="purchase-history-text-word">Amount</div>
                                         <div class="purchase-history-text-word">Status</div>
                                     </div>
-                                    {{--@foreach($orders as $order)
+                                    @foreach($orders as $order)
                                     <div
                                         class="d-flex flex-row purchase-history-box justify-content-between align-items-center">
                                         <div class="">
-                                            <div class="purchase-history-number">Order ID: {{ auth()->id() }}</div>
+                                            <div class="purchase-history-number">Order ID: {{ $order->order_id }}</div>
                                             <div class="purchase-history-date">{{ date('d-M-Y',strtotime($order->created_at)) }}</div>
                                         </div>
-                                        <div class="purchase-history-amount">$ {{$order->product_price}}</div>
-                                        @if($order->delivery_status == 'processing')
+                                        <div class="purchase-history-amount">$ {{$order->order->total_price}}</div>
+                                        @if($order->order->delivery_status == 'processing')
                                         <div class="purchase-history-processing">Processing</div>
-                                        @elseif($order->delivery_status == 'delivered')
+                                        @elseif($order->order->delivery_status == 'delivered')
                                             <div class="purchase-history-delivered">Delivered</div>
                                         @endif
                                     </div>
                                     <hr>
-                                    @endforeach--}}
+                                    @endforeach
 
 
                                 </div>
@@ -203,9 +203,7 @@
                                                 all</a></div>
                                     </div>
                                     <hr>
-                                    @if(empty($cartValues))
-                                        <h2 class="text-warning">This Cart is Empty</h2>
-                                    @else
+                                    @if(count($cartValues)>0)
                                         @foreach($cartValues as $cartValue)
                                             <a href="{{ route('user.productDetails',$cartValue->product_id) }}" class="my-wishlist-box mb-3">
                                                 <div class="d-flex flex-row align-items-center">
@@ -228,6 +226,8 @@
                                                 </div>
                                             </a>
                                         @endforeach
+                                    @else
+                                        <h5 class="text-info">This Cart is Empty</h5>
                                     @endif
 
 

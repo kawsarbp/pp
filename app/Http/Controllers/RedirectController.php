@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\SubOrder;
 use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
@@ -36,13 +37,15 @@ class RedirectController extends Controller
             /*wishlist data*/
             $wishlistValues = Wishlist::with('product', 'brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
             /*order data*/
-//            $orders = Order::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
-//            $totalOrders = Order::where(['user_id'=>Auth::id()])->get();
-//            $compliteOrders = Order::where(['user_id'=>$id,'delivery_status'=>'delivered'])->get();
-            /*get categories*/
+
+            $order = Order::latest()->first();
+            $orders = SubOrder::with('order')->get();
+            $totalOrders = Order::where(['user_id'=>Auth::id()])->get();
+            $compliteOrders = Order::where(['user_id'=>Auth::id(),'delivery_status'=>'delivered'])->get();
+
             $categories = Category::with('subcategory')->where('status','active')->get();
 
-            return view('frontend.ecom.user.dashboard',compact('user','cartValues','wishlistValues'/*,'orders','totalOrders','compliteOrders'*/,'categories'));
+            return view('frontend.ecom.user.dashboard',compact('user','cartValues','wishlistValues','orders','compliteOrders','totalOrders','categories'));
         }
     }
 }

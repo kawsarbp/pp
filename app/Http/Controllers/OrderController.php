@@ -257,8 +257,11 @@ class OrderController extends Controller
     /*download invoice*/
     public function downloadInvoice($id)
     {
-        $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
-        $orders = Order::find($ids);
+//        $ids = Order::where(['user_id' => $id, 'delivery_status' => 'processing'])->pluck('id')->toArray();
+//        $orders = Order::find($ids);
+
+        $order = Order::latest()->first();
+        $orders = SubOrder::with('order')->where('order_id',$order->order_id)->get();
 
         //return view('pdf.invoice',compact('orders'));
         $pdf = Pdf::loadView('pdf.invoice', compact('orders'));

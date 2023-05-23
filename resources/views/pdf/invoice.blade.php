@@ -51,7 +51,8 @@
                     @foreach($orders as $order)
                         @php
                             $discount = $order->product_price * ($order->product_discount / 100);
-                            $discountedPrice = $order->product_price - $discount;
+                            $discountedPrice = $order->product_price - $discount*$order->product_qty;
+
                         @endphp
                         <?php
                         if ($order->product_discount > 0) {
@@ -76,7 +77,7 @@
                             </td>
                             <td class="td">{{ $order->product_name }}</td>
                             <td class="td">{{ $order->product_qty }}</td>
-                            <td class="td">{{ $order->product_price }}</td>
+                            <td class="td">{{ $order->product_total_price }}</td>
                         </tr>
                     @endforeach
                 </table>
