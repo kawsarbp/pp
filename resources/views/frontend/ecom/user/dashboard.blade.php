@@ -104,6 +104,8 @@
                                         <div class="purchase-history-amount">$ {{$order->total_price}}</div>
                                         @if($order->delivery_status == 'processing')
                                         <div class="purchase-history-processing">Processing</div>
+                                        @elseif($order->delivery_status == 'received')
+                                            <div class="purchase-history-delivered">Received</div>
                                         @elseif($order->delivery_status == 'delivered')
                                             <div class="purchase-history-delivered">Delivered</div>
                                         @endif

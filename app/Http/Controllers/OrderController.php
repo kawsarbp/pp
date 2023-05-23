@@ -271,16 +271,17 @@ class OrderController extends Controller
     /*order show in admin*/
     public function index()
     {
-        $orders = Order::with('product', 'user')->orderByDesc('id')->get();
+        $orders = Order::with('user')->orderByDesc('id')->get();
         return view('backend.order.index', compact('orders'));
     }
 
     /*order view*/
     public function view($id)
     {
-        $order = Order::find($id);
-        if ($order)
-            return view('backend.order.view', compact('order'));
+        $subOrder = SubOrder::where('order_id',$id)->get();
+
+        if ($subOrder)
+            return view('backend.order.view', compact('subOrder'));
         else
             return redirect()->back();
     }
@@ -324,6 +325,7 @@ class OrderController extends Controller
     /*order remove*/
     public function orderRemove($id)
     {
+
         /*send mail*/
         $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'order calceled',];
         $user['to'] = auth()->user()->email;

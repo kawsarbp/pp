@@ -69,10 +69,9 @@
                                         </tr>
                                     @endforeach
                                     @else
-
+                                        <h5 class="text-center text-capitalize text-info">no product history</h5>
+                                    @endif
                                 </table>
-                                <h5 class="text-center text-capitalize text-info">no product history</h5>
-                                @endif
                             </div>
                         </div>
                     </div>

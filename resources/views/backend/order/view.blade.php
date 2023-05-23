@@ -6,7 +6,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Single Order</h4>
+
+                    @foreach($subOrder as $order)
+                    <h4 class="card-title">Order Id: {{ $order->order_id }}</h4>
                     <div class="overflow-x-auto overflow-y-hidden">
                         <table class="table table-bordered">
                             <tr class="bg-success text-white">
@@ -31,8 +33,8 @@
                             </tr>
                             <tr>
                                 <td>{{ $order->product_name }}</td>
-                                <td>{{ $order->product_price }}</td>
-                                <td>@if($order->product_discount == null) NO DISCOUNT @else {{ $order->product_discount }}@endif</td>
+                                <td>{{ $order->product_total_price }}</td>
+                                <td>@if($order->product_discount > 0) {{ $order->product_discount }} @else NO DISCOUNT @endif</td>
                                 <td>{{ $order->product_qty }}</td>
                             </tr>
                         </table>
@@ -45,6 +47,7 @@
                             </tr>
                         </table>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

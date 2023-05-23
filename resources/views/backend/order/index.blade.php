@@ -29,10 +29,10 @@
                                         Customer Email
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Product Name
+                                        aria-label="Age: activate to sort column ascending" style="">Order Id
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Product Photo
+                                        aria-label="Age: activate to sort column ascending" style="">Total Price
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Age: activate to sort column ascending" style="">Payment Status
@@ -52,13 +52,13 @@
                                     <td>{{ ++$loop->index }}</td>
                                     <td>{{ strtok($order->name,' ') }}</td>
                                     <td>{{ $order->email }}</td>
-                                    <td>{{ $order->product_name }}</td>
-                                    <td><img class="w-75" src="/uploads/product/{{ $order->product_photo }}" alt=""></td>
+                                    <td>{{ $order->order_id }}</td>
+                                    <td>{{ $order->total_price }}</td>
                                     <td>{{ $order->payment_status }}</td>
                                     <td>{{ $order->delivery_status }}</td>
                                     <td>
                                         <a href="{{ route('order.orderRemove',$order->id) }}" onclick="return confirm('Are you sure ?')" class="m-1 btn btn-danger btn-sm"><i class="mdi mdi-window-close"></i></a>
-                                        <a href="{{ route('order.view',$order->id) }}" class="btn btn-info btn-sm m-1"><i class="mdi mdi-eye"></i></a>
+                                        <a href="{{ route('order.view',$order->order_id) }}" class="btn btn-info btn-sm m-1"><i class="mdi mdi-eye"></i></a>
                                         @if($order->payment_status == 'paid')
                                             <button class="btn-sm m-1" disabled="">Delivered</button>
                                             @else
