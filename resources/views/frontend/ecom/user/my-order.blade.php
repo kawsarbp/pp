@@ -13,7 +13,7 @@
                         @include('frontend.ecom.user.sidebar')
                     </div>
                     <div class="col-lg-9">
-                        <?php use App\Models\Order; $order = Order::latest()->first();  ?>
+                        <?php use App\Models\Order; $order = Order::latest()->where('user_id',auth()->id())->where('delivery_status','!=','cancel')->first(); ?>
                         @if(count($orderDetails) > 0)
                         <div id="order-details" class="py-5">
                             <div class="container-fluid">
@@ -169,8 +169,7 @@
 
                                             <div class="text-end p-3">
                                                 @php
-                                                    $order = Order::latest()->first();
-
+                                                    $order = Order::latest()->where('user_id',auth()->id())->where('delivery_status','!=','cancel')->first();
                                                 @endphp
                                                 <a onclick="return confirm('Are you sure?')" href="{{ route('user.cancelOrder',$order->order_id) }}"
                                                    class="order-cancel-btn">cancel order</a>
@@ -182,7 +181,7 @@
                                                         <div class="order-info-text">Shipping Info</div>
                                                         <div class="d-flex flex-row justify-content-between my-2">
                                                             <div class="order-info-name"><span>Name</span> :</div>
-                                                            <div class="order-info-addr"> {{ auth()->user()->name }}</div>
+                                                            <div class="order-info-addr"> {{ auth()->user()->name }} </div>
                                                         </div>
                                                         <div class="d-flex flex-row justify-content-between my-2">
                                                             <div class="order-info-name"><span>Email</span> :</div>

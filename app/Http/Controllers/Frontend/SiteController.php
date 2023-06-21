@@ -316,12 +316,8 @@ class SiteController extends Controller
     public function orderDetails()
     {
         $user = User::where('id', Auth::id())->first();
-        $order = Order::latest()->first();
-//        if ($order->delivery_status != 'cancel'){
-//            return 'not cancel';
-//        }else{
-//            return 'canel';
-//        }
+        $order = Order::latest()->where('user_id',Auth::id())->where('delivery_status','!=','cancel')->first();
+
         if ($order) {
             if ($order->user_id == Auth::id()) {
                 $orderDetails = SubOrder::where(['order_id' => $order->order_id])->get();
@@ -411,12 +407,14 @@ class SiteController extends Controller
     {
         $id = Auth::id();
         $user = User::where('id', $id)->first();
-        $order = Order::latest()->first();
-
+        $order = Order::latest()->where('user_id',$id)->where('delivery_status','!=','cancel')->first();
+//        return $order;
         if ($order) {
             if ($order->user_id == $id) {
                 $orderDetails = SubOrder::with('order')->where(['order_id' => $order->order_id])->get();
                 return view('frontend.ecom.user.my-order', compact('user', 'orderDetails'));
+            } else {
+                return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);
             }
         } else {
             return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);

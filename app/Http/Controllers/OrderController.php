@@ -316,8 +316,18 @@ class OrderController extends Controller
     /*cancel order*/
     public function cancelOrder($id)
     {
-        $order = Order::latest()->first();
-        $orders = SubOrder::where(['order_id' => $id])->get();
+        /*send mail*/
+        $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'Order Cancel',];
+        $user['to'] = auth()->user()->email;
+        Mail::send('mail/order-mail', $data, function ($message) use ($user) {
+            $message->to($user['to']);
+            $message->subject('Faz Group');
+        });
+        /*send mail*/
+        $user_id = Auth::id();
+        $order = Order::latest()->where(['user_id'=>$user_id,'order_id'=>$id])->first();
+
+        $orders = SubOrder::where(['order_id' => $order->order_id])->get();
 
         foreach ($orders as $order) {
             $product = Product::find($order->product_id);
@@ -457,12 +467,12 @@ class OrderController extends Controller
     /*Order cancel process*/
     public function paymentStatusCancel($id)
     {
-//        $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'Order Cancel',];
-//        $user['to'] = auth()->user()->email;
-//        Mail::send('mail/order-mail', $data, function ($message) use ($user) {
-//            $message->to($user['to']);
-//            $message->subject('Faz Group');
-//        });
+        $data = ['name' => auth()->user()->name, 'greeting' => 'Thank you for your order!', 'status' => 'Order Cancel',];
+        $user['to'] = auth()->user()->email;
+        Mail::send('mail/order-mail', $data, function ($message) use ($user) {
+            $message->to($user['to']);
+            $message->subject('Faz Group');
+        });
         /*send mail*/
         $order = Order::where('order_id',$id)->first();
 
