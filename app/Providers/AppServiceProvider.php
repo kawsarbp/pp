@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +36,9 @@ class AppServiceProvider extends ServiceProvider
                 $data[$item]['subcategory'] = Subcategory::where('category_id','=',$data2->id)->where('status','=','active')->limit(8)->get();
             }
             $view->with('global_categories',$data);
+
+            $transactions = Transaction::where('user_id',Auth::id())->orderBy('id','desc')->limit(3)->get();
+            $view->with('global_transactions',$transactions);
         });
     }
 }

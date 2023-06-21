@@ -88,6 +88,14 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="form-check border">
+                                <div class="p-3">
+                                    <input class="form-check-input" value="myaccount" type="radio" name="payment" id="myaccount" >
+                                    <label class="form-check-label" for="myaccount">
+                                        My Account
+                                    </label>
+                                </div>
+                            </div>
 
                             <br>
                             <div class="d-flex flex-row align-items-center">

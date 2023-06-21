@@ -9,11 +9,11 @@
                 <div class="col-md-6">
                     <div class="contact-address-box mb-4">
                         <div class="contact-address-name">Call or WhatsApp:</div>
-                        <div class="contact-address-info">0187595662</div>
+                        <div class="contact-address-info">01746755225</div>
                     </div>
                     <div class="contact-address-box mb-4">
                         <div class="contact-address-name">Get in touch:</div>
-                        <div class="contact-address-info">sales@amazcart.com</div>
+                        <div class="contact-address-info">kawsarfaz100@gmail.com</div>
                     </div>
 
                     <div class="contact-address-box mb-4">
@@ -52,17 +52,21 @@
                 </div>
                 <div class="col-md-6">
                     <div class="contact-box">
-                        <form action="">
+                        <form action="{{ route('user.message') }}"  method="POST">@csrf
+
                             <div class="mb-4 contact-box-title">Get in touch</div>
                             <div class="mb-3">
-                                <input type="text" placeholder="Enter Name" class="form-control py-2 contact-us-field">
+                                <input type="text" value="{{ old('name') }}" placeholder="Enter Name" name="name" class="form-control py-2 contact-us-field">
                             </div>
+                            @error('name')<div class="ms-2 text-danger">{{ $message }}</div>@enderror
                             <div class="mb-3">
-                                <input type="email" placeholder="Enter E-mail" class="form-control py-2 contact-us-field">
+                                <input type="email" value="{{ old('email') }}" placeholder="Enter E-mail" name="email" class="form-control py-2 contact-us-field">
                             </div>
+                            @error('email')<div class="ms-2 text-danger">{{ $message }}</div>@enderror
                             <div class="mb-3">
-                                <textarea name="" id="" class="form-control contact-us-field" cols="10" rows="5" placeholder="Write Message"></textarea>
+                                <textarea name="message" id="" class="form-control contact-us-field" cols="10" rows="5" placeholder="Write Message">{{ old('message') }}</textarea>
                             </div>
+                            @error('message')<div class="ms-2 text-danger">{{ $message }}</div>@enderror
                             <div class="mt-4">
                                 <input type="submit" value="send message" class="contact-us-btn">
                             </div>

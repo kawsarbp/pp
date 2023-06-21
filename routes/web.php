@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\SiteController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\paypalController;
 use App\Http\Controllers\ProductController;
@@ -49,6 +50,7 @@ Route::get('/product-details/{id?}',[SiteController::class,'productDetails'])->n
 Route::get('/cancel-order/{id?}',[OrderController::class,'cancelOrder'])->name('user.cancelOrder');
 Route::get('/download-invoice/{id?}',[OrderController::class,'downloadInvoice'])->name('user.downloadInvoice');
 Route::get('/category-product/{id?}',[SiteController::class,'categoryProduct'])->name('user.categoryProduct');
+Route::post('/message-store',[MessageController::class,'message'])->name('user.message');
 
 /*backend page routes*/
 /*logout*/
@@ -115,16 +117,22 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::get('/view/{id?}',[OrderController::class,'view'])->name('view');
         Route::get('/payment-status-change/{id?}',[OrderController::class,'paymentStatusChange'])->name('paymentStatusChange');
         Route::get('/payment-status-rechived/{id?}',[OrderController::class,'paymentStatusRechived'])->name('paymentStatusRechived');
+        Route::get('/payment-status-cancel/{id?}',[OrderController::class,'paymentStatusCancel'])->name('paymentStatusCancel');
         Route::get('/order-remove/{id?}',[OrderController::class,'orderRemove'])->name('orderRemove');
     });
 
     /*stripe payment*/
     Route::post('/stripe/{totalprice}',[OrderController::class,'stripePost'])->name('stripe.post');
     /*paypal view*/
-//    Route::get('/paypal',[PaypalController::class,'paypalView'])->name('paypalView');
+    //Route::get('/paypal',[PaypalController::class,'paypalView'])->name('paypalView');
     Route::get('/processPaypal/{totalprice?}',[PaypalController::class,'processPaypal'])->name('processPaypal');
     Route::get('/processSuccess',[PaypalController::class,'processSuccess'])->name('processSuccess');
     Route::get('/processCancel',[PaypalController::class,'processCancel'])->name('processCancel');
+
+    /*message controller*/
+    Route::prefix('/message')->name('message.')->group(function (){
+        Route::get('/index',[MessageController::class,'messageIndex'])->name('messageIndex');
+    });
 
 
 

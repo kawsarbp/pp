@@ -21,6 +21,9 @@
                                         aria-label="Name: activate to sort column descending" style="">SN
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Age: activate to sort column ascending" style="">User Name
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Position: activate to sort column ascending" style="">
                                         Customer Name
                                     </th>
@@ -29,16 +32,7 @@
                                         Customer Email
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Order Id
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Total Price
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Payment Status
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="">Delivery Status
+                                        aria-label="Age: activate to sort column ascending" style="">Message
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
                                         aria-label="Start date: activate to sort column ascending"
@@ -47,38 +41,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($orders as $order)
+                                @foreach($messages as $message)
                                 <tr>
                                     <td>{{ ++$loop->index }}</td>
-                                    <td>{{ strtok($order->name,' ') }}</td>
-                                    <td>{{ $order->email }}</td>
-                                    <td>{{ $order->order_id }}</td>
-                                    <td>{{ $order->total_price }}</td>
-                                    <td>{{ $order->payment_status }}</td>
-                                    <td>{{ $order->delivery_status }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('order.orderRemove',$order->id) }}" onclick="return confirm('Are you sure ?')" class="m-1 btn btn-danger btn-sm"><i class="mdi mdi-window-close"></i></a>
-                                        <a href="{{ route('order.view',$order->order_id) }}" class="btn btn-info btn-sm m-1"><i class="mdi mdi-eye"></i></a>
-
-                                        @if($order->delivery_status == 'cancel')
-                                            <button class="btn-sm m-1" disabled="">Cancel</button>
-                                        @else
-                                            <a href="{{ route('order.paymentStatusCancel',$order->order_id) }}" onclick="return confirm('Are you sure ?')" class="btn btn-warning btn-sm m-1">Cancel</a>
-                                        @endif
-
-                                        @if($order->payment_status == 'paid')
-                                            <button class="btn-sm m-1" disabled="">Delivered</button>
-                                            @else
-                                        <a href="{{ route('order.paymentStatusChange',$order->id) }}" onclick="return confirm('Are you sure ?')" class="btn btn-primary btn-sm m-1">Delivered</a>
-                                        @endif
-
-                                        @if($order->delivery_status == 'received')
-                                            <button class="btn-sm m-1" disabled="">Received</button>
-                                        @else
-                                        <a href="{{ route('order.paymentStatusRechived',$order->id) }}" onclick="return confirm('Are you sure ?')" class="btn btn-success btn-sm m-1">Received</a>
-                                        @endif
-
+                                    <td>
+                                        {{ $message->user->name ?? 'Empty'}}
                                     </td>
+                                    <td>{{ $message->name }}</td>
+                                    <td>{{ $message->email }}</td>
+                                    <td>{{ $message->message }}</td>
+                                    <td><a href="" class="btn btn-info btn-sm">Mail</a></td>
                                 </tr>
                                 @endforeach
                                 </tbody>

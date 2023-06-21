@@ -5,6 +5,7 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\SubOrder;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
@@ -28,15 +29,15 @@ class RedirectController extends Controller
                 $toalRevenue = $toalRevenue + $order->total_price;
             }
 
-
             return view('backend.dashboard',compact('users','totalOrders','compliteOrders','toalRevenue'));
         } else {
             $id = Auth::id();
             $user = User::where('id',$id)->first();
+
+
+
             $cartValues = Cart::with('product')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
             /*wishlist data*/
-
-
             $wishlistValues = Wishlist::with('product', 'brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
             /*order data*/
 

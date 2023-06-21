@@ -42,19 +42,15 @@ class SiteController extends Controller
         $products = Product::with('brand', 'subcategory', 'user')
             ->leftJoin('wishlists', 'products.id', '=', 'wishlists.product_id')
             ->where('status', 'active')
-            ->select('products.*', 'wishlists.id as w_id','wishlists.user_id as u_id')
+            ->select('products.*', 'wishlists.id as w_id', 'wishlists.user_id as u_id')
             ->orderBy('id', 'desc')->get();
 
         $productslimit = Product::with('brand', 'subcategory', 'user')
             ->leftJoin('wishlists', 'products.id', '=', 'wishlists.product_id')
             ->where('status', 'active')
-            ->select('products.*', 'wishlists.id as w_id','wishlists.user_id as u_id')
+            ->select('products.*', 'wishlists.id as w_id', 'wishlists.user_id as u_id')
             ->orderBy('id', 'desc')
             ->limit(6)->get();
-
-
-
-
 
 
 //        foreach ($categories as $cat){
@@ -202,7 +198,6 @@ class SiteController extends Controller
         $wishlistValues = Wishlist::with('product', 'brand')->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
 
 
-
         return view('frontend.ecom.wishlist.wishlist', compact('user', 'wishlistValues'));
     }
 
@@ -230,10 +225,10 @@ class SiteController extends Controller
     public function myHistories()
     {
         $id = Auth::id();
-        $user = User::where('id',$id)->first();
+        $user = User::where('id', $id)->first();
         /*order data*/
-        $orders = Order::where('user_id',$id)->orderBy('id','desc')->get();
-        return view('frontend.ecom.user.histories',compact('orders','user'));
+        $orders = Order::where('user_id', $id)->orderBy('id', 'desc')->get();
+        return view('frontend.ecom.user.histories', compact('orders', 'user'));
     }
 
     /*view checkout  page*/
@@ -258,7 +253,6 @@ class SiteController extends Controller
     /*user update*/
     public function userUpdate(Request $request, $id)
     {
-
 //        return $request->all();
         $request->validate([
             'condition' => 'required'
@@ -313,22 +307,28 @@ class SiteController extends Controller
     public function paymentMethod()
     {
         $order = Order::latest()->first();
-        $orders = SubOrder::with('order')->where('order_id',$order->order_id)->get();
+        $orders = SubOrder::with('order')->where('order_id', $order->order_id)->get();
 
-        return view('frontend.ecom.cart.payment_method',compact('orders'));
+        return view('frontend.ecom.cart.payment_method', compact('orders'));
     }
 
     /*view shippingMethod  page*/
     public function orderDetails()
     {
-        $user = User::where('id',Auth::id())->first();
+        $user = User::where('id', Auth::id())->first();
         $order = Order::latest()->first();
-        if($order->user_id == Auth::id())
-        {
-            $orderDetails = SubOrder::where(['order_id'=>$order->order_id])->get();
+//        if ($order->delivery_status != 'cancel'){
+//            return 'not cancel';
+//        }else{
+//            return 'canel';
+//        }
+        if ($order) {
+            if ($order->user_id == Auth::id()) {
+                $orderDetails = SubOrder::where(['order_id' => $order->order_id])->get();
 //            return $orderDetails;
-            return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
-        }else{
+                return view('frontend.ecom.user.my-order', compact('user', 'orderDetails'));
+            }
+        } else {
             return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);
         }
 
@@ -405,28 +405,30 @@ class SiteController extends Controller
         $user->save();
         return redirect()->back()->with(['type' => 'success', 'message' => 'Update Done.']);
     }
+
     /*my order view*/
     public function myPurchaseOrder()
     {
         $id = Auth::id();
-        $user = User::where('id',$id)->first();
-
+        $user = User::where('id', $id)->first();
         $order = Order::latest()->first();
-        if($order->user_id == $id)
-        {
-        $orderDetails = SubOrder::with('order')->where(['order_id'=>$order->order_id])->get();
-        return view('frontend.ecom.user.my-order',compact('user','orderDetails'));
-        }else{
+
+        if ($order) {
+            if ($order->user_id == $id) {
+                $orderDetails = SubOrder::with('order')->where(['order_id' => $order->order_id])->get();
+                return view('frontend.ecom.user.my-order', compact('user', 'orderDetails'));
+            }
+        } else {
             return redirect()->back()->with(['type' => 'success', 'message' => 'Please complite your order']);
         }
     }
+
     /*show product with category*/
     public function categoryProduct($id)
     {
-
-        $products = Product::where('subcategory_id',$id)->get();
-        return view('frontend.ecom.product.products',compact('products'));
-
+        $products = Product::where('subcategory_id', $id)->get();
+        return view('frontend.ecom.product.products', compact('products'));
     }
+
 
 }

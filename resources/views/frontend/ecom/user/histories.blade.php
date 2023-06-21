@@ -44,14 +44,20 @@
                                             @elseif($order->delivery_status == 'pending')
                                                 <td><span class="purchase-history-order-pending-text"> Pending </span>
                                                 </td>
+                                            @elseif($order->delivery_status == 'cancel')
+                                                <td><span class="purchase-history-order-pending-text"> Cancel </span>
+                                                </td>
                                             @elseif($order->delivery_status == 'received')
                                                 <td><span class="purchase-history-order-delivered-text">Received</span></td>
 
                                             @elseif($order->delivery_status == 'delivered')
-
                                                 <td><span class="purchase-history-order-delivered-text">Delivered</span></td>
                                             @endif
-                                            @if($order->payment_status == 'Cash On Delivery')
+
+                                            @if($order->delivery_status == 'cancel')
+                                                <td><span class="purchase-history-order-pending-text"> Cancel </span></td>
+
+                                            @elseif($order->payment_status == 'Cash On Delivery')
                                             <td><span class="purchase-history-order-pending-text"> Pending </span></td>
                                             @elseif($order->payment_status == 'paid')
                                                 <td><span class="purchase-history-order-delivered-text">{{ $order->payment_status }}</span></td>

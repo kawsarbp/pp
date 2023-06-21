@@ -23,10 +23,12 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+
+    protected $guarded = [];
+   /* protected $fillable = [
         'name',
         'email',
-//        'role',
+        'role',
         'address',
         'phone',
         'country',
@@ -35,7 +37,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'postcode',
         'note',
         'password',
-    ];
+    ];*/
 
     /**
      * The attributes that should be hidden for serialization.

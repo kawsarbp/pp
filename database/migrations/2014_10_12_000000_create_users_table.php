@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('postcode')->nullable();
             $table->string('note')->nullable();
+            $table->string('balance')->default(0);
             $table->boolean('condition')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

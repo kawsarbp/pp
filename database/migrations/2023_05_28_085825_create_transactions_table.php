@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->date('date');
-            $table->string('photo');
-            $table->enum('status',['active','inactive']);
-            $table->longText('description');
+            $table->string('transaction_id');
+            $table->integer('type')->nullable();
+            $table->string('gateway')->nullable();
+            $table->string('amount');
+            $table->longText('description')->nullable();
+            $table->enum('status',['active','inactive'])->nullable();
+            $table->integer('operation')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('transactions');
     }
 };
