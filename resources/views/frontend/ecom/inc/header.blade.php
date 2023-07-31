@@ -100,12 +100,11 @@
 <div id="header" class="py-4">
     <div class="container-fluid">
         <div class="d-flex flex-row justify-content-between align-items-center">
-            <div class="d-flex flex-row ">
-                <div class="header_logo none450 me-5"><a href="javascript:void (0)"><img
-                            src="{{asset('src/img/Logo.png')}}" alt="logo"></a></div>
+            <div class="d-flex flex-row align-items-center">
+                <div class="header_logo none450 me-5"><a style="font-size: 20px;" href="{{ route('user.home') }}" class="text-decoration-none font-bold text-secondary">Faz Group</a></div>
                 <div class="header_search_box none768">
                     <form class="d-flex py-2 px-3 header_search_box_form ">
-                        <input class="search_field" type="search" placeholder="Search yor item" aria-label="Search">
+                        <input class="search_field" type="search" placeholder="Search your item" aria-label="Search">
                         <button class="btn search_btn" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-search" viewBox="0 0 16 16">

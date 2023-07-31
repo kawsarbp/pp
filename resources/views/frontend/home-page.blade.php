@@ -109,7 +109,7 @@
                 </div>
                 <div class=" col-sm-12 col-md-5">
                     <div class="video_section_text">
-                        <h2>Take A look our Amazcart Overview in Video</h2>
+                        <h2>Take A look our Faz Group Overview in Video</h2>
                         <img
                             src="https://infixmart.com/wp-content/plugins/infixhub-companion/inc/elementor-widgets/assets/img/Line.png"
                             alt="line image">
@@ -232,8 +232,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-md-8">
                     <div class="amazing_section_tittle text-center">
-                        <h5>AMazing Features</h5>
-                        <h2>More Features has Amazcart</h2>
+                        <h5>Faz Group Features</h5>
+                        <h2>More Features has Faz Group</h2>
                         <p>We did the best research for the E-commerce application mostly commonly used in the fast
                             world.</p>
                     </div>
@@ -411,12 +411,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="footer_area_text">
-                        <img src="{{ asset('src/img/Logo.png') }}" alt="">
+                        <h3 class="text-primary">Faz Group Ltd</h3>
+{{--                        <img src="{{ asset('src/img/Logo.png') }}" alt="">--}}
                         <h2>So Finally you are Here! Now, All you know about our features.</h2>
                         <p>We Believe! It won’t a wrong decision in Purchasing our INFIX for your Institute.</p>
                         <a href="javascript:void (0)" class="footer_btn">
                             <i class="fa-sharp fa-solid fa-cube"></i>
-                            <h3>Purchase Amazcart</h3>
+                            <h3>Purchase Faz Group</h3>
                             <p>Complete E-Commerce Application</p>
                         </a>
                     </div>

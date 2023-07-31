@@ -14,7 +14,8 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{route('homePage')}}">
-            <img src="{{asset('src/img/infixmart-logo.png')}}" alt="">
+{{--            <img src="{{asset('src/img/infixmart-logo.png')}}" alt="">--}}
+            <div>Faz Group</div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,7 +36,7 @@
                     <a class="nav-link " aria-current="page" href="#application-section">Support</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="javascript:void (0)">AmazCart</a>
+                    <a class="nav-link " aria-current="page" href="javascript:void (0)">Faz</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="javascript:void (0)">Blog</a>
